@@ -50,24 +50,123 @@
     <li>大学</li>
   </ul>
   <hr>
-  <ul type="none" >
-    <li>班级
-      <ol>三年二班</ol>
-    </li>
-    <li>老师
-      <ol>张老师</ol>
-      <ol>李老师</ol>
-      <ol>王老师</ol>
-    </li>
-    <li>学生
-      <ol>小明</ol>
-      <ol>豆豆</ol>
-    </li>
-  </ul>
+  <dl>
+    <dt>班级</dt>
+    <dd>三年二班</dd>
+    <dt>老师</dt>
+    <dd>张老师</dd>
+    <dd>李老师</dd>
+    <dd>王老师</dd>
+    <dt>学生</dt>
+    <dd>小明</dd>
+    <dd>豆豆</dd>
+  </dl>
   <hr>
   <b>Google搜索</b>
   <br>
-  <textarea ></textarea>
-  <button>在新窗口打开搜索结果</button>
+  <form target="_blank" action="https://www.google.com/s">
+    <input type="text" name="wd" >
+    <button>在新窗口打开搜索结果</button>
+  </form>
+  <hr>
+  <form>
+  <p>个人信息调查表</p>
+  性别
+  <input type="radio" name="gender">男
+  <input type="radio" name="gender">女
+  <br>
+  年龄
+  <select name="age">
+    <option hidden>请选择
+      <option label="少年">
+        <option value="1-6">1到6岁</option>
+        <option value="6-12">6到12岁</option>
+      </option>
+      <option label="青年">
+        <option value="1-6">13到15岁</option>
+        <option value="6-12">16到18岁</option>
+      </option>
+      <option label="壮年">
+        <option value="1-6">1到6岁</option>
+        <option value="6-12">6到12岁</option>
+      </option>
+    </option>
+  </select>
+  <br>
+  生日
+  <input type="date">
+  <br>
+  生辰
+  <input type="time">
+  <br>
+  照片
+  <input type="file" accept="image/*" name="avatar" >
+  <br>
+  肤色
+  <input type="color">
+  <br>
+  自我介绍
+  <br>
+  <textarea name="intro" cols="30" rows="10"></textarea></textarea>
+  <br>
+  <fieldset disabled>
+    <legend>禁用了</legend>
+    <input type="text">
+    <input type="text">
+    <input type="text">
+    <input type="text">
+  </fieldset>
+  <button>提交</button>
+  <button type="reset">重置</button>
+</form>
+<hr>
+  <table border="1" >
+    <col>
+    <col bgcolor="red">
+    <tr>
+      <th>编号</th>
+      <th bgcolor="red">品名</th>
+      <th>进价</th>
+      <th>出价</th>
+    </tr>
+    <tr>
+      <td>aaa</td>
+      <td  bgcolor="red">aaa</td>
+      <td rowspan="2">5</td>
+      <td>aaa</td>
+    </tr>
+    <tr>
+      <td>aaa</td>
+      <td bgcolor="red">aaa</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>aaa</td>
+      <td bgcolor="red">aaa</td>
+      <td>aaa</td>
+      <td>aaa</td>
+    </tr>
+    <tr>
+      <td>aaa</td>
+      <td bgcolor="red">aaa</td>
+      <td>aaa</td>
+      <td>aaa</td>
+    </tr>
+  </table>
+  <hr>
+  <img usemap="#travel" src="https://drscdn.500px.org/photo/174778125/m%3D1170_k%3D1/2841ccf2a3720e8e794a6a6930f6ff2c">
+  <map name="travel">
+    <area shape="polygon" coords="205 125 45 12 500 26 440 55" href="https://www.baidu.com/" target="_blank" alt="baidu">
+
+  </map>
+  <hr>
+  <a target="frame1" href="http://www.bing.com/">必应</a>
+  <br>
+  <iframe name="frame1" src="https://www.nodejs.org/" frameborder="1"></iframe>
+  <P>aaa&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bbb</P>
+  <pre>aaa                bbb</pre>
+  <<<<>>>>>>><<<>>>>>
+  &lt;span>&lt;/span>
+  <div id="pages-bottom"></div>
 </body>
 </html>
