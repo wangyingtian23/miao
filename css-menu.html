@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body{
+    margin: 0;
+    padding: 0;
+  }
+  .a{
+    border: 1px solid;
+    height: 70px;
+    margin: 20px 20px;
+  }
+  .b{
+    width: 250px;
+    height: 50px;
+    border: 1px solid;
+    text-align: center;
+    position: fixed;
+    top: 20px;
+    padding-top: 20px;
+    left: 30px;
+  }
+
+  .b:hover .p{
+    display:block;
+  }
+  .c{
+    width: 250px;
+    height: 50px;
+    border: 1px solid;
+    text-align: center;
+    position: fixed;
+    top: 20px;
+    padding-top: 20px;
+    left: 292px;
+  }
+  .d{
+    width: 250px;
+    height: 50px;
+    border: 1px solid;
+    text-align: center;
+    position: fixed;
+    top: 20px;
+    padding-top: 20px;
+    left: 556px;
+  }
+  .e{
+    width: 250px;
+    height: 50px;
+    border: 1px solid;
+    text-align: center;
+    position: fixed;
+    top: 20px;
+    padding-top: 20px;
+    right:290px;
+  }
+  .f{
+    width: 250px;
+    height: 50px;
+    border: 1px solid;
+    text-align: center;
+    position: fixed;
+    top: 20px;
+    padding-top: 20px;
+    right: 30px;
+  }
+  .p{
+    list-style: none;
+    position: fixed;
+    left: -11px;
+    top: 66px;
+    text-align: center;
+    padding-top: 10px;
+    display: none;
+  }
+  li{
+    width: 250px;
+    height: 50px;
+    border: 1px solid;
+    margin: 1px;
+  }
+  .j{
+    list-style: none;
+    position: fixed;
+    left: 242px;
+    top: 188px;
+    text-align: center;
+    padding-top: 10px;
+    display: none;
+  }
+  .g:hover .j{
+    display: block;
+  }
+</style>
+<body>
+  <div class="a">
+    <div class="b">选项
+      <ul class="p">
+        <li>1</li>
+        <li>2</li>
+        <li class="g">3
+          <ul class="j">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ul>
+        </li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+  </div>
+    <div class="c">选项</div>
+    <div class="d">选项</div>
+    <div class="e">选项</div>
+    <div class="f">选项</div>
+  </div>
+
+</body>
+</html
