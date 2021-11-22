@@ -14,53 +14,48 @@ div{
   font-size:0px;
   margin:0;
   height: 100%;
-  vertical-align: top;
 }
 div > *{
-   display: inline-block;
-
-   font-size:24px;
+  font-size:24px;
 }
-aside.a{
+.a{
   height: 100%;
   width:200px;
   background-color: #eaeef3;
   border-right:1px solid black;
-  border-left: 1px solid black;
+  margin-top: 0px;
 }
-aside.b{
+.c{
   height: 100%;
   width:200px;
   background-color: #eaeef3;
-  vertical-align: top;
   border-left: 1px solid black;
+  margin-left: calc(100% - 400px);
+  margin-top: calc(-100vh);
 }
-aside.c{
+.d{
   height: 100%;
   width:200px;
   background-color: #eaeef3;
-  vertical-align: top;
   border-left: 1px solid black;
+  margin-left: calc(100% - 200px);
+  margin-top: calc(-100vh);
 }
-h4{
-  height: 60px;
-  text-align: right;
-  margin: 17px 10px;
-  padding-top: 10px;
-}
-setion{
+.b{
   width:calc(100% - 606px);
   height: 100%;
+  box-sizing: border-box;
+  margin-top: calc(-100vh);
+  margin-left: 200px;
 
 }
-header{
-  height:70px;
-  border-bottom: 1px solid;
-
+h4{
+  text-align: right;
+  padding-top: 10px;
+  margin-top: 0px;
 }
-h5{
-  padding-left: 20px;
-
+.d h4{
+  margin-top: 18px;
 }
 p{
   margin: 20px;
@@ -69,18 +64,22 @@ ol{
   margin: 20px;
 }
 .j{
-  height: calc(100% - 70px);
-  overflow: auto;
+  height: calc(100vh - 124px);
+  overflow: scroll;
   font-size: 18px;
+
 }
 .f{
   height: calc(100% - 70px);
-  overflow: auto;
+  overflow: scroll;
+}
+h5{
+  height:30px;
 }
 </style>
 <body>
   <div>
-    <aside class="a">
+    <div class="a">
       <h4>
         OALD Se7en
       </h4>
@@ -96,9 +95,10 @@ ol{
     Repellat enim blanditiis, iure, similique cumque fuga. Cupiditate facilis aut iste voluptatibus necessitatibus, id ab facere ullam tempora hic ea quod magnam modi corporis blanditiis qui libero sint, aliquam sed!
     Unde aut dolor consectetur et illo adipisci eligendi doloremque dolorem, impedit nemo dolore a quae soluta! A quo, reiciendis, hic pariatur perferendis nihil tempora, assumenda ipsam animi officiis fuga laudantium!
       </bob>
-    </aside>
-    <setion>
-      <header><h5>fantasy</h5></header>
+    </div>
+    <div class="b">
+      <h5>fantasy</h5>
+      <hr>
       <main class="j">
         <p>Lorem, ipsum.</p>
       <ol>
@@ -116,11 +116,8 @@ ol{
           deleniti rem enim consequuntur voluptatum explicabo iure! Provident esse eaque ex aut quo dolor inventore!
         </li>
       </ol></main>
-    </setion>
-    <aside class="b">
-      <h4>Vocabulary</h4></aside>
-    <aside class="c">
-      <h4>History</h4>
-      </aside>
+    </div>
+    <div class="c"><h4>Vocabulary</h4></div>
+    <div class="d"><h4>History</h4></div>
   </div>
 </html>
