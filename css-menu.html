@@ -7,24 +7,19 @@
   <title>Document</title>
 </head>
 <style>
+
   body{
     margin: 0;
     padding: 0;
   }
-  .a{
-    border: 1px solid;
-    height: 70px;
-    margin: 20px 306px;
+  ul{
+    list-style: none;
+    padding: 0;
   }
   .b{
-    width: 250px;
-    height: 50px;
-    border: 1px solid;
     text-align: center;
-    position: fixed;
-    top: 20px;
+    position: absolute;
     padding-top: 20px;
-    left: 318px;
   }
 
   .b:hover .p{
@@ -33,74 +28,74 @@
   .c{
     width: 250px;
     height: 50px;
-    border: 1px solid;
     text-align: center;
-    position: fixed;
-    top: 20px;
+    position: absolute;
     padding-top: 20px;
-    left: 580px;
+
+  }
+  .a li{
+    white-space: nowrap;
+    position: relative;
+  }
+  .a > li{
+    display: inline-block;
   }
   .d{
     width: 250px;
     height: 50px;
-    border: 1px solid;
     text-align: center;
-    position: fixed;
-    top: 20px;
+    position: absolute;
     padding-top: 20px;
-    left: 834px;
   }
   .e{
     width: 250px;
     height: 50px;
-    border: 1px solid;
     text-align: center;
-    position: fixed;
-    top: 20px;
+    position: absolute;
     padding-top: 20px;
-    right:580px;
   }
   .f{
     width: 250px;
     height: 50px;
-    border: 1px solid;
     text-align: center;
-    position: fixed;
-    top: 20px;
+    position: absolute;
     padding-top: 20px;
-    right: 318px;
   }
   .p{
     list-style: none;
-    position: fixed;
-    left: 277px;
-    top: 66px;
+    position: absolute;
     text-align: center;
-    padding-top: 10px;
-    display: none;
+    display: inline-block;
+    left:0;
+    top: 100%;
+
   }
   li{
     width: 250px;
     height: 50px;
-    border: 1px solid;
-    margin: 1px;
   }
-  .j{
-    list-style: none;
-    position: fixed;
-    left: 530px;
-    top: 188px;
-    text-align: center;
-    padding-top: 10px;
+  ul ul{
+    top: 0;
+    left: 100%;
+  }
+  ul ul ul{
+    top: 0;
+    left: 100%;
+  }
+  .a ul{
+    position: absolute;
     display: none;
   }
-  .g:hover .j{
-    display: block;
+  .a li:hover{
+    background-color: red;
+  }
+  li:hover > ul{
+    display: inline-block;
   }
 </style>
 <body>
-  <div class="a">
-    <div class="b">选项
+  <ul class="a" >
+    <li class="b">选项
       <ul class="p">
         <li>1</li>
         <li>2</li>
@@ -114,12 +109,26 @@
         <li>4</li>
         <li>5</li>
       </ul>
-  </div>
-    <div class="c">选项</div>
-    <div class="d">选项</div>
-    <div class="e">选项</div>
-    <div class="f">选项</div>
-  </div>
+  </li>
+    <li class="c">选项
+      <ul class="p">
+        <li>1</li>
+        <li>2</li>
+        <li class="g">3
+          <ul class="j">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+          </ul>
+        </li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </li>
+    <li class="d">选项</li>
+    <li class="e">选项</li>
+    <li class="f">选项</li>
+  </ul>
 
 </body>
 </html
