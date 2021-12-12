@@ -1,0 +1,11 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  background-color: #fff;
+}
+
+.table td .table th {
+  height: 2em;
+  display: table-cell;
+}

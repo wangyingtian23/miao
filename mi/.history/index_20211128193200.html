@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  html,body{
+    margin: 0;
+    padding: 0;
+  }
+  div{
+    padding: 0;
+    margin: 0;
+  }
+  .header{
+    width: 100%;
+    height: 40px;
+    margin: auto;
+    background-color: #333333;
+  }
+  .container{
+    margin: auto;
+    width: 1226px;
+    font-size: 12px ;
+    padding-top: 12px;
+    padding-right: 0px;
+  }
+  .topbar-nav{
+    float: left;
+  }
+  .topbar-nav a{
+    color:#b0b0b0;
+    text-decoration: none;
+  }
+  .topbar-nav a.b{
+    color:#b0b0b0;
+    text-decoration: none;
+  }
+  .b:hover > .appcode{
+    display:block;
+    transform: 3s;
+    height: 150px;
+  }
+  .b:hover > .appcode::after{
+    content: "下载小米app";
+    display: inline-block;
+    padding-left: 10px;
+    left: 5px;
+    font-size  : 14px;
+    color      : #000;
+    transition: .3s;
+  }
+  .topbar-nav a:hover{
+    color: white;
+  }
+  span.sep{
+    color: #424242;
+  }
+  a.link{
+    color:#b0b0b0;
+    text-decoration: none;
+    right: 0;
+  }
+  a.link:hover{
+    color: white;
+  }
+  .right{
+    float: right;
+  }
+  .appcode{
+    position: absolute;
+    width: 122px;
+    height: 0px;
+    z-index: 2;
+    background: white;
+    top: 40px;
+    left: 834px;
+    text-align: center;
+    display: none;
+    transition: .3s;
+  }
+  .miapp{
+    margin:18px 17px 0px 17px ;
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+  }
+  .containe{
+    width: 1226px;
+    height: 100px;
+    margin: auto;
+    position: relative;
+  }
+  .logo{
+    width: 56px;
+    height: 56px;
+    margin-top: 23px;
+    position: absolute;
+  }
+  ul.nav-list{
+    width: 1130px;
+    height: 100px;
+    list-style: none;
+    color: #333333;
+    padding: 12px 0px 0px 30px;
+    margin: 0;
+    float: left;
+  }
+  li.nav-list{
+    width: 180px;
+    height: 88px;
+    padding: 0px 15px 0px 0px;
+    float: left;
+  }
+  ul.nav-list > li{
+    float: left;
+    min-width: 32px;
+    height: 88px;
+    padding: 26px 10px 0px;
+    overflow: hidden;
+
+  }
+  ul.nav-list > li > a{
+    text-decoration: none;
+    color: #333333;
+  }
+  ul.nav-list > li.nav-list > a:hover {
+    display: block;
+    color: red;
+  }
+  .xiaomi{
+    list-style: none;
+    width: 100%;
+    height: 230px;
+    position: fixed;
+    left: 0;
+    top: 150px;
+    border: 1px solid black;
+    vertical-align:middle;
+  }
+  .xiaomi .a{
+    float: left;
+    padding: 36px 23px 85px;
+  }
+  .xiaomi .a .b{
+    width: 240px;
+    height: auto;
+  }
+  .se{
+    display: inline-block;
+    height: 100px;
+    width: 1px;
+    margin: -143px -19px;
+    background-color: #ccc;
+    vertical-align: top;
+  }
+  .xiaomi img{
+    vertical-align: top;
+  }
+  .xiaomi{
+    display: none;
+  }
+  .containe a{
+    text-decoration: none;
+  }
+  .tit{
+    text-align: center;
+    vertical-align: top;
+    color: #333333;
+  }
+  .pip{
+    text-align: center;
+    vertical-align: top;
+    color: #333333;
+  }
+</style>
+<body>
+  <div>
+    <div class="header">
+      <div class="container">
+        <div class="topbar-nav">
+          <a href="#">小米商场</a>
+          <span class="sep">|</span>
+          <a href="#">MIUI</a>
+          <span class="sep">|</span>
+          <a href="#">loT</a>
+          <span class="sep">|</span>
+          <a href="#">云服务</a>
+          <span class="sep">|</span>
+          <a href="#">天星数科</a>
+          <span class="sep">|</span>
+          <a href="#">有品</a>
+          <span class="sep">|</span>
+          <a href="#">小爱开放平台</a>
+          <span class="sep">|</span>
+          <a href="#">企业团购</a>
+          <span class="sep">|</span>
+          <a href="#">资质证照</a>
+          <span class="sep">|</span>
+          <a href="#">协议规则</a>
+          <span class="sep">|</span>
+          <a href="#" class="b">下载APP
+            <span class="appcode">
+            <img class="miapp" src="images/download.png" alt="小米商场">::after
+            </span>
+          </a>
+
+          <span class="sep">|</span>
+          <a href="#">智能生活</a>
+          <span class="sep">|</span>
+          <a href="#">Select Location</a>
+        </div>
+      <div class="right">
+        <a href="#" class="link">登录</a>
+        <span class="sep">|</span>
+        <a href="#" class="link">注册</a>
+        <span class="sep">|</span>
+        <a href="#" class="link">消息通知</a>
+        <a href="#" class="link">购物车</a>
+      </div>
+
+      </div>
+    </div>
+    <div class="containe">
+      <img class="logo" src="images/logo-mi2.png" alt="">
+      <ul class="nav-list">
+        <li class="nav-list"></li>
+        <li><a href="#">Xiaomi手机</a>
+          <ul class="xiaomi">
+            <li class="a"><div class="b"><div></li>
+            <li class="a">
+              <a href="#">
+              <img src="images/xiaomi1.webp"/>
+              <div class="tit">XiaoMi</div>
+              <div class="pip">2599元起</div>
+
+              </a>
+            </li>
+            <li class="a">
+              <a href="#">
+              <img src="images/xiaomi2.webp"/>
+              <div class="tit">XiaoMi</div>
+              <div class="pip">2599元起</div>
+              <span class="se"></span>
+              </a>
+            </li>
+            <li class="a">
+              <a href="#">
+              <img src="images/xiaomi3.webp"/>
+              <div class="tit">XiaoMi</div>
+              <div class="pip">2599元起</div>
+              <span class="se"></span>
+              </a>
+            </li>
+            <li class="a">
+              <a href="#">
+              <img src="images/xiaomi4.webp"/>
+              <div class="tit">XiaoMi</div>
+              <div class="pip">2599元起</div>
+              <span class="se"></span>
+              </a>
+            </li>
+            <li class="a">
+              <a href="#">
+              <img src="images/xiaomi5.webp"/>
+              <div class="tit">XiaoMi</div>
+              <div class="pip">2599元起</div>
+              <span class="se"></span>
+              </a>
+            </li>
+            <li class="a">
+              <a href="#">
+              <img src="images/xiaomi6.webp"/>
+              <div class="tit">XiaoMi</div>
+              <div class="pip">2599元起</div>
+              <span class="se"></span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#">Redmi红米</a></li>
+        <li><a href="#">电视</a></li>
+        <li><a href="#">笔记本</a></li>
+        <li><a href="#">平板</a></li>
+        <li><a href="#">家电</a></li>
+        <li><a href="#">路由器</a></li>
+        <li><a href="#">服务</a></li>
+        <li><a href="#">社区</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

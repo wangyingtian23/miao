@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  html,body{
+    margin: 0;
+    padding: 0;
+  }
+  div{
+    padding: 0;
+    margin: 0;
+  }
+  .header{
+    width: 100%;
+    height: 40px;
+    margin: auto;
+    background-color: #333333;
+  }
+  .container{
+    margin: auto;
+    width: 1226px;
+    font-size: 12px ;
+    padding-top: 12px;
+    padding-right: 0px;
+  }
+  .topbar-nav{
+    float: left;
+  }
+  .topbar-nav a{
+    color:#b0b0b0;
+    text-decoration: none;
+  }
+  .topbar-nav a.b{
+    color:#b0b0b0;
+    text-decoration: none;
+  }
+  .b:hover > .appcode{
+    display:block;
+    transform: 3s;
+    height: 150px;
+  }
+  .b:hover > .appcode::after{
+    content: "下载小米app";
+    display: inline-block;
+    padding-left: 10px;
+    left: 5px;
+    font-size  : 14px;
+    color      : #000;
+    transition: .3s;
+  }
+  .topbar-nav a:hover{
+    color: white;
+  }
+  span.sep{
+    color: #424242;
+  }
+  a.link{
+    color:#b0b0b0;
+    text-decoration: none;
+    right: 0;
+  }
+  a.link:hover{
+    color: white;
+  }
+  .right{
+    float: right;
+  }
+  .appcode{
+    position: absolute;
+    width: 122px;
+    height: 0px;
+    z-index: 2;
+    background: white;
+    top: 40px;
+    left: 834px;
+    text-align: center;
+    display: none;
+    transition: .3s;
+  }
+  .miapp{
+    margin:18px 17px 0px 17px ;
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+  }
+  .containe{
+    width: 1226px;
+    height: 100px;
+    margin: auto;
+    position: relative;
+  }
+  .logo{
+    width: 56px;
+    height: 56px;
+    margin-top: 23px;
+    position: absolute;
+  }
+  ul.nav-list{
+    width: 1130px;
+    height: 100px;
+    list-style: none;
+    color: #333333;
+    padding: 12px 0px 0px 30px;
+    margin: 0;
+    float: left;
+  }
+  li.nav-list{
+    width: 180px;
+    height: 88px;
+    padding: 0px 15px 0px 0px;
+    float: left;
+  }
+  ul.nav-list > li{
+    float: left;
+    min-width: 32px;
+    height: 88px;
+    padding: 26px 10px 0px;
+    overflow: hidden;
+
+  }
+  ul.nav-list > li > a{
+    text-decoration: none;
+    color: #333333;
+  }
+  .xiaomi{
+    list-style: none;
+    width: 100%;
+    height: 230px;
+    position: fixed;
+    left: 0;
+    top: 140px;
+    vertical-align:middle;
+    border-top: 1px solid #b0b0b0;
+    border-bottom: 1px solid #b0b0b0;
+    z-index: 2;
+    background: white;
+
+  }
+  .xiaomi .a{
+    float: left;
+    padding: 36px 23px 85px;
+
+  }
+  .xiaomi .a .b{
+    width: 240px;
+    height: auto;
+  }
+  .se{
+    display: inline-block;
+    height: 100px;
+    width: 1px;
+    margin: -143px -19px;
+    background-color: #ccc;
+    vertical-align: top;
+  }
+  .xiaomi img{
+    vertical-align: top;
+  }
+  .containe a{
+    text-decoration: none;
+  }
+  .tit{
+    text-align: center;
+    vertical-align: top;
+    color: #333333;
+  }
+  .pip{
+    text-align: center;
+    vertical-align: top;
+    color: #333333;
+  }
+  .containe ul li .dorp {
+    display: none;
+  }
+  .containe ul li:hover .dorp {
+    display: block;
+  }
+  li:hover .xm{
+    color: red;
+  }
+  .tit:hover,.pip:hover{
+    color: red;
+  }
+
+  .main{
+    width: 1224px;
+    height: 644px;
+    margin: auto;
+    position: relative;
+
+  }
+  .main .a{
+    width: 234px;
+    height: 460px;
+    position: absolute;
+    background:rgb(106,124,140,0.5);
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    z-index: 1;
+  }
+  .main .a li{
+    width: auto;
+    height: 42px;
+    line-height: 42px;
+    padding-left: 42px;
+
+  }
+  .main a{
+    text-decoration: none;
+    color: rgb(255,255,255);
+    position: relative;
+  }
+  .main ul.a li.one:hover{
+    background: rgb(225,103,3);
+  }
+  .main ul.a li:hover .pica{
+    display: block;
+  }
+
+  .slider {
+    width: 1226px;
+    height: 460px;
+    position: relative;
+    z-index: 0;
+  }
+  .slider input {
+    display: none;
+  }
+
+  .slider input:nth-child(1):checked ~ .slides .slide:nth-child(1) img{
+    opacity: 1;
+  }
+  .slider input:nth-child(1):checked ~ .slides .slide:nth-child(1) label{
+    display: block;
+    z-index: 9;
+  }
+  .slider input:nth-child(1):checked ~ .slides .slide:nth-child(1) img, .slider input:nth-child(2):checked ~ .slides .slide:nth-child(2) img, .slider input:nth-child(3):checked ~ .slides .slide:nth-child(3) img, .slider input:nth-child(4):checked ~ .slides .slide:nth-child(4) img {
+    z-index: 0;
+    opacity: 1;
+  }
+  .slider input:nth-child(1):checked ~ .slides .slide:nth-child(1) label, .slider input:nth-child(2):checked ~ .slides .slide:nth-child(2) label, .slider input:nth-child(3):checked ~ .slides .slide:nth-child(3) label, .slider input:nth-child(4):checked ~ .slides .slide:nth-child(4) label {
+    z-index: 9;
+    display: block;
+  }
+  .slider input:nth-child(1):checked ~ .indicators label:nth-child(1), .slider input:nth-child(2):checked ~ .indicators label:nth-child(2), .slider input:nth-child(3):checked ~ .indicators label:nth-child(3), .slider input:nth-child(4):checked ~ .indicators label:nth-child(4) {
+    background-color: white;
+  }
+  .slider .slides {
+    height: 100%;
+    position: relative;
+  }
+  .slider .slides .slide {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+  .slider .slides .slide label {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    line-height: 70px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 70px;
+    color: #B6C2CA;
+  }
+  .slider .slides .slide label div{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 42px;
+    height: 70px;
+    background: url(https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -84px 50%;
+  }
+
+  .slider .slides .slide label div.b{
+    right: 0;
+    background: url(https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -125px 50%;
+  }
+  .slider .slides .slide label div:hover {
+    background: url(https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat 0px 50%;
+  }
+  .slider .slides .slide label div.b:hover {
+    background: url(https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -42px 50%;
+  }
+  .slider .slides .slide label:first-child {
+    left: 234px;
+    border-radius: 0 5px 5px 0;
+  }
+  .slider .slides .slide label:nth-child(2) {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+  }
+  .slider .slides .slide img {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 1s;
+
+  }
+  .slider .indicators {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  .slider .indicators label {
+    float: left;
+    margin: 3px;
+    width: 5px;
+    height: 5px;
+    border: 2px solid;
+    display: inline-block;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #738294;
+  }
+  .slider .indicators label:hover {
+    background-color: #C1D9F7;
+  }
+  .slider .indicators label:checked{
+    color: #C1D9F7;
+  }
+
+
+
+  .one{
+    margin-top: 22px;
+  }
+  .pica{
+    width: 993px;
+    height: 460px;
+    background:white;
+    top: 0px;
+    left: 234px;
+    position: absolute;
+    display: none;
+    box-shadow: 1px 1px 1px 0px #b0b0b0;
+    z-index: 1;
+  }
+  .pica ul.aa a{
+    color:#333333;
+  }
+  .pica ul.aa li:hover{
+    color: rgb(225,103,3);
+  }
+  .pica ul{
+    margin: 0;
+    float: left;
+    width: 248px;
+    height: 462px;
+    padding: 0;
+  }
+  .pica ul li{
+    list-style: none;
+    width: 225px;
+    height: 40px;
+    padding: 18px 20px;
+    vertical-align: middle;
+    float: left;
+  }
+  .pica ul li span{
+    line-height: 40px;
+    vertical-align: top;
+    padding-left: 12px;
+  }
+  .main .c{
+    margin-top:14px 0px 0px -14px;
+    width: 1226px;
+    height: 170px;
+    position: absolute;
+    bottom: 0;
+  }
+  .main .c ul{
+    width: 228px;
+    height: 164px;
+    padding: 3px;
+    margin: 0;
+    font-size: 8px;
+    background: rgb(95,87,80);
+  }
+  .main .c ul li{
+    list-style: none;
+    width: 68px;
+    height: 80px;
+    padding: 0px 3px;
+    float: left;
+    border: 1px solid rgba(102,94,87,0.5);
+    text-align: center;
+    vertical-align: middle;
+  }
+  .main .c ul li a{
+    padding: 18px 0px 0px;
+    height: 68px;
+  }
+  .main .c ul li img{
+    margin: 18px 23px 4px;
+  }
+  .main .c .emo{
+    width: 985px;
+    height: 170px;
+    position: absolute;
+    left: 241px;
+    top: 0px;
+  }
+  .main .c .emo a img{
+    float:right;
+    margin-left: 12px;
+  }
+  .page-main{
+    width: auto;
+    height: 6401px;
+    background: #f5f5f5;
+    padding: 4px 0px 12px;
+    margin-top: 32px;
+  }
+  .page-main .main-conta{
+    width: 1226px;
+    height: 6385px;
+    margin: 0px 340px;
+  }
+  .page-main .main-conta .banner-box{
+    margin:22px 0;
+    height: 120px;
+    overflow: hidden;
+  }
+  .brick-box{
+    margin-bottom: 8px;
+  }
+  .brick-box .box-hd{
+    position: relative;
+    height: 58px;
+  }
+  .brick-box .box-hd .title{
+    margin: 0;
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 58px;
+    color: #333;
+  }
+  .box-hd .more{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 92px;
+    height: 58px;
+  }
+  .brick-box .box-hd .more .link{
+    font-size: 16px;
+    line-height: 58px;
+    color: #424242;
+    transition: all .4s;
+    position: absolute;
+  }
+  .clearfix{
+    width: 1226px;
+    height: 628px;
+    position: relative;
+  }
+  .span1{
+    position: absolute;
+  }
+  .span2{
+    width: 978px;
+    height: 628px;
+    position: absolute;
+    left: 234px;
+  }
+  .span2 a{
+    text-decoration: none;
+  }
+  .span2 .f1{
+    margin: 0;
+    color: rgb(176,176,176);
+  }
+  .span2 .f2{
+    color: rgb(225,103,0);
+  }
+  .span2 h3{
+    color: rgb(51,51,51);
+    margin: 0;
+  }
+  .span2 ul{
+    width: 992px;
+    height: 614px;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    margin-top: 0;
+  }
+  .span2 ul li{
+    font-size: 14px;
+    width: 234px;
+    height: 300px;
+    background: white;
+    text-align: center;
+    float: left;
+    margin: 0 0 14px 14px ;
+  }
+  .span2 ul li .mix img{
+    height: 160px;
+    width: 160px;
+  }
+
+  .span3{
+    width: 978px;
+    height: 628px;
+    position: absolute;
+    left: 234px;
+  }
+  .span3 a{
+    text-decoration: none;
+  }
+  .span3 .f1{
+    margin: 0;
+    color: rgb(176,176,176);
+  }
+  .span3 .f2{
+    color: rgb(225,103,0);
+  }
+  .span3 h3{
+    color: rgb(51,51,51);
+    margin: 0;
+  }
+  .span3 ul{
+    width: 992px;
+    height: 614px;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    margin-top: 0;
+  }
+  .span3 ul li{
+    font-size: 14px;
+    width: 234px;
+    height: 300px;
+    background: white;
+    text-align: center;
+    float: left;
+    margin: 0 0 14px 14px ;
+  }
+  .span3 ul li.end{
+    width: 234px;
+    height: 93px;
+    padding-top: 50px;
+    text-align: left;
+  }
+  .span3 ul li.end .more{
+    width: 94px;
+    height: 45px;
+    display: block;
+    margin: 0 110px 0px 30px;
+    font-size: 18px;
+    color: #333;
+  }
+  .span3 ul li.end .more small{
+    font-size: 12px;
+    display: block;
+    color: #757575;
+
+  }
+  .span3 ul li .mix img{
+    height: 160px;
+    width: 160px;
+  }
+
+
+
+.span3 {
+  height: 300px;
+  position: relative;
+  top: -22px;
+}
+.span3 div span a:first-child {
+  color: black;
+}
+.span3 div span:first-child section {
+  visibility: visible;
+}
+.span3 div:hover span {
+  color: black;
+  transition: none;
+}
+.span3 div:hover span section {
+  visibility: hidden;
+  transition: none;
+}
+.span3 div span {
+  float: right;
+  margin-left: 10px;
+  transition: 0s 9999s;
+}
+.span3 div span section {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 22px;
+  bottom: 0;
+  visibility: hidden;
+  transition: 0s 9999s;
+}
+.span3 div span a:hover {
+  color: #FF6700;
+  text-decoration: underline;
+  transition: none;
+}
+.span3 div span:hover section {
+  visibility: visible;
+  transition: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+<body>
+  <div>
+    <div class="header">
+      <div class="container">
+        <div class="topbar-nav">
+          <a href="#">小米商场</a>
+          <span class="sep">|</span>
+          <a href="#">MIUI</a>
+          <span class="sep">|</span>
+          <a href="#">loT</a>
+          <span class="sep">|</span>
+          <a href="#">云服务</a>
+          <span class="sep">|</span>
+          <a href="#">天星数科</a>
+          <span class="sep">|</span>
+          <a href="#">有品</a>
+          <span class="sep">|</span>
+          <a href="#">小爱开放平台</a>
+          <span class="sep">|</span>
+          <a href="#">企业团购</a>
+          <span class="sep">|</span>
+          <a href="#">资质证照</a>
+          <span class="sep">|</span>
+          <a href="#">协议规则</a>
+          <span class="sep">|</span>
+          <a href="#" class="b">下载APP
+            <span class="appcode">
+            <img class="miapp" src="images/download.png" alt="小米商场">::after
+            </span>
+          </a>
+
+          <span class="sep">|</span>
+          <a href="#">智能生活</a>
+          <span class="sep">|</span>
+          <a href="#">Select Location</a>
+        </div>
+      <div class="right">
+        <a href="#" class="link">登录</a>
+        <span class="sep">|</span>
+        <a href="#" class="link">注册</a>
+        <span class="sep">|</span>
+        <a href="#" class="link">消息通知</a>
+        <a href="#" class="link">购物车</a>
+      </div>
+
+      </div>
+    </div>
+
+    <div class="containe">
+      <img class="logo" src="images/logo-mi2.png" alt="">
+      <ul class="nav-list">
+        <li class="nav-list"></li>
+        <li><a href="#" class="xm">Xiaomi手机
+          <div class="dorp">
+          <ul class="xiaomi">
+            <li class="a"><div class="b"><div></li>
+            <li class="a">
+              <a href="#">
+              <img src="images/xiaomi1.webp"/>
+              <div class="tit">XiaoMi</div>
+              <div class="pip">2599元起</div>
+              </a>
+            </li>
+            <li class="a">
+              <a href="#">
+              <img src="images/xiaomi2.webp"/>
+              <div class="tit">XiaoMi</div>
+              <div class="pip">2599元起</div>
+              <span class="se"></span>
+              </a>
+            </li>
+            <li class="a">
+              <a href="#">
+              <img src="images/xiaomi3.webp"/>
+              <div class="tit">XiaoMi</div>
+              <div class="pip">2599元起</div>
+              <span class="se"></span>
+              </a>
+            </li>
+            <li class="a">
+              <a href="#">
+              <img src="images/xiaomi4.webp"/>
+              <div class="tit">XiaoMi</div>
+              <div class="pip">2599元起</div>
+              <span class="se"></span>
+              </a>
+            </li>
+            <li class="a">
+              <a href="#">
+              <img src="images/xiaomi5.webp"/>
+              <div class="tit">XiaoMi</div>
+              <div class="pip">2599元起</div>
+              <span class="se"></span>
+              </a>
+            </li>
+            <li class="a">
+              <a href="#">
+              <img src="images/xiaomi6.webp"/>
+              <div class="tit">XiaoMi</div>
+              <div class="pip">2599元起</div>
+              <span class="se"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </a>
+
+        </li>
+        <li><a href="#">Redmi红米</a></li>
+        <li><a href="#">电视</a></li>
+        <li><a href="#">笔记本</a></li>
+        <li><a href="#">平板</a></li>
+        <li><a href="#">家电</a></li>
+        <li><a href="#">路由器</a></li>
+        <li><a href="#">服务</a></li>
+        <li><a href="#">社区</a></li>
+      </ul>
+    </div>
+
+    <div class="main">
+      <ul class="a">
+        <li class="one"><a href="#">手机</a>
+          <div class="pica">
+            <ul class="aa">
+              <a href="#">
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+              </a>
+            </ul>
+            <ul class="aa">
+              <a href="#">
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+              </a>
+            </ul>
+            <ul class="aa">
+              <a href="#">
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+              </a>
+            </ul>
+            <ul class="aa">
+              <a href="#">
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+              </a>
+            </ul>
+        </div></li>
+        <li><a href="#">电视</a></li>
+        <li><a href="#">笔记本 平板</a></li>
+        <li><a href="#">家电</a></li>
+        <li><a href="#">出行 穿戴</a></li>
+        <li><a href="#">智能 路由器</a></li>
+        <li><a href="#">电源 配件</a></li>
+        <li><a href="#">健康 儿童</a></li>
+        <li><a href="#">生活 箱包</a></li>
+        <li><a href="#">耳机 音箱</a></li>
+      </ul>
+      <div class="slider">
+        <input type="radio" name="slider1" id="i1" checked>
+        <input type="radio" name="slider1" id="i2">
+        <input type="radio" name="slider1" id="i3">
+        <input type="radio" name="slider1" id="i4">
+        <div class="slides">
+          <div class="slide">
+            <label for="i4"><div class="a"></div></label>
+            <label for="i2"><div class="b"></div></label>
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/78d0483ed36158659fcf65a19a9b249a.jpeg?w=2452&h=920" alt="">
+          </div>
+          <div class="slide">
+            <label for="i1"><div class="a"></div></label>
+            <label for="i3"><div class="b"></div></label>
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/fc0f553382bb5143e667b284dfcf02db.jpg?thumb=1&w=1226&h=460&f=webp&q=90" alt="">
+          </div>
+          <div class="slide">
+            <label for="i2"><div class="a"></div></label>
+            <label for="i4"><div class="b"></div></label>
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/918820682e4a490221cfd92b24c14b86.jpg?thumb=1&w=1226&h=460&f=webp&q=90" alt="">
+          </div>
+          <div class="slide">
+            <label for="i3"><div class="a"></div></label>
+            <label for="i1"><div class="b"></div></label>
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/61bef947ca0b863003b3e68336192a3a.jpg?thumb=1&w=1226&h=460&f=webp&q=90" alt="">
+          </div>
+        </div>
+        <div class="indicators">
+          <label for="i1"></label>
+          <label for="i2"></label>
+          <label for="i3"></label>
+          <label for="i4"></label>
+        </div>
+      </div>
+      <div class="b"></div>
+      <div class="c">
+        <ul>
+          <li>
+            <a href="#">
+            <img src="images/li1.png" alt="" width="24px" height="24px">保障服务
+            </a>
+          </li>
+          <li>
+            <a href="#">
+            <img src="images/li2.png" alt="" width="24px" height="24px">保障服务
+            </a>
+          </li>
+          <li>
+            <a href="#">
+            <img src="images/li3.png" alt="" width="24px" height="24px">保障服务
+            </a>
+          </li>
+          <li>
+            <a href="#">
+            <img src="images/li4.png" alt="" width="24px" height="24px">保障服务
+            </a>
+          </li>
+          <li>
+            <a href="#">
+            <img src="images/li5.png" alt="" width="24px" height="24px">保障服务
+            </a>
+          </li>
+          <li>
+            <a href="#">
+            <img src="images/li6.png" alt="" width="24px" height="24px">保障服务
+            </a>
+          </li>
+        </ul>
+        <div class="emo">
+          <a href="#"><img src="images/cp1.jpg" alt="" width="316px" height="170"></a>
+          <a href="#"><img src="images/cp2.jpg" alt="" width="316px" height="170"></a>
+          <a href="#"><img src="images/cp1.jpg" alt="" width="316px" height="170"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-main">
+      <div class="main-conta">
+        <div class="banner-box">
+          <a href="#">
+            <img src="images/k40.webp" alt="">
+          </a>
+        </div>
+        <div class="brick-box">
+          <div class="box-hd">
+            <h2 class="title">手机</h2>
+            <div class="more">
+              <a href="#" class="link">查看更多</a>
+            </div>
+
+          </div>
+          <div class="clearfix">
+            <div class="span1">
+              <a href="#">
+                <img src="images/mix.webp" alt="">
+              </a>
+
+            </div>
+            <div class="span2">
+              <ul>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/50da95e9e4496dcac8704da2deb94f6e.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c001ebc4aee69bc9ff6fae9ecf9137d0.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3490cfc52dc7c9abf9badfa1dc2d0eae.png?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7290b681343512c60e3a845379f3335f.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c5c752522100ecd364cc53752bb660bc.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ab07e0fcbec3beb8b0f409db8bee8da4.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/61454401f855cf5ed64747a6ac04bae5.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="brick-box">
+          <div class="box-hd">
+            <h2 class="title">智能穿戴</h2>
+
+          </div>
+          <div class="clearfix">
+            <div class="span1">
+              <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9895c56a7b792fb9053e3085fc261072.jpg?thumb=1&w=234&h=614&f=webp&q=90" alt="">
+              </a>
+
+            </div>
+            <div class="span3">
+              <div>
+                <span><a href="#">热门</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="more">浏览更多
+                            <small>热门</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+                <span><a href="#">穿戴</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

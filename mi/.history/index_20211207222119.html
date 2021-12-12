@@ -1,0 +1,3803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style >
+  @font-face {
+    font-family: Mifonts;
+    src: url(./mi.woff);
+    font-weight: 400;
+}
+  [mifont]{
+    font-family: Mifonts;
+    font-style: normal;
+  }
+
+  html,body{
+    margin: 0;
+    padding: 0;
+    font-family:iconfont;
+    font-size: 15px;
+  }
+  ul{
+    list-style: none;
+  }
+  a{
+    text-decoration: none;
+  }
+  div{
+    padding: 0;
+    margin: 0;
+  }
+  .header{
+    width: 100%;
+    height: 40px;
+    margin: auto;
+    background-color: #333333;
+  }
+  .container{
+    margin: auto;
+    width: 1226px;
+    font-size: 12px ;
+    padding-right: 0px;
+  }
+
+  .topbar-nav{
+    float: left;
+    line-height: 40px;
+  }
+  .topbar-nav a{
+    color:#b0b0b0;
+    text-decoration: none;
+  }
+  .topbar-nav a.b{
+    color:#b0b0b0;
+    text-decoration: none;
+    position: relative;
+  }
+  .topbar-nav a:hover{
+    color: white;
+  }
+  span.sep{
+    color: #424242;
+  }
+  a.link{
+    color:#b0b0b0;
+    text-decoration: none;
+    right: 0;
+  }
+  a.link:hover{
+    color: white;
+  }
+  a.mi-gwc{
+    position: relative;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #424242;
+    color: #b0b0b0;
+    margin: 0;
+    display: inline-block;
+    text-decoration: none;
+    margin-left: 16px;
+    font-size: 12px;
+  }
+
+  .b:hover > .appcode{
+    transform: 3s;
+    height: 150px;
+  }
+  .b:hover .miapp{
+    height: 90px;
+  }
+  .b:hover > .appcode::after{
+    content: "下载小米app";
+    position: absolute;
+    text-align: center;
+    top: 100px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    font-size  : 14px;
+    color      : #000;
+    transition: .3s;
+  }
+  .appcode{
+    position:absolute;
+    width: 122px;
+    height: 0;
+    z-index: 2;
+    background: white;
+    top: 26px;
+    left: -34px;
+    transition: .3s;
+  }
+  .miapp{
+    margin:18px 17px 0px 17px ;
+    width: 90px;
+    height: 0;
+  }
+  .containe{
+    width: 1226px;
+    height: 100px;
+    margin: auto;
+    position: relative;
+  }
+  .logo{
+    width: 56px;
+    height: 56px;
+    margin-top: 23px;
+    position: absolute;
+  }
+  .product-sub-meun ul{
+    width: 1226px;
+    margin: auto;
+  }
+  ul.nav-list > li > a:hover{
+    color: red;
+  }
+  .tit:hover,.pip:hover{
+    color: red;
+  }
+  .containe .header-search{
+    position: absolute;
+    width: 296px;
+    height: 50px;
+    margin-top: 20px;
+    right: 0;
+  }
+  .containe .header-search .a{
+    border: 1px solid #e0e0e0;
+    width: 245px;
+    height: 50px;
+    position: absolute;
+    font-size: 15px;
+  }
+  .containe .header-search .cz{
+    position: absolute;
+    right: 0;
+    width: 52px;
+    height: 50px;
+    font-size: 24px;
+    line-height: 24px;
+    background: #fff;
+    color: #616161;
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    cursor: pointer;
+  }
+  .main{
+    width: 1224px;
+    height: 644px;
+    margin: auto;
+    position: relative;
+
+  }
+  .main .a{
+    width: 234px;
+    height: 460px;
+    position: absolute;
+    background:rgb(106,124,140,0.5);
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    z-index: 1;
+  }
+  .main .a li{
+    width: auto;
+    height: 42px;
+    line-height: 42px;
+    padding-left: 42px;
+
+  }
+  .main a{
+    text-decoration: none;
+    color: rgb(255,255,255);
+    position: relative;
+  }
+  .main ul.a li.one:hover{
+    background: rgb(225,103,3);
+  }
+  .main ul.a li:hover .pica{
+    display: block;
+  }
+
+  .slider {
+    width: 1226px;
+    height: 460px;
+    position: relative;
+    z-index: 0;
+  }
+  .slider input {
+    display: none;
+  }
+
+  .slider input:nth-child(1):checked ~ .slides .slide:nth-child(1) img{
+    opacity: 1;
+  }
+  .slider input:nth-child(1):checked ~ .slides .slide:nth-child(1) label{
+    display: block;
+    z-index: 9;
+  }
+  .slider input:nth-child(1):checked ~ .slides .slide:nth-child(1) img, .slider input:nth-child(2):checked ~ .slides .slide:nth-child(2) img, .slider input:nth-child(3):checked ~ .slides .slide:nth-child(3) img, .slider input:nth-child(4):checked ~ .slides .slide:nth-child(4) img {
+    z-index: 0;
+    opacity: 1;
+  }
+  .slider input:nth-child(1):checked ~ .slides .slide:nth-child(1) label, .slider input:nth-child(2):checked ~ .slides .slide:nth-child(2) label, .slider input:nth-child(3):checked ~ .slides .slide:nth-child(3) label, .slider input:nth-child(4):checked ~ .slides .slide:nth-child(4) label {
+    z-index: 9;
+    display: block;
+  }
+  .slider input:nth-child(1):checked ~ .indicators label:nth-child(1), .slider input:nth-child(2):checked ~ .indicators label:nth-child(2), .slider input:nth-child(3):checked ~ .indicators label:nth-child(3), .slider input:nth-child(4):checked ~ .indicators label:nth-child(4) {
+    background-color: white;
+  }
+  .slider .slides {
+    height: 100%;
+    position: relative;
+  }
+  .slider .slides .slide {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+  .slider .slides .slide label {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    line-height: 70px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 70px;
+    color: #B6C2CA;
+  }
+  .slider .slides .slide label div{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 42px;
+    height: 70px;
+    background: url(https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -84px 50%;
+  }
+
+  .slider .slides .slide label div.b{
+    right: 0;
+    background: url(https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -125px 50%;
+  }
+  .slider .slides .slide label div:hover {
+    background: url(https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat 0px 50%;
+  }
+  .slider .slides .slide label div.b:hover {
+    background: url(https://i1.mifile.cn/f/i/2014/cn/icon/icon-slides.png) no-repeat -42px 50%;
+  }
+  .slider .slides .slide label:first-child {
+    left: 234px;
+    border-radius: 0 5px 5px 0;
+  }
+  .slider .slides .slide label:nth-child(2) {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+  }
+  .slider .slides .slide img {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 1s;
+
+  }
+  .slider .indicators {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  .slider .indicators label {
+    float: left;
+    margin: 3px;
+    width: 5px;
+    height: 5px;
+    border: 2px solid;
+    display: inline-block;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #738294;
+  }
+  .slider .indicators label:hover {
+    background-color: #C1D9F7;
+  }
+  .slider .indicators label:checked{
+    color: #C1D9F7;
+  }
+  .one{
+    margin-top: 22px;
+  }
+  .pica{
+    width: 993px;
+    height: 460px;
+    background:white;
+    top: 0px;
+    left: 234px;
+    position: absolute;
+    display: none;
+    box-shadow: 1px 1px 1px 0px #b0b0b0;
+    z-index: 1;
+  }
+  .pica ul.aa a{
+    color:#333333;
+  }
+  .pica ul.aa li:hover{
+    color: rgb(225,103,3);
+  }
+  .pica ul{
+    margin: 0;
+    float: left;
+    width: 248px;
+    height: 462px;
+    padding: 0;
+  }
+  .pica ul li{
+    list-style: none;
+    width: 225px;
+    height: 40px;
+    padding: 18px 20px;
+    vertical-align: middle;
+    float: left;
+  }
+  .pica ul li span{
+    line-height: 40px;
+    vertical-align: top;
+    padding-left: 12px;
+  }
+  .main .b{
+    margin-top:14px 0px 0px -14px;
+    width: 1226px;
+    height: 170px;
+    position: relative;
+    bottom: 0;
+    margin-top: 14px;
+  }
+  .main .c{
+    width: 228px;
+  }
+  .main .c ul{
+    width: 100%;
+    height: 100%;
+    padding: 3px;
+    float: left;
+    display: table-cell;
+    margin: 0;
+    font-size: 12px;
+    background: rgb(95,87,80);
+  }
+  .main .c ul li{
+    list-style: none;
+    width: 68px;
+    height: 80px;
+    padding: 0;
+    float: right;
+    display: table-cell;
+    border: 1px solid rgba(102,94,87,0.5);
+    text-align: center;
+    margin:auto;
+  }
+  .main .c ul li a{
+    padding: 18px 0px 0px;
+    height: 68px;
+  }
+  .main ul li em{
+    float: right;
+    margin-right: 20px;
+  }
+  .main .c ul li img{
+    margin: 18px 23px 4px;
+  }
+  .main .c .emo{
+    width: 985px;
+    height: 170px;
+    position: absolute;
+    left: 241px;
+    top: 0px;
+  }
+  .main .c .emo a img:hover{
+    z-index: 2;
+    box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+    transform: translatey(-2px);
+
+  }
+  .main .c .emo a img{
+    float:right;
+    margin-left: 12px;
+  }
+  .page-main{
+    width: auto;
+    height: 100%;
+    background: #f5f5f5;
+    padding: 4px 0px 12px;
+    margin-top: 32px;
+  }
+  .page-main .main-conta{
+    width: 1226px;
+    height: 100%;
+    margin: 0px auto;
+  }
+  .page-main .main-conta .banner-box{
+    margin:22px 0;
+    height: 120px;
+    overflow: hidden;
+  }
+  .page-main .main-conta .banner-box img{
+    width: 1226px;
+    height: 120px;
+  }
+  .brick-box .box-hd{
+    position: relative;
+    height: 58px;
+  }
+  .brick-box .box-hd .title{
+    margin: 0;
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 58px;
+    color: #333;
+  }
+  .box-hd .more{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 92px;
+    height: 58px;
+  }
+  .clearfix{
+    width: 1226px;
+    height: 628px;
+    position: relative;
+  }
+  .clearfix .span5{
+    position: absolute;
+    left: 0;
+    top: 314px;
+    height: 300px;
+    width: 234px;
+  }
+  .clearfix .span1 img,.span5 img{
+    width: 234px;
+    height: 300px;
+  }
+  .clearfix span section ul li .mix{
+    width: 160px;
+    height: 160px;
+  }
+  .clearfix .span5:hover{
+    z-index: 2;
+    box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+    transform: translate3d(0,-2px,0);
+  }
+  .span1{
+    position: absolute;
+  }
+  .clearfix .pan1{
+    width: 234px;
+    height: 614px;
+    position: absolute;
+  }
+  .span2{
+    width: 978px;
+    height: 628px;
+    position: absolute;
+    left: 234px;
+  }
+  .span2 a{
+    text-decoration: none;
+  }
+  .span2 .f1{
+    margin: 0;
+    color: rgb(176,176,176);
+  }
+  .span2 .f2{
+    color: rgb(225,103,0);
+  }
+  .span2 h3{
+    color: rgb(51,51,51);
+    margin: 0;
+  }
+  .span2 ul{
+    width: 992px;
+    height: 614px;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    margin-top: 0;
+  }
+  .span2 ul li{
+    padding-top: 20px;
+    font-size: 14px;
+    width: 234px;
+    height: 280px;
+    background: white;
+    text-align: center;
+    float: left;
+    margin: 0 0 14px 14px ;
+
+  }
+  .span2 ul li:hover{
+    z-index: 2;
+    box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+    transform: translate3d(0,-2px,0);
+  }
+  .span1:hover{
+    z-index: 2;
+    box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+    transform: translate3d(0,-2px,0);
+  }
+  .span3{
+    width: 978px;
+    height: 628px;
+    position: absolute;
+    left: 234px;
+  }
+  .span3 a{
+    text-decoration: none;
+  }
+  .span3 .f1{
+    margin: 0;
+    color: rgb(176,176,176);
+  }
+  .span3 .f2{
+    color: rgb(225,103,0);
+  }
+  .span3 h3{
+    color: rgb(51,51,51);
+    margin: 0;
+  }
+  .span3 ul{
+    width: 992px;
+    height: 614px;
+    list-style: none;
+    padding: 0;
+    position: absolute;
+    margin-top: 0;
+  }
+  .span3 ul li{
+    padding-top: 20px ;
+    font-size: 14px;
+    width: 234px;
+    height: 280px;
+    background: white;
+    text-align: center;
+    float: left;
+    margin: 0 0 14px 14px ;
+    transform:translateY(0) ;
+  }
+  .span3 ul li.end{
+    width: 234px;
+    height: 93px;
+    padding-top: 50px;
+    text-align: left;
+  }
+  .span3 ul li.end .more{
+    display: block;
+    margin: 0 110px 0px 30px;
+    font-size: 18px;
+    color: #333;
+  }
+  .span3 ul li.end .more-pic{
+    display: block;
+    margin: 0 110px 5px 30px;
+    font-size: 14px;
+    color: #333;
+  }
+  .span3 ul li.end .small-pic{
+    font-size: 12px;
+    display: block;
+    color: #FF6700;
+    margin: 0 110px 0px 30px;
+
+  }
+  .span3 ul li.end .jiantou{
+    position: absolute;
+    right: 30px;
+    top: 50px;
+    width: 40px;
+    height: 48px;
+    font-size: 32px;
+    color: #ff6700;
+  }
+  .span3 ul li.end .pic-pic{
+    position: absolute;
+    right: 66px;
+    top: 33px;
+    width: 40px;
+    height: 48px;
+    font-size: 32px;
+    color: #ff6700;
+  }
+  .jiantou .icon{
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .span3 ul li.end .cd-jiantou{
+    position: absolute;
+    right: 30px;
+    top: 50px;
+    width: 48px;
+    height: 48px;
+    color: #ff6700;
+    font-size: 32px;
+  }
+  .cd-jiantou i{
+    font-size: 48px;
+    line-height: 48px;
+  }
+  .jiantou i{
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  .span3 ul li.end .more small{
+    font-size: 12px;
+    display: block;
+    color: #757575;
+
+  }
+
+  .span3 ul li:hover{
+    z-index: 2;
+    box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+    transform: translatey(-2px);
+  }
+  .span3 {
+    height: 300px;
+    position: relative;
+    top: -22px;
+  }
+  .span3 div span a{
+    color: black;
+  }
+  .span3 div span .a-link{
+    font-size: 16px;
+    line-height: 0px;
+  }
+  .span3 div span:nth-last-child(1) .a-link{
+    color: #ff6700;
+    text-decoration: underline;
+  }
+  .span3 div span:nth-last-child(1) section {
+    visibility: visible;
+  }
+  .span3 div span:nth-child(4) section {
+    visibility: visible;
+  }
+  .span3 div:hover span {
+    color: black;
+    transition: none;
+  }
+  .span3 div:hover span section {
+    visibility: hidden;
+    transition: none;
+  }
+  .span3 div span {
+    float: right;
+    margin: 0px 0px 0px 30px;
+    transition: 0s 9999s;
+  }
+  .span3 div span section {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 22px;
+    bottom: 0;
+    visibility: hidden;
+    transition: 0s 9999s;
+  }
+  .span3 div span a.a-link:hover {
+    color: #FF6700;
+    text-decoration: underline;
+    transition: none;
+  }
+  .span3 div span a.a-link:hover::after a.a-link{
+    content: " ";
+    color: #FF6700;
+    text-decoration: underline;
+  }
+  .span3 div span:hover section {
+    visibility: visible;
+    transition: none;
+  }
+
+  .fl{
+    height: 628px;
+    margin: 0;
+  }
+
+  .fl ul{
+    display: flex;
+    padding: 0;
+    list-style: none;
+    flex-flow: wrap;
+    align-content: flex-start;
+    height: 613px;
+    gap: 14px;
+    margin: 0;
+  }
+
+  .fl ul li{
+    height: 300px;
+    width: 234px;
+  }
+  .fl ul li:nth-last-child(-n + 2){
+    height: 143px;
+  }
+
+
+
+
+  .right{
+    float: right;
+    display: inline-block;
+    line-height: 40px;
+  }
+
+  .shopping{
+    position: relative;
+    float: right;
+
+  }
+
+
+  .shopping .mi-gwc-list{
+    width: 320px;
+    xdisplay: none;
+    color: #000;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1;
+    height: 0;
+    line-height: 100px;
+    text-align: center;
+    box-shadow:0 15px 30px rgb(0 0 0 / 10%) ;
+    transition: .3s;
+    overflow: hidden;
+    background-color:white;
+  }
+  .shopping:hover .mi-gwc{
+    background-color:  white;
+    color: #ff6700;
+  }
+  .shopping:hover .mi-gwc-list{
+    xdisplay: block;
+    height: 100px;
+  }
+  .product-nav {
+  height: 100px;
+  position: relative;
+}
+.product-nav .product-nav-inner {
+  width: 1226px;
+  margin: auto;
+}
+.product-nav .product-nav-inner .logo-link {
+  float: left;
+  margin-top: 25px;
+  margin-right: 185px;
+}
+.product-nav .product-nav-inner .logo-link img {
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+.product-nav .product-nav-inner ul.product-menu {
+  float: left;
+  display: flex;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+
+}
+.product-menu-end {
+  float: left;
+  display: flex;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+
+}
+.product-nav .product-nav-inner .product-menu a{
+  color: #000;
+}
+.product-nav .product-nav-inner .product-menu li a:hover{
+  color: #FF6700;
+}
+.product-nav .product-nav-inner .product-menu:hover .porduct-sub-menu {
+  height: 232px;
+  border-top: 1px solid #b0b0b0;
+}
+.product-nav .product-nav-inner ul.product-menu li a {
+  height: 100px;
+  display: inline-block;
+  line-height: 100px;
+  padding: 0 10px;
+}
+.product-nav .product-nav-inner ul.product-menu li:hover .porduct-sub-menu {
+  z-index: 100;
+  transition: height 0.2s 0.6s, z-index 0s 0s;
+}
+.product-nav .product-nav-inner ul.product-menu li .porduct-sub-menu {
+  overflow: hidden;
+  background: white;
+  transition: height 0.2s 0.6s, z-index 2s;
+  z-index: 50;
+  height: 0;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  box-shadow:0 15px 30px rgb(0 0 0 / 10%) ;
+}
+.product-nav .product-nav-inner ul.product-menu li .porduct-sub-menu ul {
+  width: 1226px;
+  margin: auto;
+  height: 100%;
+  display: flex;
+}
+.product-nav .product-nav-inner ul.product-menu li .porduct-sub-menu ul li {
+  width: calc(100% / 6);
+  float: left;
+}
+.porduct-sub-menu ul li p.tit{
+  height: 16px;
+  width: auto;
+  text-align: center;
+  margin-top: -65px;
+  color: #333333;
+  font-size: 12px;
+}
+.porduct-sub-menu ul li p.pip{
+  height: 16px;
+  width: auto;
+  text-align: center;
+  margin-top: 0px;
+  color: #FF6700;
+  font-size: 12px;
+}
+.product-nav .product-nav-inner .product-nav-search {
+  float: right;
+  display: flex;
+  margin-top: 25px;
+  position: relative;
+}
+.product-nav .product-nav-inner .product-nav-search input {
+  outline: none;
+  height: 50px;
+  width: 245px;
+  box-sizing: border-box;
+  border: 1px solid #b0b0b0;
+  border-right: none;
+  padding: 10px;
+}
+.product-nav .product-nav-inner .product-nav-search input:focus {
+  border-color: #ff6700;
+}
+.product-nav .product-nav-inner .product-nav-search input:focus + button {
+  border-color: #ff6700;
+}
+.product-nav .product-nav-inner .product-nav-search input:focus ~ .suggestions {
+  display: block;
+}
+.product-nav .product-nav-inner .product-nav-search button {
+  border: 1px solid #b0b0b0;
+  width: 50px;
+  font-size: 24px;
+}
+.product-nav .product-nav-inner .product-nav-search button:hover {
+  background-color: #ff6700;
+  border-color: #ff6700;
+}
+.product-nav .product-nav-inner .product-nav-search .suggestions {
+  display: none;
+  position: absolute;
+  box-sizing: border-box;
+  background: #fff;
+  top: 100%;
+  z-index: 150;
+  width: 246px;
+  left: 0;
+  border: 1px solid #ff6700;
+  border-top: none;
+  margin: 0;
+  padding: 10px;
+}
+.porduct-sub-menu ul{
+  position: relative;
+  width: 1226px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0;
+}
+.porduct-sub-menu ul li{
+    float: left;
+    display: block;
+    position: relative;
+    width: 204px;
+    height: 201px;
+    padding: 35px 12px 0px;
+  }
+
+  .brick-box-end .box-hd-end{
+    position: relative;
+    height: 58px;
+  }
+  .brick-box-end .box-hd-end .title-end{
+    margin: 0;
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 58px;
+    color: #333;
+  }
+  .box-hd-end .more-end{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 92px;
+    height: 58px;
+  }
+  .brick-box-end .box-hd-end .more-end .link-end{
+    font-size: 16px;
+    line-height: 58px;
+    color: #424242;
+    transition: all .4s;
+    position: absolute;
+  }
+  .clearfix-end{
+    width: 1226px;
+    height: 300px;
+  }
+  .clearfix-end ul{
+    width: 1240px;
+    height: 285px;
+    padding: 0;
+    margin: 0;
+    float: left;
+  }
+  .clearfix-end ul li.a{
+    width: 296px;
+    height: 285px;
+    margin-bottom:14px;
+    float: left;
+    background-color: #fff;
+  }
+  .clearfix-end ul li.b{
+    width: 296px;
+    height: 285px;
+    margin-bottom:14px;
+    margin-left: 14px;
+    float: left;
+    background-color: #fff;
+  }
+  .clearfix-end ul li div p{
+    margin: 28px 14px 6px;
+    text-align: center;
+    color: #424242;
+  }
+  .clearfix-end ul li div p.a{
+    margin: 0 14px;
+    text-align: center;
+    font-size: 12px;
+    color: #b0b0b0;
+  }
+  .clearfix-end ul li:hover{
+    z-index: 2;
+    box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+    transform: translatey(-2px);
+  }
+  .more a {
+    display: inline-block;
+    margin: 0;
+  }
+  .more a span{
+    color: #424242;
+  }
+  .more a:hover span{
+    color: #ff6700;
+
+  }
+  .more a:hover .link-end-jt{
+    background-color: #ff6700;
+  }
+  .more-end a {
+    display: inline-block;
+    margin: 0;
+  }
+
+  .more-end a:hover span{
+    color: #ff6700;
+
+  }
+  .more-end a:hover .link-end-jt{
+    background-color: #ff6700;
+  }
+  .link-end{
+    float: left;
+  }
+  .link-end span{
+    line-height: 16px;
+  }
+  .link-end-jt{
+    width: 12px;
+    height: 12px;
+    border-radius: 16px;
+    font-size: 16px;
+    line-height: 16px;
+    background: #b0b0b0;
+    color: #fff;
+    transition: all .4s;
+  }
+</style>
+<body>
+  <div>
+    <div class="header">
+      <div class="container">
+        <div class="topbar-nav">
+          <a href="#">小米商场</a>
+          <span class="sep">|</span>
+          <a href="#">MIUI</a>
+          <span class="sep">|</span>
+          <a href="#">loT</a>
+          <span class="sep">|</span>
+          <a href="#">云服务</a>
+          <span class="sep">|</span>
+          <a href="#">天星数科</a>
+          <span class="sep">|</span>
+          <a href="#">有品</a>
+          <span class="sep">|</span>
+          <a href="#">小爱开放平台</a>
+          <span class="sep">|</span>
+          <a href="#">企业团购</a>
+          <span class="sep">|</span>
+          <a href="#">资质证照</a>
+          <span class="sep">|</span>
+          <a href="#">协议规则</a>
+          <span class="sep">|</span>
+          <a href="#" class="b">下载APP
+            <span class="appcode">
+            <img class="miapp" src="images/download.png" alt="小米商场">
+            </span>
+          </a>
+          <span class="sep">|</span>
+          <a href="#">智能生活</a>
+          <span class="sep">|</span>
+          <a href="#">Select Location</a>
+        </div>
+        <div class="right">
+          <a href="#" class="link">登录</a>
+          <span class="sep">|</span>
+          <a href="#" class="link">注册</a>
+          <span class="sep">|</span>
+          <a href="#" class="link">消息通知</a>
+          <div class="shopping">
+            <a href="#" class="mi-gwc">
+            <em mifont>&#xe60c</em>
+              购物车（0）
+            </a>
+            <div class="mi-gwc-list">购物车中还没有商品，赶紧选购吧！</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <nav class="product-nav">
+      <div class="product-nav-inner">
+        <a href="#" class="logo-link">
+          <img src="https://s02.mifile.cn/assets/static/image/logo-mi2.png " alt="">
+        </a>
+        <ul class="product-menu">
+          <li>
+           <a href="#" class="xm">Xiaomi手机</a>
+           <div class="porduct-sub-menu">
+            <ul>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi1.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi2.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi3.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi4.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi5.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi6.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+            </ul>
+           </div>
+          </li>
+          <li><a href="#">Redmi红米</a>
+            <div class="porduct-sub-menu">
+            <ul>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi1.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi2.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi3.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi4.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi5.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi6.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+            </ul>
+           </div>
+          </li>
+          <li><a href="#">电视</a>
+            <div class="porduct-sub-menu">
+            <ul>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi1.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi2.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi3.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi4.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi5.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi6.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+            </ul>
+           </div>
+          </li>
+          <li><a href="#">笔记本</a>
+            <div class="porduct-sub-menu">
+            <ul>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi1.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi2.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi3.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi4.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi5.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi6.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+            </ul>
+           </div>
+          </li>
+          <li><a href="#">平板</a>
+            <div class="porduct-sub-menu">
+            <ul>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi1.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi2.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi3.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi4.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi5.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi6.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+            </ul>
+           </div>
+          </li>
+          <li><a href="#">家电</a>
+            <div class="porduct-sub-menu">
+            <ul>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi1.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi2.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi3.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi4.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi5.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi6.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+            </ul>
+           </div>
+          </li>
+          <li><a href="#">路由器</a>
+            <div class="porduct-sub-menu">
+            <ul>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi1.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi2.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi3.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi4.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi5.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                <img src="images/xiaomi6.webp"/>
+                <p class="tit">Xiaomi Civi</p>
+                <p class="pip">2599元起</p>
+                </a>
+              </li>
+            </ul>
+           </div>
+          </li>
+
+        </ul>
+        <ul class="product-menu">
+          <li>
+            <a href="#">服务</a>
+          </li>
+          <li>
+            <a href="#">社区</a>
+          </li>
+        </ul>
+        <form action="" class="product-nav-search">
+          <input type="text">
+          <button mifont></button>
+          <ul class="suggestions">
+            <li>小米 12</li>
+            <li>小米 12</li>
+            <li>小米 12</li>
+          </ul>
+        </form>
+      </div>
+
+    </nav>
+
+    <div class="main">
+      <ul class="a">
+        <li class="one"><a href="#">手机
+          <em mifont>&#xe623</em>
+        </a>
+          <div class="pica">
+            <ul class="aa">
+              <a href="#">
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+              </a>
+            </ul>
+            <ul class="aa">
+              <a href="#">
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+              </a>
+            </ul>
+            <ul class="aa">
+              <a href="#">
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+              </a>
+            </ul>
+            <ul class="aa">
+              <a href="#">
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+                <li> <img src="images/pic1.webp" alt=""><span>Note 11 Pro 系列</span></li>
+              </a>
+            </ul>
+        </div></li>
+        <li><a href="#">电视
+          <em mifont>&#xe623</em>
+        </a></li>
+        <li><a href="#">笔记本 平板
+          <em mifont>&#xe623</em>
+        </a></li>
+        <li><a href="#">家电
+          <em mifont>&#xe623</em>
+        </a></li>
+        <li><a href="#">出行 穿戴
+          <em mifont>&#xe623</em>
+        </a></li>
+        <li><a href="#">智能 路由器
+          <em mifont>&#xe623</em>
+        </a></li>
+        <li><a href="#">电源 配件
+          <em mifont>&#xe623</em>
+        </a></li>
+        <li><a href="#">健康 儿童
+          <em mifont>&#xe623</em>
+        </a></li>
+        <li><a href="#">生活 箱包
+          <em mifont>&#xe623</em>
+        </a></li>
+        <li><a href="#">耳机 音箱
+          <em mifont>&#xe623</em>
+        </a></li>
+      </ul>
+      <div class="slider">
+        <input type="radio" name="slider1" id="i1" checked>
+        <input type="radio" name="slider1" id="i2">
+        <input type="radio" name="slider1" id="i3">
+        <input type="radio" name="slider1" id="i4">
+        <div class="slides">
+          <div class="slide">
+            <label for="i4"><div class="a"></div></label>
+            <label for="i2"><div class="b"></div></label>
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/78d0483ed36158659fcf65a19a9b249a.jpeg?w=2452&h=920" alt="">
+          </div>
+          <div class="slide">
+            <label for="i1"><div class="a"></div></label>
+            <label for="i3"><div class="b"></div></label>
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/fc0f553382bb5143e667b284dfcf02db.jpg?thumb=1&w=1226&h=460&f=webp&q=90" alt="">
+          </div>
+          <div class="slide">
+            <label for="i2"><div class="a"></div></label>
+            <label for="i4"><div class="b"></div></label>
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/918820682e4a490221cfd92b24c14b86.jpg?thumb=1&w=1226&h=460&f=webp&q=90" alt="">
+          </div>
+          <div class="slide">
+            <label for="i3"><div class="a"></div></label>
+            <label for="i1"><div class="b"></div></label>
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/61bef947ca0b863003b3e68336192a3a.jpg?thumb=1&w=1226&h=460&f=webp&q=90" alt="">
+          </div>
+        </div>
+        <div class="indicators">
+          <label for="i1"></label>
+          <label for="i2"></label>
+          <label for="i3"></label>
+          <label for="i4"></label>
+        </div>
+      </div>
+      <div class="b">
+        <div class="c">
+          <ul>
+            <li>
+              <a href="#">
+              <img src="images/li1.png" alt="" width="24px" height="24px">保障服务
+              </a>
+            </li>
+            <li>
+              <a href="#">
+              <img src="images/li2.png" alt="" width="24px" height="24px">保障服务
+              </a>
+            </li>
+            <li>
+              <a href="#">
+              <img src="images/li3.png" alt="" width="24px" height="24px">保障服务
+              </a>
+            </li>
+            <li>
+              <a href="#">
+              <img src="images/li4.png" alt="" width="24px" height="24px">保障服务
+              </a>
+            </li>
+            <li>
+              <a href="#">
+              <img src="images/li5.png" alt="" width="24px" height="24px">保障服务
+              </a>
+            </li>
+            <li>
+              <a href="#">
+              <img src="images/li6.png" alt="" width="24px" height="24px">保障服务
+              </a>
+            </li>
+          </ul>
+          <div class="emo">
+            <a href="#"><img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/35b3f906861db9d6472206e6d68318d9.jpeg?w=632&h=340" alt="" width="316px" height="170"></a>
+            <a href="#"><img src="images/cp2.jpg" alt="" width="316px" height="170"></a>
+            <a href="#"><img src="images/cp1.jpg" alt="" width="316px" height="170"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-main">
+      <div class="main-conta">
+        <div class="banner-box">
+          <a href="#">
+            <img src="images/k40.webp" alt="">
+          </a>
+        </div>
+        <div class="brick-box">
+          <div class="box-hd">
+            <h2 class="title">手机</h2>
+            <div class="more">
+              <a href="#" class="link-end">
+                <span>查看更多</span>
+                <i mifont class="link-end-jt">&#xE623</i>
+              </a>
+            </div>
+          </div>
+          <div class="clearfix">
+            <div class="pan1">
+              <a href="#">
+                <img src="images/mix.webp" alt="">
+              </a>
+            </div>
+            <div class="span2">
+              <ul>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6d0a3e7acc3e91e2cfd83dbbe1d1c029.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/50da95e9e4496dcac8704da2deb94f6e.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c001ebc4aee69bc9ff6fae9ecf9137d0.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3490cfc52dc7c9abf9badfa1dc2d0eae.png?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7290b681343512c60e3a845379f3335f.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c5c752522100ecd364cc53752bb660bc.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ab07e0fcbec3beb8b0f409db8bee8da4.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/61454401f855cf5ed64747a6ac04bae5.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                    <h3>Redmi Note 11 Pro系列</h3>
+                    <p class="f1">Redmi Note 11 Pro系列</p>
+                    <p class="f2">1799元起</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="brick-box">
+          <div class="box-hd">
+            <h2 class="title">智能穿戴</h2>
+
+          </div>
+          <div class="clearfix">
+            <div class="pan1">
+              <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9895c56a7b792fb9053e3085fc261072.jpg?thumb=1&w=234&h=614&f=webp&q=90" alt="">
+              </a>
+
+            </div>
+            <div class="span3">
+              <div>
+                <span><a href="#" class="a-link">穿戴</a>
+                  <section  class="p2">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b28153b80cb2c67564608e56d5c2f3f3.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c84e1bc129dda0c9c0169e1fab1fe521.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ec0ec7692ba005710d1887262559609c.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/66c7a6e46c5f1a7214eab8182d78171e.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8fd19df34c6b2723f337cb3fb11984a6.png?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8a8de2281327e612f3f83fd1a4db6aea.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+
+                      <li class="end">
+                        <a href="#">
+                          <div class="cd-jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>穿戴</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+                <span><a href="#" class="a-link">热门</a>
+                  <section  class="p2">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f84503dbf5adbdf17111c61d4a7cf893.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b28153b80cb2c67564608e56d5c2f3f3.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cfec307342eb35ee4a437f664004c50f.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0cc4e8e58d7288cd8dff13b98bdc3ea8.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/11570d5371f16d2d9b19f504e09d01f0.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2fcf24e40ff09a254857ac8b4ace25b8.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/72c4b2540c851b542e505058f1603823.jpg?thumb=1&w=160&h=160&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>热门</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="brick-box">
+          <div class="box-hd">
+            <h2 class="title">家电</h2>
+
+          </div>
+          <div class="clearfix">
+            <div class="span1">
+              <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3d47879ec183e25a36e67e0219636e60.jpg?thumb=1&w=234&h=300&f=webp&q=90" alt="">
+              </a>
+            </div>
+            <div class="span5">
+              <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ca83e0294e7d725690b0576a1a4681e2.jpg?thumb=1&w=234&h=300&f=webp&q=90" alt="">
+              </a>
+            </div>
+            <div class="span3">
+              <div>
+                <span><a href="#" class="a-link">电视影音</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9d8674cd21c486feff5328772ab9cf01.jpg?thumb=1&w=220&h=220&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f193daba3989eadac5e13ae102b91582.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ecbe6a6c0d4950b78b086d7ada654e3b.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a5572d6d4adea2e8e9f936ef19024dd4.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/03a9e7e96a09d256ca1badeec186c859.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3483b4ec83f3d085c567633f2edef1c1.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f674ced205c2e81125dfd2d6659aabfc.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5f8be2fa1f60f81a0cfbfa3f6e0a5723.jpg?thumb=1&w=100&h=100&f=webp&q=90" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">
+                            Redmi MAX 86″ 超大屏电视
+                          </p>
+                          <small class="small-pic">7999元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="cd-jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>电视影音</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+                <span><a href="#" class="a-link">热门</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/82ff5ea76730fdf6f91aba5d3b2e5739.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c7c15101f2c8a652a4a0d069501d1e53.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/388b13bf52ab0d6a56bc9f195b5f1dd5.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6bed167fc905bab57dee478bcf1e5e0d.JPG?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/91bd66c0e6bf7a22d12a8b191da19078.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7826279526dcce1e5a8b2eff2fa49784.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b8c63a2024528fe5410ebe669b7d2407.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1612c93ad4756215774a0dbec7a81bb2.jpg?thumb=1&w=100&h=100&f=webp&q=90" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">米家电烤箱
+                          </p>
+                          <small class="small-pic">299元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>热门</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="brick-box">
+          <div class="box-hd">
+            <h2 class="title">生活电器</h2>
+
+          </div>
+          <div class="clearfix">
+            <div class="span1">
+              <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/190871ab5bd9bdaa16a0b957a3628ab0.jpeg?thumb=1&w=234&h=300&f=webp&q=90" alt="">
+              </a>
+            </div>
+            <div class="span5">
+              <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d51103fe64d90aca747a6d753beae293.jpeg?thumb=1&w=234&h=300&f=webp&q=90" alt="">
+              </a>
+            </div>
+            <div class="span3">
+              <div>
+                <span><a href="#" class="a-link">风扇</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ca3a3fef6bcecac8035e06934de90396.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0e8783e56fe200433f6a860bf27c5777.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/16152aed79632c729d5cdb154ed72086.png?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3edbb646a3296374f5fb6e68e0352bfe.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4359cbd9f36f29fdeefee97a698f8fe0.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d9d4c16e73a5f8a2a72fc55f3107fd38.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d2f735f2df75e38bbcd3c380f055aedb.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a706bf4911331f571412b04e7e05e870.jpg?thumb=1&w=100&h=100&f=webp&q=90" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">
+                            Redmi MAX 86″ 超大屏电视
+                          </p>
+                          <small class="small-pic">7999元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="cd-jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>风扇</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+
+                <span><a href="#" class="a-link">清洁</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6fcf8a058ddee92f1e47742d1bb2032d.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/49ce27de01e2f841c21abc6a40ce7162.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/467cedb8205d291c6015bc10ee2f9260.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4cec136b30482762b86554c21bda808e.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bdd9d216b401933efaa304b64901c087.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a1bfedb897e1eb90ce6c8bd10ca02b85.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/70627ef7fd67fb359b652b3a8bea925c.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/168fa4454c487c0eec1989e77689a679.jpg?thumb=1&w=100&h=100&f=webp&q=90" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">米家电烤箱
+                          </p>
+                          <small class="small-pic">299元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>清洁</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+                <span><a href="#" class="a-link">空净</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d9e887830eee09bd341b9ed130db2d9c.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/fd1cad9acc509b5395d7993d5bb86411.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/efb720daed8293bbc82b38e1e1c9d0d9.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f03a3a8d78c5f9075ef4d62da605e740.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a997f8b46c40cc0063121663acdf47cc.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/74a5cf7ecc2bb102b3f5d83ae1b25fae.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b62b063fa8c9f83d03409e868aeaf6ae.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>空净</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+                <span><a href="#" class="a-link">扫地机</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/61074d24c93da07f76f756b0a160a99e.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5ca7c7fcce9da361df977e162ca37452.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7826279526dcce1e5a8b2eff2fa49784.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b03d716905ebd84a813d1fd91906a1b5.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/86be1c24911e305729ae8710f23b9c8b.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5bdb5ca3733112edb8035aa25880fc16.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9ba2526d6ed828f8e5f2f7556889328f.jpg?thumb=1&w=200&h=200&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3d910c9c340274064a1e784e1d371ce5.jpg?thumb=1&w=100&h=100&f=webp&q=90" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">米家电烤箱
+                          </p>
+                          <small class="small-pic">299元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>扫地机</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="banner-box">
+          <a href="#">
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/756e4f9d4d0c9a75b7f3883a65f00efa.jpg?thumb=1&w=1226&h=120&f=webp&q=90" alt="">
+          </a>
+        </div>
+        <div class="brick-box">
+          <div class="box-hd">
+            <h2 class="title">厨房电器</h2>
+
+          </div>
+          <div class="clearfix">
+            <div class="span1">
+              <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d0a92bc19df74c4da59563206321320a.jpg?thumb=1&w=156&h=200&f=webp&q=90" alt=""width="234px" height="300px">
+              </a>
+            </div>
+            <div class="span5">
+              <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f58378dfd4d3d3609f5492b204bd5aae.jpg?thumb=1&w=156&h=200&f=webp&q=90" alt="" width="234px" height="300px">
+              </a>
+            </div>
+            <div class="span3">
+              <div>
+                <span><a href="#" class="a-link">微蒸烤</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0fabb6c16cbadaf300da4a2c2ffb9afa.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3b6a47f33993a59ff3a5c1112d484eed.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d9990f4266c0fb20482d637618fe9366.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1612c93ad4756215774a0dbec7a81bb2.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bb1e375d2beca06b684650de635520df.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="cd-jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>微蒸烤</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+
+                <span><a href="#" class="a-link">电饭煲</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b5e7b8356420596e2116ca901e11cb7b.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d96feb0267ddea24666b32a28984a83b.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6cb309bfab923dd888a569e1b62e44ba.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/088bbeef6373e17564f0b9771f068305.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1062c89f8b84ac8e1898cdc8db52ee3a.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1062c89f8b84ac8e1898cdc8db52ee3a.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f9f6b78a4e55001a0dffed85c099bfb0.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/d1e5cc98d1a498abc03a9a344bed2af0.jpg?thumb=1&w=67&h=67" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">米家电烤箱
+                          </p>
+                          <small class="small-pic">299元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>电饭煲</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+                <span><a href="#" class="a-link">烟灶</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f19bf1611b3a9fe863af68911b769afa.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b366b9f38c40394f7c71c3c991d8fba2.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f4ac441ffbe20de2dfad55785e7b3212.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/30fdb68d9cf6a588dfa17237866f79cb.jpg?thumb=1&w=133&h=133&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>烟灶</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+                <span><a href="#" class="a-link">净水器</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1889916871e84f151975bb83014ea61f.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1c5909c8e91f871efaf94e2159b6f85e.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/6594e9856ed024575434d7d81d86e868.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c09841227b58f4e0271ec9086753e6a1.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1c71ab7e9c2508f75acc9a50f2d0dcd6.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/924690d930af1fa0ebfe6945840f5033.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5fa153eaa084af41915d0c57454f1b9f.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/56e5787a790241420afb782e01477b93.jpg?thumb=1&w=75&h=75&f=webp&q=90" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">米家电烤箱
+                          </p>
+                          <small class="small-pic">299元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>净水器</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="brick-box">
+          <div class="box-hd">
+            <h2 class="title">智能家居</h2>
+
+          </div>
+          <div class="clearfix">
+            <div class="span1">
+              <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ec383d223d9f38f442268df684c526f6.png?thumb=1&w=176&h=225&f=webp&q=90" alt="">
+              </a>
+            </div>
+            <div class="span5">
+              <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a517d9aa182942ef01b5bcbc3eea744e.jpg?thumb=1&w=176&h=225&f=webp&q=90" alt="">
+              </a>
+            </div>
+            <div class="span3">
+              <div>
+                <span><a href="#" class="a-link">智能设备</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/74f5975a77c6d9fcf67e294c47561994.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/65c6018d393e8d860f638a394d3826bf.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/068940a89c1c35a9924cb64c762879fe.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/564855bb23318db932d11a64b8053917.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bd2c99ad0113f0cb8420f06d99e0c989.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7fe0a1143670e2b37e4beb91c8b0d717.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/08142700e816eee56a84dd8b87e86b55.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-miapp-a1/804c0c0f-c8af-78a1-c2fd-c845d104242a.jpg?thumb=1&w=75&h=75" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">
+                            Redmi MAX 86″ 超大屏电视
+                          </p>
+                          <small class="small-pic">7999元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="cd-jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>智能设备</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+                <span><a href="#" class="a-link">路由器</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/314df4955a5f305de306155078bb103d.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b11a222051f90dafb22b939cc5142e69.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c2af30d499323618f9abdaffd82b581b.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/33b734b0f427fd89ae293752ffaf4381.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/500a840ec69f9ce885345e9a9471a9f9.png?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/07419ed5047471b60d0232c9d8a7d84f.png?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3c9787588ce1ae5876334a1b9296ad3f.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/11db80e3fcb3e186e5ea7078b0a1de5a.jpg?thumb=1&w=75&h=75&f=webp&q=90" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">米家电烤箱
+                          </p>
+                          <small class="small-pic">299元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>路由器</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+                <span><a href="#" class="a-link">门锁</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/0518e14e0e66f546a76802ebc15953b0.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/70d65eab5671b8bb901b00d8debf40b1.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9f58cf48a1b92376b54e99f6124eb886.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5c7cb198d71ee962b38a45aa03515341.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f0914c60fa1ab807972541b4e2b1a4cd.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d8db2ee381ce25dc2305829d6e151d32.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>门锁</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+                <span><a href="#" class="a-link">小爱音箱</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/adce4500b997efaf6e3ff8e8150215f4.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4d73fad85fb9f683109834a882ba15a6.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e7c6e79433c883e1a022ec21402c1679.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8b619d27877bbc497468c673a317a847.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/86c3f61639ae6a2a9a205a463d338ed2.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/9946e252a7c49662376c056ced004a20.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e13900c094ae4ac4eb53b35f2d0c95b0.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1ab7943ae5215e0faacb04f7270d9cfb.jpg?thumb=1&w=75&h=75&f=webp&q=90" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">米家电烤箱
+                          </p>
+                          <small class="small-pic">299元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>小爱音箱</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="brick-box">
+          <div class="box-hd">
+            <h2 class="title">运动出行</h2>
+
+          </div>
+          <div class="clearfix">
+            <div class="span1">
+              <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/84fef78042e4056ea589474196780d4e.jpg?thumb=1&w=176&h=225&f=webp&q=90" alt="">
+              </a>
+            </div>
+            <div class="span5">
+              <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ecce1c0d981037e58cfa281a06122249.jpg?thumb=1&w=176&h=225&f=webp&q=90" alt="">
+              </a>
+            </div>
+            <div class="span3">
+              <div>
+                <span><a href="#" class="a-link">出行工具</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3fe46e9ba1bf939713b0c3c55bf6776b.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/27477a6b721dbff5758c295f68da318e.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d459d12b84471a08f44f0dfb27d59337.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1d659e276cb0fe3ae92046db02e00637.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d86c1eb8f5525bc4c76c8e0e98db7446.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/05c5b22c8ae030b6c5de7d36114a32e4.jpg?thumb=1&w=150&h=150" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8c27c25b38dc7c000dd26d23739f951d.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/155d7ee69679d173a034576737577342.jpg?thumb=1&w=75&h=75&f=webp&q=90" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">
+                            Redmi MAX 86″ 超大屏电视
+                          </p>
+                          <small class="small-pic">7999元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="cd-jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>出行工具</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+
+                <span><a href="#" class="a-link">箱包配饰</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a0ca95bc1de606c2d6a3a44cd28b3490.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/69988352872c3e3a8daf3de9bd8a51e2.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/dadb65ac061e64c96d264185abebf4d9.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5b4304d0e62a9c874e83eba0649110ee.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/39dddad286a7593cbd910a1acb4fc3a3.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3658081e32c66ef22565cddb1d1771b8.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/20c38c4d85252bfd05f3509fa8c168ef.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/18ed368638a1d75431e36be0bf6d04f4.jpg?thumb=1&w=75&h=75&f=webp&q=90" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">米家电烤箱
+                          </p>
+                          <small class="small-pic">299元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>箱包配饰</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+                <span><a href="#" class="a-link">运动健身</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/550177d2e54387521bce9e78cb2949dd.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/91340c5a32e0c9bf9e14cb0df09e2718.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a44765d365daa289e7d3d71dd935a381.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/59e41e403312311dea21a9ebb1491292.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d4b436a6f6adb2afd0bc59ceb45f7344.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d8982fbbf8948ff75200ad1021d1f90b.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b441057910c50e8807c5da90f65ba300.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>运动健身</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+                <span><a href="#" class="a-link">平衡车/滑板车</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-miapp-a1/T1r_x_BgLT1RXrhCrK.jpg?thumb=1&w=150&h=150" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/223f9f2c0f9765851adff89e43db65f0.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-miapp-a1/877d3ce8-68ab-7506-2a78-55a8c0fba946.png?thumb=1&w=150&h=150" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/3622a82de99a8a3ee1aeb2b2b7586209.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/aabf1a475043266cf4759ec58d0f679c.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/609d0a457c7f8ac27d76f953c8acb7fc.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/fcc87477432d45a0e13a544cd5d7b2f5.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>平衡车/滑板车</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="banner-box">
+          <a href="#">
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/88e35cffc82cd98cd53172460067af17.jpg?thumb=1&w=920&h=90&f=webp&q=90" alt="">
+          </a>
+        </div>
+        <div class="brick-box">
+          <div class="box-hd">
+            <h2 class="title">日用百货</h2>
+
+          </div>
+          <div class="clearfix">
+            <div class="span1">
+              <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c5769bd53177a9301113f799fdc8511d.jpg?thumb=1&w=176&h=225&f=webp&q=90" alt="">
+              </a>
+            </div>
+            <div class="span5">
+              <a href="#">
+                <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/65950f83f429f2a05125bea297d8df6b.jpg?thumb=1&w=176&h=225&f=webp&q=90" alt="">
+              </a>
+            </div>
+            <div class="span3">
+              <div>
+                <span><a href="#" class="a-link">家居床品</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1db0bdebf7a991abf8a307f289491a37.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/fac75c3cf00c16d9f682bf8b67aca3e4.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f04cf76f17d1a45e8242cf96c1173613.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ff21df849dd28d9afda3f53457fe2eb0.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/4bee00fb66230d5d4512bb8d4b993d2d.jpg?thumb=1&w=150&h=150" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-miapp-a1/3a139cf0-3d45-9c2e-9054-0a89c186f26b.jpg?thumb=1&w=150&h=150" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f9017bebb14740ea46673aaa81a616cb.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/62ce711a4c595c78dee5e647f1295240.jpg?thumb=1&w=75&h=75&f=webp&q=90" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">
+                            Redmi MAX 86″ 超大屏电视
+                          </p>
+                          <small class="small-pic">7999元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="cd-jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>家居床品</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+
+                <span><a href="#" class="a-link">儿童用品</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2562c4a892f018a979ff0cd8b992251f.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d5736a7ecdfa73fa30887d7bfc997541.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/56b3f247dc3c9b244e85a37d1e95ab3f.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/8ccb5004d3f84ce49d56b65e93787180.jpg?thumb=1&w=150&h=150" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c3c34d13383ecaf8929bddad14296460.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/f87f86159484dc4a7e3ccd7f2021a5c3.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/42dcd770e850747e0789f02e8ac032d9.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/af7991bef41050c4aa9beb76e193c21c.jpg?thumb=1&w=75&h=75&f=webp&q=90" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">米家电烤箱
+                          </p>
+                          <small class="small-pic">299元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>儿童用品</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+                <span><a href="#" class="a-link">电源/线材</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8831809c4acc20b1b9380522407fc49e.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/eaf70e0e9905de6452f07b1f48fcc386.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/29ab6d26b2aa18c3f418d603ed6f1910.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/ea8e42faebf7d76a4cb42b8930cf9e46.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1f32af53d1ad60f4980146f6a2b81019.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bb115b0d5e6cc24c39c1ae818b63bf1a.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e2589bc96718b0db697b23ff765c01c3.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a45463351a35af1407381a173b3c9ef9.jpg?thumb=1&w=75&h=75&f=webp&q=90" alt="">
+                          </div>
+                          <p class="more-pic">米家电烤箱
+                          </p>
+                          <small class="small-pic">299元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>电源/线材</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+                <span><a href="#" class="a-link">个护健康</a>
+                  <section>
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e2ad7080408a1434b90f824f50293b89.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/b5566da4f82e730c21bc8d85b3819f7b.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/4cd18c61d5786df7dfb4a8927d83da66.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/cccefe4c39329ec01b587d114f64eab5.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7676cd481892743762484613df962606.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/a2e6100cb09462515a939caf8bbe56ab.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/161335ac42176491d4e98986c6b9de68.jpg?thumb=1&w=150&h=150&f=webp&q=90" alt="" class="mix">
+                          <h3>Redmi Note 11 Pro系列</h3>
+                          <p class="f1">Redmi Note 11 Pro系列</p>
+                          <p class="f2">1799元起</p>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="pic-pic">
+                            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5afc0b5d19db30a62ed15b5435008033.jpg?thumb=1&w=75&h=75&f=webp&q=90" alt="" width="80px" height="80px">
+                          </div>
+                          <p class="more-pic">米家电烤箱
+                          </p>
+                          <small class="small-pic">299元</small>
+                        </a>
+                      </li>
+                      <li class="end">
+                        <a href="#">
+                          <div class="jiantou">
+                            <i mifont >&#xe615
+                            </i>
+                          </div>
+                          <div class="more">浏览更多
+                            <small>个护健康</small>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                </span>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="brick-box-end">
+          <div class="box-hd-end">
+            <h2 class="title-end">视频</h2>
+            <div class="more-end">
+              <a href="#" class="link-end">
+                <span>查看更多</span>
+                <i mifont class="link-end-jt">&#xE623</i>
+              </a>
+            </div>
+          </div>
+          <div class="clearfix-end">
+            <ul class="clearfix-end-list">
+              <li class="a">
+                <div>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e74c4ff741bcdfc5b28a48a43e4edc6d.jpg?thumb=1&w=296&h=180&f=webp&q=90" alt="2021年春季新品发布会第一场">
+                    <p>2021年春季新品发布会第一场</p>
+                  </a>
+                </div>
+              </li>
+              <li class="b">
+                <div>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/101b19aca4bb489bcef0f503e44ec866.jpg?thumb=1&w=296&h=180&f=webp&q=90" alt="2021年春季新品发布会第一场">
+                    <p>2021年春季新品发布会第一场</p>
+                    <p class="a">Redmi 10X系列发布会</p>
+                  </a>
+                </div>
+              </li>
+              <li class="b">
+                <div>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/96563e75833ba4563bd469dd28203b09.jpg?thumb=1&w=296&h=180&f=webp&q=90" alt="2021年春季新品发布会第一场">
+                    <p>2021年春季新品发布会第一场</p>
+                  </a>
+                </div>
+              </li>
+              <li class="b">
+                <div>
+                  <a href="#">
+                    <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2fd26bb99b723337a2f8eaba84f7d5bb.jpg?thumb=1&w=296&h=180&f=webp&q=90" alt="2021年春季新品发布会第一场">
+                    <p>2021年春季新品发布会第一场</p>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

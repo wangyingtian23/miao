@@ -1,0 +1,37 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  background-color: #fff;
+}
+
+td,
+th {
+  height: 2em;
+}
+
+.table-striped tr {
+  border-bottom: 1px solid rgb(222, 226, 230)
+}
+
+.table-dark {
+  background-color: black;
+  color: white;
+}
+
+.table-dark thead {
+  background-color: black;
+  color: white;
+}
+
+.table-striped thead tr {
+  border-bottom: 2px solid;
+}
+
+.table-striped tbody tr:nth-child(2n + 1) {
+  background-color: rbg(242, 242, 242);
+}
+
+.table-striped.table-dark tbody tr:nth-child(2n + 1) {
+  background-color: rbg(44, 48, 52);
+}
