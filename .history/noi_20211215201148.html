@@ -492,16 +492,13 @@
 <script xtype="xxx" id="ch0105/16">
   var n = parseInt(prompt('n'))
   var k = parseInt(prompt('k'))
-  var y = 1
-  var m = n
-  do {  y = y + 1
-    m = n * y
-    p = 200 * (1 + 0.01 * k) ** (y - 1)
-  }while(m < p && y < 20)
-  if(m < p){
-    console.log('Impossible');
+  for (i = 1;i<=20;i++){
+
+  }
+  if(m == 0){
+    console.log(parseInt(m));
   } else{
-    console.log(y);
+    console.log('Impossible');
   }
 
 </script>

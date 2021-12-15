@@ -353,7 +353,7 @@
   for (var i = 0;i < a;i++){
     b += parseInt(prompt('b'))
   }
-  console.log('$'+(b / a).toFixed(2))
+  console.log('$'+(b / (i - 1)).toFixed(2))
 </script>
 <script type="xxx" id="ch0105/03">
   var a = parseInt(prompt('a'))
@@ -476,35 +476,11 @@
   var m = a ** n
   console.log(m);
 </script>
-<script type="xxx" id="ch0105/14">
+<script xtype="xxx" id="ch0105/14">
   var x = parseInt(prompt('x'))
   var n = parseInt(prompt('n'))
   var m = x * 1.001 ** n
   console.log(m.toFixed(4));
 </script>
-<script type="xxx" id="ch0105/15">
-  var r = parseInt(prompt('r'))
-  var m = parseInt(prompt('m'))
-  var y = parseInt(prompt('y'))
-  var s = (1 + 0.01 * r) ** y * m
-  console.log(parseInt(s));
-</script>
-<script xtype="xxx" id="ch0105/16">
-  var n = parseInt(prompt('n'))
-  var k = parseInt(prompt('k'))
-  var y = 1
-  var m = n
-  do {  y = y + 1
-    m = n * y
-    p = 200 * (1 + 0.01 * k) ** (y - 1)
-  }while(m < p && y < 20)
-  if(m < p){
-    console.log('Impossible');
-  } else{
-    console.log(y);
-  }
-
-</script>
-
 
 
