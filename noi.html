@@ -153,7 +153,7 @@
   var a = Number(prompt('a'))
   if (n >= 0){
     console.log(n)
-  }else(n < 0){
+  }else if(n < 0){
     console.log(-n)
   }
 </script>
@@ -206,19 +206,26 @@
   var x = parseInt((prompt('x')))
   if (x % 3 == 0 && x % 5 == 0 && x % 7 == 0){
     console.log('3 5 7')
-  }else if (x % 3 != 0 && x % 5 == 0 && x % 7 == 0)(
+  }
+  else if (x % 3 != 0 && x % 5 == 0 && x % 7 == 0)(
     console.log('5 7')
-  )else if (x % 3 == 0 && x % 5 != 0 && x % 7 == 0)(
+  )
+  else if (x % 3 == 0 && x % 5 != 0 && x % 7 == 0)(
     console.log('3 7')
-  )else if (x % 3 == 0 && x % 5 == 0 && x % 7 != 0)(
+  )
+  else if (x % 3 == 0 && x % 5 == 0 && x % 7 != 0)(
     console.log('3 5')
-  )else if (x % 3 == 0 && x % 5 != 0 && x % 7 != 0)(
+  )
+  else if (x % 3 == 0 && x % 5 != 0 && x % 7 != 0)(
     console.log('3')
-  )else if (x % 3 != 0 && x % 5 == 0 && x % 7 != 0)(
+  )
+  else if (x % 3 != 0 && x % 5 == 0 && x % 7 != 0)(
     console.log('5')
-  )else if (x % 3 != 0 && x % 5 != 0 && x % 7 == 0)(
+  )
+  else if (x % 3 != 0 && x % 5 != 0 && x % 7 == 0)(
     console.log('7')
-  )else if (x % 3 != 0 && x % 5 != 0 && x % 7 != 0)(
+  )
+  else if (x % 3 != 0 && x % 5 != 0 && x % 7 != 0)(
     console.log('n')
   )
 </script>
@@ -341,7 +348,6 @@
   console.log((b / a).toFixed(2))
 </script>
 <script type="xxx" id="ch0105/02">
-debugger
     var b = 0
     for (var i = 1;i <= 12;i++){
       b += parseInt(prompt('b'))
@@ -365,16 +371,25 @@ debugger
   console.log(b)
   console.log((b / a).toFixed(4))
 </script>
-<script xtype="xxx" id="ch0105/04">
+<script type="xxx" id="ch0105/05">
   var a = parseInt(prompt('a'))
-  var b = 0
-  var c = b
-  for (var i = 0;i < a;i++){
-    b == parseInt(prompt('b'))
-    if (b > c){
-      b == c
-    }
-  }
-  console.log(c)
+  b = []
+  for (var i = 0;i < a;i++)
+    b.push(prompt('b'))
+  console.log(Math.max(...b))
+</script>
+<script type="xxx" id="ch0105/06">
+  var a = parseInt(prompt('a'))
+  b = []
+  for (var i = 0;i < a;i++)
+    b.push(prompt('b'))
+  console.log(Math.max(...b) - Math.min(...b))
+</script>
+<script xtype="xxx" id="ch0105/07">
+  var a = parseInt(prompt('a'))
+  b = []
+  for (var i = 0;i < a;i++)
+    b.push(prompt('b'))
+  console.log(Math.max(...b) - Math.min(...b))
 </script>
 
