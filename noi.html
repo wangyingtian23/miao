@@ -348,7 +348,7 @@ debugger
     }
     console.log('$'+(b / (i - 1)).toFixed(2))
 </script>
-<script xtype="xxx" id="ch0105/03">
+<script type="xxx" id="ch0105/03">
   var a = parseInt(prompt('a'))
   var b = 0
   for (var i = 0;i < a;i++){
@@ -356,3 +356,25 @@ debugger
   }
   console.log((b / a).toFixed(4))
 </script>
+<script type="xxx" id="ch0105/04">
+  var a = parseInt(prompt('a'))
+  var b = 0
+  for (var i = 0;i < a;i++){
+    b += Math.abs(parseInt(prompt('b')))
+  }
+  console.log(b)
+  console.log((b / a).toFixed(4))
+</script>
+<script xtype="xxx" id="ch0105/04">
+  var a = parseInt(prompt('a'))
+  var b = 0
+  var c = b
+  for (var i = 0;i < a;i++){
+    b == parseInt(prompt('b'))
+    if (b > c){
+      b == c
+    }
+  }
+  console.log(c)
+</script>
+
