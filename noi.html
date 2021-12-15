@@ -353,7 +353,7 @@
   for (var i = 0;i < a;i++){
     b += parseInt(prompt('b'))
   }
-  console.log('$'+(b / (i - 1)).toFixed(2))
+  console.log('$'+(b / a).toFixed(2))
 </script>
 <script type="xxx" id="ch0105/03">
   var a = parseInt(prompt('a'))
@@ -434,7 +434,7 @@
   }
   console.log(c)
 </script>
-<script xtype="xxx" id="ch0105/11">
+<script type="xxx" id="ch0105/11">
   var k = parseInt(prompt('a'))
   var arr = []
   var b = 0
@@ -456,5 +456,52 @@
   console.log(c)
   console.log(d)
 </script>
+<script type="xxx" id="ch0105/12">
+  var n = parseInt(prompt('n'))
+  var m = parseInt(prompt('m'))
+  var a = []
+  var b = 0
+  for (var i = 0;i < n;i++) a.push(parseInt(prompt()))
+  for (var i = 0;i < n;i++)
+  {
+    if (a[i] == m){
+      b = b + 1
+    }
+  }
+  console.log(b)
+</script>
+<script type="xxx" id="ch0105/13">
+  var a = parseInt(prompt('a'))
+  var n = parseInt(prompt('n'))
+  var m = a ** n
+  console.log(m);
+</script>
+<script type="xxx" id="ch0105/14">
+  var x = parseInt(prompt('x'))
+  var n = parseInt(prompt('n'))
+  var m = x * 1.001 ** n
+  console.log(m.toFixed(4));
+</script>
+<script type="xxx" id="ch0105/15">
+  var r = parseInt(prompt('r'))
+  var m = parseInt(prompt('m'))
+  var y = parseInt(prompt('y'))
+  var s = (1 + 0.01 * r) ** y * m
+  console.log(parseInt(s));
+</script>
+<script xtype="xxx" id="ch0105/16">
+  var n = parseInt(prompt('n'))
+  var k = parseInt(prompt('k'))
+  for (i = 1;i<=20;i++){
+
+  }
+  if(m == 0){
+    console.log(parseInt(m));
+  } else{
+    console.log('Impossible');
+  }
+
+</script>
+
 
 
