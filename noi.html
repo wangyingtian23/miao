@@ -150,11 +150,11 @@
   }
 </script>
 <script type="xxx" id="ch0104/02">
-  var a = Number(prompt('a'))
+  var n = Number(prompt('n'))
   if (n >= 0){
     console.log(n)
   }else if(n < 0){
-    console.log(-n)
+    console.log(-1 * n)
   }
 </script>
 <script type="xxx" id="ch0104/03">
@@ -348,11 +348,12 @@
   console.log((b / a).toFixed(2))
 </script>
 <script type="xxx" id="ch0105/02">
-    var b = 0
-    for (var i = 1;i <= 12;i++){
-      b += parseInt(prompt('b'))
-    }
-    console.log('$'+(b / (i - 1)).toFixed(2))
+  var a = parseInt(prompt('a'))
+  var b = 0
+  for (var i = 0;i < a;i++){
+    b += parseInt(prompt('b'))
+  }
+  console.log('$'+(b / (i - 1)).toFixed(2))
 </script>
 <script type="xxx" id="ch0105/03">
   var a = parseInt(prompt('a'))
@@ -369,7 +370,7 @@
     b += Math.abs(parseInt(prompt('b')))
   }
   console.log(b)
-  console.log((b / a).toFixed(4))
+  console.log((b / a).toFixed(5))
 </script>
 <script type="xxx" id="ch0105/05">
   var a = parseInt(prompt('a'))
