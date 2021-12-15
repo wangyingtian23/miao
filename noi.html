@@ -348,12 +348,11 @@
   console.log((b / a).toFixed(2))
 </script>
 <script type="xxx" id="ch0105/02">
-  var a = parseInt(prompt('a'))
-  var b = 0
-  for (var i = 0;i < a;i++){
-    b += parseInt(prompt('b'))
+  for (var i = 0,x = 0,s = 0;i < 12;i++){
+    x = Number(prompt())
+    s = s + x
   }
-  console.log('$'+(b / a).toFixed(2))
+  console.log('$'+(s / 12).toFixed(2))
 </script>
 <script type="xxx" id="ch0105/03">
   var a = parseInt(prompt('a'))
@@ -489,7 +488,7 @@
   var s = (1 + 0.01 * r) ** y * m
   console.log(parseInt(s));
 </script>
-<script xtype="xxx" id="ch0105/16">
+<script type="xxx" id="ch0105/16">
   var n = parseInt(prompt('n'))
   var k = parseInt(prompt('k'))
   var y = 1
@@ -497,7 +496,7 @@
   do {  y = y + 1
     m = n * y
     p = 200 * (1 + 0.01 * k) ** (y - 1)
-  }while(m < p && y < 20)
+  }while(m < p && y < 20);
   if(m < p){
     console.log('Impossible');
   } else{
@@ -505,6 +504,37 @@
   }
 
 </script>
+<script type="xxx" id="ch0105/17">
+debugger
+  var a = 1
+  var b = 1
+  var k = Number(prompt())
+  for (var i = 3; i <= k; i++) {
+    b = a + b
+    a = b - a
+  }
+  console.log( b )
+</script>
+<script xtype="xxx" id="ch0105/18">
+debugger
+  var A = parseInt(prompt('A'))
+  var B = parseInt(prompt('B'))
+  var C = parseInt(prompt('C'))
+  var R = C / B
+  for (var i = 0,x = 0, y = 0;i < (A - 1) ; i++) {
+    x = (+prompt('x'))
+    y = (+prompt('y'))
+    r = y / x
+  if (r - R > 0.05){
+    console.log('better')
+  } else if (R - r > 0.05){
+    console.log('worse')
+  } else{
+    console.log('same')
+  }
+}
+  </script>
+
 
 
 
