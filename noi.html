@@ -70,10 +70,11 @@
 </script>
 <script type="xxx" id="ch0103/13">
   var a = Number(prompt('a'))
-  var b = a / 100 + ""
-  var c = a % 10 + ""
-  var d = a % 100 + ""
-  console.log(d + c + b)
+  var b = a % 10
+  var c = (a - b) / 10 % 10
+  var d = (a - b - c * 10) / 100 % 10
+  var result=String(b) + String(c) + String(d)
+  console.log(result)
 </script>
 <script type="xxx" id="ch0103/14">
   var a = Number(prompt('a'))
@@ -150,8 +151,11 @@
 </script>
 <script type="xxx" id="ch0104/02">
   var a = Number(prompt('a'))
-  abs = Math.abs
-  console.log(abs(a))
+  if (n >= 0){
+    console.log(n)
+  }else(n < 0){
+    console.log(-n)
+  }
 </script>
 <script type="xxx" id="ch0104/03">
   var a = parseInt((prompt('a')))
@@ -202,26 +206,19 @@
   var x = parseInt((prompt('x')))
   if (x % 3 == 0 && x % 5 == 0 && x % 7 == 0){
     console.log('3 5 7')
-  }
-  else if (x % 3 != 0 && x % 5 == 0 && x % 7 == 0)(
+  }else if (x % 3 != 0 && x % 5 == 0 && x % 7 == 0)(
     console.log('5 7')
-  )
-  else if (x % 3 == 0 && x % 5 != 0 && x % 7 == 0)(
+  )else if (x % 3 == 0 && x % 5 != 0 && x % 7 == 0)(
     console.log('3 7')
-  )
-  else if (x % 3 == 0 && x % 5 == 0 && x % 7 != 0)(
+  )else if (x % 3 == 0 && x % 5 == 0 && x % 7 != 0)(
     console.log('3 5')
-  )
-  else if (x % 3 == 0 && x % 5 != 0 && x % 7 != 0)(
+  )else if (x % 3 == 0 && x % 5 != 0 && x % 7 != 0)(
     console.log('3')
-  )
-  else if (x % 3 != 0 && x % 5 == 0 && x % 7 != 0)(
+  )else if (x % 3 != 0 && x % 5 == 0 && x % 7 != 0)(
     console.log('5')
-  )
-  else if (x % 3 != 0 && x % 5 != 0 && x % 7 == 0)(
+  )else if (x % 3 != 0 && x % 5 != 0 && x % 7 == 0)(
     console.log('7')
-  )
-  else if (x % 3 != 0 && x % 5 != 0 && x % 7 != 0)(
+  )else if (x % 3 != 0 && x % 5 != 0 && x % 7 != 0)(
     console.log('n')
   )
 </script>
@@ -240,11 +237,9 @@
   var z = x / 1.2
   if (y < z){
     console.log('Bike')
-  }
-  else if (y = z){
+  }else if (y = z){
     console.log('All')
-  }
-  else if (y > z){
+  }else if (y > z){
     console.log('Wall')
   }
 </script>
@@ -252,11 +247,9 @@
   var x = ((prompt('x')))
   if (x >= 0 && x < 5){
     console.log((-1 * x + 2.5).toFixed(3))
-  }
-  else if (x >= 5 && x < 10){
+  }else if (x >= 5 && x < 10){
     console.log((2 - 1.5 * (x - 3) ** 2).toFixed(3))
-  }
-  else if (x >= 10 && x < 20){
+  }else if (x >= 10 && x < 20){
     console.log((x / 2 -1.5).toFixed(3))
   }
 </script>
@@ -267,14 +260,11 @@
   var z =  ceil((x - 1000) / 500)
   if (x <= 1000 && y == 'y'){
     console.log(8 + 5)
-  }
-  else if (x <= 1000 && y == 'n'){
+  }else if (x <= 1000 && y == 'n'){
     console.log(8)
-  }
-  else if (x > 1000 && y == 'y'){
+  }else if (x > 1000 && y == 'y'){
     console.log(8 + 4 * z + 5)
-  }
-  else if (x > 1000 && y == 'n'){
+  }else if (x > 1000 && y == 'n'){
     console.log(8 + 4 * z)
   }
 </script>
@@ -306,24 +296,19 @@
   var z = String((prompt('z')))
   if (z == '+'){
     console.log(x + y)
-  }
-  else if (z == '/' && y != 0){
+  }else if (z == '/' && y != 0){
     console.log(x / y)
-  }
-  else if (z == '/' && y == 0){
+  }else if (z == '/' && y == 0){
     console.log('Divided by zero!')
-  }
-  else if (z == '*'){
+  }else if (z == '*'){
     console.log(x * y)
-  }
-  else if (z == '-'){
+  }else if (z == '-'){
     console.log(x - y)
-  }
-  else{
+  }else{
     console.log('Invalid operator!')
   }
 </script>
-<script xtype="xxx" id="ch0104/20">
+<script type="xxx" id="ch0104/20">
   var a = Number((prompt('a')))
   var b = Number((prompt('b')))
   var c = Number((prompt('c')))
@@ -333,11 +318,9 @@
   x2 = (-1 * b - sqrt(b*b - 4*a*c)) / (2*a)
   if (b*b == 4*a*c){
     console.log('x1=x2=' + x1.toFixed(5))
-  }
-  else if (b*b > 4*a*c){
+  }else if (b*b > 4*a*c){
     console.log('x1='+x1.toFixed(5)+';x2='+x2.toFixed(5))
-  }
-  else if (b*b < 4*a*c){
+  }else if (b*b < 4*a*c){
     console.log('x1='+(-1 * b / (2 * a)).toFixed(5)+'+'+(abs( sqrt( 4 * a * c - b * b))*1.0 / (2 * a)).toFixed(5)+'i;x2='+(-1 * b / (2 * a)).toFixed(5)+'-'+(abs( sqrt( 4 * a * c - b * b))*1.0 / (2 * a)).toFixed(5)+'i')
   }
 </script>
@@ -351,9 +334,25 @@
 </script>
 <script type="xxx" id="ch0105/01">
   var a = parseInt(prompt('a'))
-  var b = parseInt(prompt('b'))
-  s = Math.sum
-  var c = sum(b) / a
-  console.log(c)
+  var b = 0
+  for (var i = 0;i < a;i++){
+    b += parseInt(prompt('b'))
+  }
+  console.log((b / a).toFixed(2))
 </script>
-
+<script type="xxx" id="ch0105/02">
+debugger
+    var b = 0
+    for (var i = 1;i <= 12;i++){
+      b += parseInt(prompt('b'))
+    }
+    console.log('$'+(b / (i - 1)).toFixed(2))
+</script>
+<script xtype="xxx" id="ch0105/03">
+  var a = parseInt(prompt('a'))
+  var b = 0
+  for (var i = 0;i < a;i++){
+    b += Math.abs(parseInt(prompt('b')))
+  }
+  console.log((b / a).toFixed(4))
+</script>
