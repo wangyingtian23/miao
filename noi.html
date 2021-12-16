@@ -263,17 +263,14 @@
 <script type="xxx" id="ch0104/14">
   var x = parseInt((prompt('x')))
   var y = String((prompt('y')))
-  ceil = Math.ceil
-  var z =  ceil((x - 1000) / 500)
-  if (x <= 1000 && y == 'y'){
-    console.log(8 + 5)
-  }else if (x <= 1000 && y == 'n'){
-    console.log(8)
-  }else if (x > 1000 && y == 'y'){
-    console.log(8 + 4 * z + 5)
-  }else if (x > 1000 && y == 'n'){
-    console.log(8 + 4 * z)
+  var price = 8
+  if (x > 1000){
+    price = price + Math.ceil((x - 1000) / 500) * 4
   }
+  if (y == 'y'){
+    price = price + 5
+  }
+  console.log(price)
 </script>
 <script type="xxx" id="ch0104/15">
   var x = parseInt((prompt('x')))
@@ -286,7 +283,11 @@
   var x = parseInt((prompt('x')))
   var y = parseInt((prompt('y')))
   var z = parseInt((prompt('z')))
-  console.log((x**2 + y**2)<= z**2 || (z**2 + y**2)<= x**2 || (x**2 + z**2)<= y**2 ? 'yes':'no')
+  if (x + y > z && x + z > y && y + z > x){
+    console.log('yes')
+  }else{
+    console.log('no')
+  }
 </script>
 <script type="xxx" id="ch0104/17">
   var x = parseInt((prompt('x')))
@@ -335,8 +336,7 @@
   var a = parseInt(prompt('a'))
   var b = parseInt(prompt('b'))
   var c = parseInt(prompt('c'))
-  var ceil = Math.ceil
-  var d = ceil(c / b)
+  var d = Math.ceil(c / b)
   console.log(a - d)
 </script>
 <script type="xxx" id="ch0105/01">
@@ -553,6 +553,19 @@ debugger
   }
 }
 </script>
+<script type="xxx" id="ch0105/19">
+  debugger
+  var n = parseInt(prompt('n'))
+  for (var i = 0,s = 0,x = 0, y = 0,N = 0,D = 0, time= 0;i < n;i++){
+    x = parseInt(prompt('x'))
+    y = parseInt(prompt('y'))
+    s = parseInt(prompt('s'))
+    N = Math.sqrt(x ** 2 + y ** 2)
+    D = s * 1.5 + N * 2 / 50
+    time = time + D
+  }
+  console.log(Math.ceil(time))
+</script>
 <script type="xxx" id="ch0105/20">
   debugger
   var h = parseInt(prompt('h'))
@@ -670,16 +683,7 @@ debugger
 
   console.log(n);
 </script>
-<script type="xxx" id="ch0105/28">
-  debugger
-  var k = parseInt(prompt('k'))
-  var x = k % 10
-  var y = (k - z) % 100 / 10
-  var z = parseInt(k / 100)
-
-  console.log(n);
-</script>
-<script xtype=xxx id="ch0105/28">
+<script type=xxx id="ch0105/28">
   debugger
   var N = prompt('N')
   var n = N.length
@@ -691,6 +695,87 @@ debugger
   }
 
 </script>
+<script type=xxx id="ch0105/29">
+  debugger
+  var N = (prompt('N'))
+  var n = N.length
+  var result = ''
+  if (N == 0){
+    result = 0
+  }else{
+  if(N < 0){
+    result = '-'
+    n = n - 1
+  }
+  for (var i = 0,x = ''; i < n; i++) {
+    x = Math.abs(Math.trunc(N / (10 ** i)) % 10)
+    while (x === 0){
+      x = ''
+    }
+    result = result + x
+    }
+  }
+  console.log(result)
+</script>
+<script type=xxx id="ch0105/30">
+  debugger
+  var m = (prompt('m'))
+  var k = parseInt(prompt('k'))
+  var K = m.length
+
+  for (var i = 0,result = 0,p = 0,x = 0; i < K; i++) {
+    p = p + 1
+    x = Math.trunc(m / 10 ** (p - 1)) % 3
+    if(x == 0) {
+      result = result + 1
+    }
+
+  }
+  if (m % 19 == 0 && result == k){
+      console.log('YES');
+  }else{
+    console.log('NO');
+  }
+
+</script>
+<script type=xxx id="ch0105/31">
+  debugger
+  var N = parseInt(prompt('N'))
+  var M = parseInt(prompt('M'))
+
+  for (var i = 0,result = 0,p = 0,x = 0; i < M; i++) {
+    for (var i = 0; i < N; i++)
+    if (i == 0){
+      result = 0
+    }else if (i == 1){
+      result = Math.floor(M / 2)
+      p =
+    }else{
+      result = Math.floor(M / (i + 1))
+    }
+  }
+</script>
+<script type=xxx id="ch0105/32">
+  debugger
+  var n = parseInt(prompt('n'))
+  for (var i = 0,result = 0,x = 1,y = 2; i < n; i++) {
+    x =  1 / x + 1
+    result = result + x
+  }
+  console.log(result.toFixed(4));
+</script>
+<script xtype=xxx id="ch0105/33">
+  debugger
+  var n = parseInt(prompt('n'))
+  for (var i = 0,result = 0,x = 1,y = 2; i < n; i++) {
+    x = (-1) ** i / (x + i)
+    result = result + x
+  }
+  console.log(result.toFixed(4));
+</script>
+
+
+
 
 
 
