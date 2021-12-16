@@ -562,7 +562,7 @@ debugger
   }
   console.log(s.toFixed(4),h.toFixed(7))
 </script>
-<script xtype="xxx" id="ch0105/21">
+<script type="xxx" id="ch0105/21">
   debugger
   var n = parseInt(prompt('n'))
   while(n != 1){
@@ -586,12 +586,110 @@ debugger
   for (var i = 1;i <= 12;i++) {
     over = over + 300 - plan[i];
     if(over < 0) {
-      console.log((i+1) * -1);
+      console.log(-i * -1)
     }
     flag += over/ 100 * 100;
     over %= 100;
   }
-  console.log(over + (flag * 6) / 5);
+  if(over >= 0){
+    console.log(over + (flag * 6) / 5);
+  }
+
+</script>
+<script type="xxx" id="ch0105/23">
+  debugger
+  var m = parseInt(prompt())
+  var n = parseInt(prompt())
+  for (i = 0,x = 0,y = 0;i < n;i++){
+    x = parseInt(prompt())
+    if (m < x){
+      m = m
+      y = y + 1
+    }else {
+      m = m - x
+    }
+  }
+  console.log(y);
+</script>
+<script type="xxx" id="ch0105/24">
+  debugger
+  var n = parseInt(prompt('n'))
+  for (i = 0,x = 0,y = 0,z = 0;i < n;i++){
+    x = parseInt(prompt('x'))
+    y = parseInt(prompt('y'))
+    if (x >= 90 && x <= 140 && y >= 60 && y <= 90){
+      z = z + 1
+    }else {
+      z = 0
+    }
+  }
+  console.log(z);
+</script>
+<script type="xxx" id="ch0105/25">
+  debugger
+  for (i = 1;i < 7; i++)
+    for (j = 0;j < 7; j++)
+      for (z = 1;z < 7; z++)
+      if ((k + j * 7 + i * 7 * 7)==(i + j * 9 + k * 9 * 9)){
+        console.log(k + j * 7 + i * 7 * 7);
+        console.log(i * 100 + j * 10 + k);
+        console.log(k * 100 + j * 10 + i);
+      }
+
+</script>
+<script type="xxx" id="ch0105/26">
+  debugger
+  var n = parseInt(prompt('n'))
+  for (i = 0,x = 0,a = 0,b = 0,c = 0,d = 0,p = 0;i < n;i++){
+    x = parseInt(prompt('x'))
+    a = x % 10
+    b = (x - a) % 100 / 10
+    c = (x - b * 10 - a) % 1000 / 100
+    d = parseInt(x / 1000)
+    if (a - b - c - d >= 0){
+      p = p + 1
+    }
+  }
+  console.log(p);
+</script>
+<script type="xxx" id="ch0105/27">
+  debugger
+  var k = parseInt(prompt('k'))
+  var n = 1
+  var sum = 0
+  while(k){
+    sum = sum + (1) / n;
+    if (sum > k)
+    {
+      break;
+    }else
+    {
+      n ++;
+    }
+  }
+
+  console.log(n);
+</script>
+<script type="xxx" id="ch0105/28">
+  debugger
+  var k = parseInt(prompt('k'))
+  var x = k % 10
+  var y = (k - z) % 100 / 10
+  var z = parseInt(k / 100)
+
+  console.log(n);
+</script>
+<script xtype=xxx id="ch0105/28">
+  debugger
+  var N = prompt('N')
+  var n = N.length
+
+  for (var i = 0,m = 0, result = 0; i < n; i++) {
+    m = m + 1
+    result = Math.trunc(N / 10 ** (m - 1)) % 10
+    console.log(result)
+  }
+
 </script>
 
 
