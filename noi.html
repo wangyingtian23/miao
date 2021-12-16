@@ -247,7 +247,7 @@
   }else if (y = z){
     console.log('All')
   }else if (y > z){
-    console.log('Wall')
+    console.log('Walk')
   }
 </script>
 <script type="xxx" id="ch0104/13">
@@ -515,7 +515,7 @@ debugger
   }
   console.log( b )
 </script>
-<script xtype="xxx" id="ch0105/18">
+<script type="xxx" id="ch0105/18">
 debugger
   var A = parseInt(prompt('A'))
   var B = parseInt(prompt('B'))
@@ -533,7 +533,66 @@ debugger
     console.log('same')
   }
 }
-  </script>
+</script>
+<script type="xxx" id="ch0105/18">
+debugger
+  var A = parseInt(prompt('A'))
+  var B = parseInt(prompt('B'))
+  var C = parseInt(prompt('C'))
+  var R = C / B
+  for (var i = 0,x = 0, y = 0;i < (A - 1) ; i++) {
+    x = (+prompt('x'))
+    y = (+prompt('y'))
+    r = y / x
+  if (r - R > 0.05){
+    console.log('better')
+  } else if (R - r > 0.05){
+    console.log('worse')
+  } else{
+    console.log('same')
+  }
+}
+</script>
+<script type="xxx" id="ch0105/20">
+  debugger
+  var h = parseInt(prompt('h'))
+  for (var i = 0,s = -h;i < 10;i++){
+    s = s + h * 2
+    h = h / 2
+  }
+  console.log(s.toFixed(4),h.toFixed(7))
+</script>
+<script type="xxx" id="ch0105/21">
+  debugger
+  var n = parseInt(prompt('n'))
+  while(n != 1){
+    if (n % 2 == 0){
+      console.log(n / 2);
+      n /= 2
+    }
+    else{
+      console.log(n * 3 + 1);
+      n = n * 3 + 1
+    }
+  }
+  console.log('END')
+</script>
+<script xtype="xxx" id="ch0105/22">
+  debugger
+  var p = parseInt(prompt())
+  var plan = []
+  var over = 0,flag = 0
+  for (var i = 1;i <= 12;i++) plan.push(prompt())
+  for (var i = 1;i <= 12;i++) {
+    over = over + 300 - plan[i];
+    if(over < 0) {
+      console.log((i+1) * -1);
+    }
+    flag += over/ 100 * 100;
+    over %= 100;
+  }
+  console.log(over + (flag * 6) / 5);
+</script>
 
 
 
