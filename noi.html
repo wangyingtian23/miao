@@ -502,15 +502,16 @@
   var R = 1 + r / 100
   for (i = 0 ;i < y;i++){
     m = m * R
+  }
   console.log(Math.trunc(m));
 </script>
-<script type="xxx" id="ch0105/16">
+<script xtype="xxx" id="ch0105/16">
   var N = Number(prompt())
   var K = Number(prompt())
   var sum = 0
   var housePrice = 200
   var buyed = false
-  for(var i = 1;i < = 20;i++){
+  for(var i = 1;i <= 20;i++){
   sum += N //累计工资
   if (sum >= housePrice) { //对比攒的钱与房价
     console.log(i)
@@ -534,25 +535,6 @@ debugger
     a = b - a
   }
   console.log( b )
-</script>
-<script type="xxx" id="ch0105/18">
-debugger
-  var A = parseInt(prompt('A'))
-  var B = parseInt(prompt('B'))
-  var C = parseInt(prompt('C'))
-  var R = C / B
-  for (var i = 0,x = 0, y = 0;i < (A - 1) ; i++) {
-    x = (+prompt('x'))
-    y = (+prompt('y'))
-    r = y / x
-  if (r - R > 0.05){
-    console.log('better')
-  } else if (R - r > 0.05){
-    console.log('worse')
-  } else{
-    console.log('same')
-  }
-}
 </script>
 <script type="xxx" id="ch0105/18">
 debugger
@@ -922,10 +904,10 @@ debugger
   }
   console.log(result);
 </script>
-<script type=xxx id="ch0105/44">
+<script xtype=xxx id="ch0105/44">
   debugger
   var n = parseInt(prompt(''))
-  result = 0
+  var result = 0
   for (x = 0;x < 10000;x++){
     for(i = 0,s = 0;i < (x + 1);i++){
       if((x + 1) % (i + 1) == 0){
@@ -936,6 +918,7 @@ debugger
       result = result + 1
       if (result == n){
         console.log(x + 1);
+        break
       }
     }
   }
