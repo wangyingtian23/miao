@@ -379,11 +379,22 @@
   console.log(Math.max(...b))
 </script>
 <script type="xxx" id="ch0105/06">
-  var a = parseInt(prompt('a'))
-  b = []
-  for (var i = 0;i < a;i++)
-    b.push(prompt('b'))
-  console.log(Math.max(...b) - Math.min(...b))
+  var counter = 0
+  var n = Number(prompt())
+  var max = 0
+  var min = 1000
+  while (counter < n) {
+    var score = Number(prompt())
+    if (score > max){
+      max = score
+    }
+    if (score < min){
+      min = score
+    }
+    counter = counter + 1
+  }
+  console.log(max - min);
+
 </script>
 <script type="xxx" id="ch0105/07">
   var a = parseInt(prompt('a'))
@@ -578,17 +589,24 @@ debugger
 <script type="xxx" id="ch0105/21">
   debugger
   var n = parseInt(prompt('n'))
+  var x , y
   while(n != 1){
-    if (n % 2 == 0){
-      console.log(n +' / 2');
-      n /= 2
-    }
-    else{
-      console.log(n + ' * 3 + 1');
+    while (n % 2 == 1 && n != 1) {
+      x = n + '*3+1=' + (n * 3 + 1)
+      console.log(x)
       n = n * 3 + 1
     }
+    while (n % 2 == 0 && n != 1) {
+      x = n + '/2=' + (n /2)
+      console.log(x)
+      n = n / 2
+    }
+
   }
-  console.log('END')
+  if (n == 1){
+    console.log('END')
+  }
+
 </script>
 <script type="xxx" id="ch0105/22">
   debugger
@@ -643,10 +661,10 @@ debugger
   for (i = 1;i < 7; i++)
     for (j = 0;j < 7; j++)
       for (z = 1;z < 7; z++)
-      if ((k + j * 7 + i * 7 * 7)==(i + j * 9 + k * 9 * 9)){
-        console.log(k + j * 7 + i * 7 * 7);
-        console.log(i * 100 + j * 10 + k);
-        console.log(k * 100 + j * 10 + i);
+      if ((z + j * 7 + i * 7 * 7)==(i + j * 9 + z * 9 * 9)){
+        console.log(z + j * 7 + i * 7 * 7);
+        console.log(i * 100 + j * 10 + z);
+        console.log(z * 100 + j * 10 + i);
       }
 
 </script>
@@ -782,6 +800,111 @@ debugger
   }
   console.log(result);
 </script>
+<script type=xxx id="ch0105/35">
+  debugger
+  var n = parseInt(prompt('n'))
+  for (i = 0,result = 1,x = 1,y = 1; i < n; i++){
+    x = x * (i + 1)
+    y = 1 / x
+    result = result + y
+
+  }
+  console.log(result.toFixed(10));
+</script>
+<script type=xxx id="ch0105/36">
+  debugger
+  var x = parseInt(prompt('x'))
+  var n = parseInt(prompt('n'))
+  for (i = 0,result = 0,y = 0,m = 0; i <= n; i++){
+    m = n - i
+    y = x ** n
+    result = result + y
+
+  }
+  console.log(result.toFixed(2));
+</script>
+<script type=xxx id="ch0105/37">
+  debugger
+  var M = parseInt(prompt('M'))
+  var N = parseInt(prompt('N'))
+  var X = parseInt(prompt('X'))
+  var U = N
+  while (X > 0){
+    N = N + Math.floor(M / N)
+    X = X - Math.ceil(M / N)
+    U = Math.max(U,N)
+  }
+  console.log(Math.round(U));
+</script>
+<script type=xxx id="ch0105/39">
+  debugger
+  var n = parseInt(prompt('n'))
+  for (i = 1,result = 0,y = 0,x = 0; i <= n; i++){
+    if(i % 7 != 0 && i % 10 != 7 && (i / 10 != 7)){
+      result = result + i ** 2
+    }
+  }
+  console.log(result);
+</script>
+<script type=xxx id="ch0105/40">
+  debugger
+  var n = parseInt(prompt('n'))
+  var m = n.lenth
+  for (i = 1,result = 0,y = 0,x = 0; i <= n; i++){
+    if (i / 1 % 10 == 1)
+    result = result + 1
+    if ( parseInt(i / 10 % 10)  == 1)
+    result = result + 1
+  }
+  console.log(result);
+</script>
+<script type=xxx id="ch0105/41">
+  debugger
+  var n = parseInt(prompt(''))
+  var m = parseInt(prompt(''))
+  for (i = n,result = 0,y = 0,x = 0; i <= m; i++){
+    if (i / 1 % 10 == 2)
+    result = result + 1
+    if ( parseInt(i / 10 % 10)  == 2)
+    result = result + 1
+  }
+  console.log(result);
+</script>
+<script type=xxx id="ch0105/42">
+  debugger
+  var w = parseInt(prompt(''))
+  var h = parseInt(prompt(''))
+  var x = (prompt(''))
+  var y = parseInt(prompt(''))
+  var flag
+  if (flag == 0){
+    for (i = 0;i < h;i++){
+      for (j = 0;j < w;j++){
+        if(i == 0 || i == h - 1 || j==0 || j == w-1)
+        x = String(x + '')
+        else
+        console.log('');
+      }
+    }
+  }else{
+    for (i = 0;i < h;i++){
+      for (j = 0;j < w;j++){
+        x = x + ''
+      }
+    }
+  }
+  console.log(String(x))
+</script>
+<script xtype=xxx id="ch0105/43">
+  debugger
+  var n = parseInt(prompt(''))
+  for (i = 1;i <= n;i++){
+
+  }
+
+</script>
+
+
 
 
 
