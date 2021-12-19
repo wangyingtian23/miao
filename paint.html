@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="500" height="400"></canvas>
+</body>
+<script>
+  var canvas = document.querySelector('canvas')
+  canvas.style.imageRendering = 'pixelated' //放大时的插帧方式：不插帧，直接放大像素
+  var ctx = canvas.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    x = Math.round(x)
+    y = Math.round(y)
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+  /**
+   * YOUR TASK
+      * 在 坐标 (42, 42) 画出一个点
+      * 画一条实线
+      * 画一条一个实点一个空点的虚线
+      * 画一条两个实点两个空点的虚线
+      * 画一条三个实点两个空点的虚线
+      * 画一条45度的斜线
+      * 画一条30度的斜线（与x轴或y轴的夹角呈30度）
+      * 画一条跨越画布左上角和右下角的对角线
+      * 画一个空心矩形
+      * 画一个实心矩形
+      * 画两个个空心的圆，居中：
+        * 一个半径为50像素
+        * 一个半径为200像素
+      * 画一个实心的圆，半径至少为100像素
+      * 画一个【大小合适】的sin(x)的图像
+
+      * 画出rgb色彩空间的某一面（尺寸要大于100x100）
+        如果做出上一题后，尝试将其每个点的坐标乘以一个矩阵（如(2,0,0,2)或(1,0.27得到新的位置，即绘制出被线性变幻后的色彩空间某一面
+        可以考虑如下几种矩阵：
+           2 0
+           0 2
+           ------
+           1  0.27
+           0  1
+           ------
+           0.5    0.87
+           -0.87  0.5
+
+   */
+</script>
+<script>
+  // 不可更改上面的代码
+  // 你的代码写在这里
+  // YOUR CODE GOES BELOW
+  dot(42,42)
+  for(i = 0;i <= 500;i++){
+      dot(i,42)
+  }//实线
+  for(i = 0;i <= 500; i){
+      if (i == 0){
+        dot(i,43,'red')
+      }
+      i = i + 2
+      dot(i,43,'red')
+  }//一条一个实点一个空点的虚线
+  for(i = 0;i <= 500; i){
+    if (i == 0){
+      dot(i,44,'red')
+    }
+    i = i + 4
+    dot(i,44,'red')
+    for(j = 1;j <= 500; j){
+      if (j == 1){
+        dot(j,44,'blue')
+      }
+      j = j + 4
+      dot(j,44,'blue')
+    }
+  }//一条两个实点两个空点的虚线
+  for(i = 0;i <= 500; i){
+    if (i == 0){
+      dot(i,45,'red')
+    }
+    i = i + 5
+    dot(i,45,'red')
+    for(j = 1;j <= 500; j){
+      if (j == 1){
+        dot(j,45,'green')
+      }
+      j = j + 5
+      dot(j,45,'green')
+
+      for(z = 2;z <= 500; z){
+      if (z == 2){
+        dot(z,45,'blue')
+      }
+      z = z + 5
+      dot(z,45,'blue')
+      }
+    }
+  }//一条三个实点两个空点的虚线
+  for(i = 0;i <= 500;i++){
+      dot(i,i)
+  }//一条45度的斜线
+  for(x = 0,y= 0;x <= 500;x++){
+    y = x * Math.sqrt(3)
+    dot(x,y)
+  }//一条30度的斜线（与x轴或y轴的夹角呈30度）
+  for(x = 0,z = 0;x <= 500;x++){
+    for(y = 0;y <= 500;y++){
+    z = x * (400 / 500)
+    dot(x,z)
+    }
+  }//一条跨越画布左上角和右下角的对角线
+  for(x = 0;x <= 50;x = x + 50){
+    for(y = 350;y <= 400;y++){
+    dot(x,y)
+      for(a = 0;a <= 50;a++){
+        for(b = 350;b <= 400;b=b + 49){
+        dot(a,b,'red')
+        }
+      }
+    }
+  }//一个空心矩形
+  for(x = 450;x <= 500;x++){
+    for(y = 350;y <= 400;y++){
+    dot(x,y,'blue')
+    }
+  }//画一个实心矩形
+  for(i = 0;i < 360;i++ ){
+      var a = 250 + 50 * Math.sin(i * 3.14 /180)
+      var b = 200 + 50 * Math.cos(i * 3.14 /180)
+      dot(a,b,'green')
+  }//一个半径为50像素
+  for(i = 0;i < 360;i++ ){
+      var a = 250 + 200 * Math.sin(i * 3.14 /180)
+      var b = 200 + 200 * Math.cos(i * 3.14 /180)
+      dot(a,b,'green')
+  }//一个半径为200像素
+  for(i = 0;i < 360;i++ ){
+    for(x = 0;x <= 100;x++){
+      for(y = 0;y <= 100;y++){
+      var a = 400 + x * Math.cos(i * Math.PI /180)
+      var b = 100 + x * Math.sin(i * Math.PI /180)
+      dot(a,b,'red')
+      }
+    }
+  }//一个实心的圆，半径至少为100像素
+  for(i = 0;i < 360;i++ ){
+      var a = 100 + 100 * Math.cos(i * 3.14 /360)
+      var b = 200 + 100 * Math.sin(i * 3.14 /180)
+      dot(a,b,'black')
+  }//一个【大小合适】的sin(x)的图像
+  for(i = 0;i < 360;i++ ){
+      var a = 400 + 100 * Math.cos(i * 3.14 /360)
+      var b = 200 + 100 * Math.sin(i * 3.14 /180)
+      dot(a,b,'black')
+  }//一个【大小合适】的sin(x)的图像
+  for(i = 0;i < 360;i++ ){
+    for(x = 0;x <= 85;x++){
+      for(y = 0;y <= 85;y++){
+      var a = x + Math.sin(i * 3.14 /180)
+      var b = y + Math.cos(i * 3.14 /180)
+      var rgb = 'rgb' + '(' + '127' + ',' + x*3 + ',' + y*3 + ')'
+      dot(a,b,rgb)
+      }
+    }
+  }
+</script>
+</html>
