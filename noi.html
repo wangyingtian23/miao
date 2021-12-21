@@ -997,9 +997,9 @@
   var z = (narcissistic - y * 10 - x) / 100
   var s = x ** 3 + y ** 3 + z ** 3
   if (s == narcissistic && narcissistic !== 0 && narcissistic !== 1){
-    console.log('是水仙花数')
+    console.log('YES')
   }else{
-    console.log('不是水仙花数')
+    console.log('NO')
   }
 </script>
 <script type=xxx id="narcissistics">
@@ -1032,9 +1032,9 @@
       }
     }
     if(sum == n){
-      return true
+      return 'YES'
     }else{
-      return false
+      return 'NO'
     }
   }
 </script>
@@ -1068,10 +1068,10 @@
     var isprimeNumber = true
     for (i = 2;i * i <= n;i++){
       if (n % i == 0){
-        return false
+        return 'NO'
       }
     }
-    return true
+    return 'YES'
   }
 </script>
 <script type="xxx" id="primes">
@@ -1096,7 +1096,7 @@
 <script type="xxx" id="lcf&lcm">
 
 </script>
-<script xtype="xxx" id="sqrt">
+<script type="xxx" id="sqrt">
   var N = Number(prompt())
   var m = 0
   console.log(sqrt(N))
