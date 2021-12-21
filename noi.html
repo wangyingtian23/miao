@@ -1038,25 +1038,23 @@
     }
   }
 </script>
-<script type="xxx" id="complete-numbers">
+<script xtype="xxx" id="complete-numbers">
   debugger
   var sum = 0
   var n = 1000
-  console.log(complete(n))
+  complete(n)
   function complete(n){
-    for (var i = 1;i <= n;i++){
-        sum = 0
-      for (var j = 0;j <= i;j++){
-        if (i % j == 0 && i !== j){
+    for (var i = 1;i < n;i++){
+      for (var j = 1,sum = 0;j <= (i / 2);j++){
+        if (i % j == 0){
           sum += j
         }
-        if (i == j) {
-          if (sum == i) {
-            console.log(sum)
-          }
-        }
+      }
+      if (sum == i) {
+        console.log(i)
       }
     }
+
   }
 
 </script>
@@ -1067,7 +1065,7 @@
   function isprime(n){
     var isprimeNumber = true
     for (i = 2;i * i <= n;i++){
-      if (n % i == 0){
+      if (n % i == 0 || n == 1){
         return 'NO'
       }
     }
@@ -1076,7 +1074,7 @@
 </script>
 <script type="xxx" id="primes">
   var n = 100
-  console.log(isprime(n))
+  isprime(n)
   function isprime(n){
     var isprimeNumber = true
     for (i = 2;i <= n;i++){
