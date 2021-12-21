@@ -1013,9 +1013,14 @@
       console.log(narcissistic)
     }
   }
-</script>
+</script>123
 <script type="xxx" id="palindrom">
-
+  var n = (prompt())
+  palinderom(n)
+  function palinderom(n){
+    var result = n.split('').reverse().join('');
+    console.log(result == n?'YES':'NO')
+  }
 </script>
 <script type="xxx" id="weekday">
   var 年份 = Number(prompt())
@@ -1038,7 +1043,7 @@
     }
   }
 </script>
-<script xtype="xxx" id="complete-numbers">
+<script type="xxx" id="complete-numbers">
   debugger
   var sum = 0
   var n = 1000
@@ -1064,7 +1069,7 @@
   console.log(isprime(n))
   function isprime(n){
     var isprimeNumber = true
-    for (i = 2;i * i <= n;i++){
+    for (i = 1;i * i <= n;i++){
       if (n % i == 0 || n == 1){
         return 'NO'
       }
@@ -1073,26 +1078,46 @@
   }
 </script>
 <script type="xxx" id="primes">
+  debugger
   var n = 100
   isprime(n)
   function isprime(n){
     var isprimeNumber = true
-    for (i = 2;i <= n;i++){
-      for (j = 2;j * j <= i;j++){
-        if(i % j == 0){
-          false
-        }else{
-          console.log(i)
+    for (i = 2;i < n;i++){
+      for (j = 2,s = 0;j < i;j++){
+        if (i % j == 0) {
+          s += 1
         }
+      }
+      if(s == 0){
+        console.log(i)
       }
     }
   }
 </script>
 <script type="xxx" id="itoa">
-
+  var n = Number(prompt())
+  var result = n.split('')
+  console.log(result)
 </script>
-<script type="xxx" id="lcf&lcm">
-
+<script xtype="xxx" id="lcf&lcm">
+  var n = Number(prompt())
+  var m = Number(prompt())
+  var a ,b,i,j
+  if(m < n){
+    b = m
+    m = n
+    n = b
+  }
+  i = m
+  j = n
+  while (n != 0) {
+    a = m % n
+    m = n
+    n = a
+  }
+  console.log(m)
+  console.log(i * j / m)
 </script>
 <script type="xxx" id="sqrt">
   var N = Number(prompt())
