@@ -992,7 +992,7 @@
 </script>
 <script xtype=xxx id="narcissistic">
   var n = Number(prompt())
-  console.log(isN?'YES':'NO')
+  console.log(isN(n)?'YES':'NO')
   function dw(n){
     var w = 0
     do{
@@ -1042,7 +1042,7 @@
 <script xtype="xxx" id="weekday">
   var year = Number(prompt())
   var month = Number(prompt())
-  console.log(weekday(yaer,month))
+  console.log(weekday(year,month))
   function isLeap(n){
     if (n % 400 == 0){
       return true
@@ -1126,14 +1126,14 @@
   var n = Number(prompt(''))
   console.log(isprime(n))
   function isprime(n){
-    var isprimeNumber = true
-    for (i = 1;i * i <= n;i++){
+    if(n == 1){
+        return 'NO'
+      }
+    for (i = 2;i * i <= n;i++){
       if (n % i == 0){
         return 'NO'
       }
-      if(n == 1){
-        return 'NO'
-      }
+
     }
     return 'YES'
   }
@@ -1156,9 +1156,9 @@
     }
   }
 </script>
-<script type="xxx" id="itoa">
+<script type="xxx" id="itob">
   var n = Number(prompt())
-  console.log(isitoa(n))
+  console.log(isitob(n))
   function degitToChar(n){
     if (n == 0){
       return '0'
@@ -1191,7 +1191,7 @@
       return '9'
     }
   }
-  function isitoa(n){
+  function isitob(n){
     var result = ''
     while (n > 0) {
       var d = n % 10
@@ -1222,7 +1222,7 @@
 </script>
 <script type="xxx" id="sqrt">
   var n = Number(prompt())
-  console.log(sqrt(n).  tofixed(3))
+  console.log(sqrt(n).toFixed(3))
   function sqrt(n){
     var left = 0
     var right = n
