@@ -991,16 +991,33 @@
   console.log(result)
 </script>
 <script type=xxx id="narcissistic">
-  var narcissistic = Number(prompt())
-  var x = narcissistic % 10
-  var y = (narcissistic % 100 - x) / 10
-  var z = (narcissistic - y * 10 - x) / 100
-  var s = x ** 3 + y ** 3 + z ** 3
-  if (s == narcissistic && narcissistic !== 0 && narcissistic !== 1){
-    console.log('YES')
-  }else{
-    console.log('NO')
+  function dw(n){
+    var w = 0
+    do{
+      w++
+      var 个位 = m % 10
+      m = (m - 个位)/ 10
+    }while (m > 0)
+
+    return w
   }
+  function isN(n){
+    var w = dw(n)
+    var sum = 0
+    m = n
+    while (m > 0) {
+      var 个位 = m % 10
+      sum += Math.pow(个位,w)
+      m= (m - 个位) / 10
+    }
+    if (sum == n){
+      return true
+    }else{
+      return false
+    }
+  }
+  var n = Number(prompt())
+  console.log(isN?'YES':'NO')
 </script>
 <script type=xxx id="narcissistics">
   for(narcissistic = 0;narcissistic < 10000;narcissistic++){
@@ -1022,9 +1039,44 @@
     console.log(result == n?'YES':'NO')
   }
 </script>
-<script type="xxx" id="weekday">
-  var 年份 = Number(prompt())
-  var 月份 = Number(prompt())
+<script xtype="xxx" id="weekday">
+  function isLeap(n){
+
+  }
+  function getMonthday(year ,month){
+    switch(month){
+      case 1:
+      case 3:
+      case 5:
+      case 7:
+      case 8:
+      case 10:
+      case 12:
+        return 31
+        case 2:
+          if(isLeap(year)){
+            return 29
+          }else{
+            return 28
+          }
+          default:
+            return 30
+    }
+  }
+  function weekday(year,month){
+    var day = 0
+    for(var y = 1;y < year; y++){
+      if(isLeap(y)){
+        day += 366
+      }else{
+        day += 365
+      }
+    }
+    for(var m = 1;m < month;m++){
+      day += getMonthday(year,m)
+    }
+    day = day % 7
+  }
 </script>
 <script type="xxx" id="complete-number">
   var n = Number(prompt())
@@ -1096,11 +1148,49 @@
   }
 </script>
 <script type="xxx" id="itoa">
-  var n = Number(prompt())
-  var result = n.split('')
-  console.log(result)
+  function degitToChar(n){
+    if (n == 0){
+      return '0'
+    }
+    if (n == 1){
+      return '1'
+    }
+    if (n == 2){
+      return '2'
+    }
+    if (n == 3){
+      return '3'
+    }
+    if (n == 4){
+      return '4'
+    }
+    if (n == 5){
+      return '5'
+    }
+    if (n == 6){
+      return '6'
+    }
+    if (n == 7){
+      return '7'
+    }
+    if (n == 8){
+      return '8'
+    }
+    if (n == 9){
+      return '9'
+    }
+  }
+  function isitoa(n){
+    var result = ''
+    while (n > 0) {
+      var d = n % 10
+      result = degitToChar(d) + result
+      n = (n -d)/10
+    }
+    return result
+  }
 </script>
-<script xtype="xxx" id="lcf&lcm">
+<script type="xxx" id="lcf&lcm">
   var n = Number(prompt())
   var m = Number(prompt())
   var a ,b,i,j
@@ -1120,17 +1210,28 @@
   console.log(i * j / m)
 </script>
 <script type="xxx" id="sqrt">
-  var N = Number(prompt())
-  var m = 0
-  console.log(sqrt(N))
-  function sqrt(N){
-    m = (N + 1) / 2
-    if (m * m > N){
-      m = (1 + m) / 2
-      if (m * m <= N){
-        return m.toFixed(3)
+  function sqrt(n){
+    var left = 0
+    var right = n
+    var mid = (left + right) / 2
+    do{
+      var mid = (left + right) / 2
+      if (mid * mid < n){
+        left = mid
+      }else if (mid * mid > n){
+        right = mid
+      }else {
+        return mid
       }
+    }while (Math.abs(mid * mid - n) > 0.0000001)
+    return mid
+  }
+  function sqrt(n){
+    var x = n
+    while (Math.abs(x * x - n) > 0.000000001) {
+      x = x / 2 + n / 2 / x
     }
+    return x
   }
 </script>
 <script type="xxx">
