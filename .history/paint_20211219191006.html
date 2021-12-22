@@ -64,14 +64,14 @@
   dot(42,42)
   for(i = 0;i <= 500;i++){
       dot(i,42)
-  }//实线
+    }
   for(i = 0;i <= 500; i){
       if (i == 0){
         dot(i,43,'red')
       }
       i = i + 2
       dot(i,43,'red')
-  }//一条一个实点一个空点的虚线
+  }
   for(i = 0;i <= 500; i){
     if (i == 0){
       dot(i,44,'red')
@@ -85,7 +85,7 @@
       j = j + 4
       dot(j,44,'blue')
     }
-  }//一条两个实点两个空点的虚线
+  }
   for(i = 0;i <= 500; i){
     if (i == 0){
       dot(i,45,'red')
@@ -107,20 +107,20 @@
       dot(z,45,'blue')
       }
     }
-  }//一条三个实点两个空点的虚线
+  }
   for(i = 0;i <= 500;i++){
       dot(i,i)
-  }//一条45度的斜线
+  }
   for(x = 0,y= 0;x <= 500;x++){
     y = x * Math.sqrt(3)
     dot(x,y)
-  }//一条30度的斜线（与x轴或y轴的夹角呈30度）
+  }
   for(x = 0,z = 0;x <= 500;x++){
     for(y = 0;y <= 500;y++){
     z = x * (400 / 500)
     dot(x,z)
     }
-  }//一条跨越画布左上角和右下角的对角线
+  }
   for(x = 0;x <= 50;x = x + 50){
     for(y = 350;y <= 400;y++){
     dot(x,y)
@@ -130,62 +130,31 @@
         }
       }
     }
-  }//一个空心矩形
+  }
   for(x = 450;x <= 500;x++){
     for(y = 350;y <= 400;y++){
     dot(x,y,'blue')
     }
-  }//画一个实心矩形
+  }
   for(i = 0;i < 360;i++ ){
       var a = 250 + 50 * Math.sin(i * 3.14 /180)
       var b = 200 + 50 * Math.cos(i * 3.14 /180)
-      dot(a,b,'green')
-  }//一个半径为50像素
+      dot(a,b,'red')
+  }
   for(i = 0;i < 360;i++ ){
       var a = 250 + 200 * Math.sin(i * 3.14 /180)
       var b = 200 + 200 * Math.cos(i * 3.14 /180)
       dot(a,b,'green')
-  }//一个半径为200像素
-  for(i = 0;i < 360;i++ ){
-    for(x = 0;x <= 100;x++){
-      for(y = 0;y <= 100;y++){
-      var a = 400 + x * Math.cos(i * Math.PI /180)
-      var b = 100 + x * Math.sin(i * Math.PI /180)
-      dot(a,b,'red')
-      }
-    }
-  }//一个实心的圆，半径至少为100像素
-  for(i = 0;i < 360;i++ ){
-      var a = 100 + 100 * Math.cos(i * 3.14 /360)
-      var b = 200 + 100 * Math.sin(i * 3.14 /180)
-      dot(a,b,'black')
-  }//一个【大小合适】的sin(x)的图像
-  for(i = 0;i < 360;i++ ){
-      var a = 400 + 100 * Math.cos(i * 3.14 /360)
-      var b = 200 + 100 * Math.sin(i * 3.14 /180)
-      dot(a,b,'black')
-  }//一个【大小合适】的sin(x)的图像
-  for(i = 0;i < 360;i++ ){
-    for(x = 0;x <= 85;x++){
-      for(y = 0;y <= 85;y++){
-      var a = x + Math.sin(i * 3.14 /180)
-      var b = y + Math.cos(i * 3.14 /180)
-      var rgb = 'rgb' + '(' + '127' + ',' + x*3 + ',' + y*3 + ')'
-      dot(a,b,rgb)
-      }
-    }
   }
   for(i = 0;i < 360;i++ ){
-    for(x = 0;x <= 85;x++){
-      for(y = 0;y <= 85;y++){
-      var a = x + Math.sin(i * 3.14 /180)
-      var b = y + Math.cos(i * 3.14 /180)
-      var rgb = 'rgb' + '(' + '127' + ',' + x*3 + ',' + y*3 + ')'
-      var X = a * (2 + 0)
-      var Y = b * (0 + 2)
-      dot(X + 200,Y + 200,rgb)
-      }
-    }
+      var a = 0 + 10 * Math.sin(i * 3.14 /180)
+      var b = 200 + 10 * Math.cos(i * 3.14 /90)
+      dot(a,b,'green')
+  }
+  for(i = 0;i < 360;i++ ){
+      var a = 100 + 10 * Math.sin(i * 3.14 /360)
+      var b = 200 + 10 * Math.cos(i * 3.14 /360)
+      dot(a,b,'green')
   }
 </script>
 </html>
