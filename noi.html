@@ -990,7 +990,9 @@
   }
   console.log(result)
 </script>
-<script type=xxx id="narcissistic">
+<script xtype=xxx id="narcissistic">
+  var n = Number(prompt())
+  console.log(isN?'YES':'NO')
   function dw(n){
     var w = 0
     do{
@@ -1016,8 +1018,6 @@
       return false
     }
   }
-  var n = Number(prompt())
-  console.log(isN?'YES':'NO')
 </script>
 <script type=xxx id="narcissistics">
   for(narcissistic = 0;narcissistic < 10000;narcissistic++){
@@ -1040,8 +1040,20 @@
   }
 </script>
 <script xtype="xxx" id="weekday">
+  var year = Number(prompt())
+  var month = Number(prompt())
+  console.log(weekday(yaer,month))
   function isLeap(n){
-
+    if (n % 400 == 0){
+      return true
+    }
+    if (n % 100 == 0){
+      return false
+    }
+    if (n % 4 == 0){
+      return true
+    }
+    return false
   }
   function getMonthday(year ,month){
     switch(month){
@@ -1064,18 +1076,12 @@
     }
   }
   function weekday(year,month){
-    var day = 0
-    for(var y = 1;y < year; y++){
-      if(isLeap(y)){
-        day += 366
-      }else{
-        day += 365
-      }
-    }
+    var day = (year - 1)* 365 + Math.floor((year - 1) / 4) - Math.floor((year - 1) / 100 ) + Math.floor((year - 1)/ 400)
     for(var m = 1;m < month;m++){
       day += getMonthday(year,m)
     }
-    day = day % 7
+    day = (day + 1) % 7
+    return day
   }
 </script>
 <script type="xxx" id="complete-number">
@@ -1122,7 +1128,10 @@
   function isprime(n){
     var isprimeNumber = true
     for (i = 1;i * i <= n;i++){
-      if (n % i == 0 || n == 1){
+      if (n % i == 0){
+        return 'NO'
+      }
+      if(n == 1){
         return 'NO'
       }
     }
@@ -1148,6 +1157,8 @@
   }
 </script>
 <script type="xxx" id="itoa">
+  var n = Number(prompt())
+  console.log(isitoa(n))
   function degitToChar(n){
     if (n == 0){
       return '0'
@@ -1210,6 +1221,8 @@
   console.log(i * j / m)
 </script>
 <script type="xxx" id="sqrt">
+  var n = Number(prompt())
+  console.log(sqrt(n).  tofixed(3))
   function sqrt(n){
     var left = 0
     var right = n
