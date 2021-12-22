@@ -995,6 +995,7 @@
   console.log(isN(n)?'YES':'NO')
   function dw(n){
     var w = 0
+    m = n
     do{
       w++
       var 个位 = m % 10
@@ -1006,7 +1007,7 @@
   function isN(n){
     var w = dw(n)
     var sum = 0
-    m = n
+    var m = n
     while (m > 0) {
       var 个位 = m % 10
       sum += Math.pow(个位,w)
