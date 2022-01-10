@@ -85,5 +85,34 @@ var  wangyingtian23 = {
       }
     }
     return cur
+  },
+
+  without: function without(nums, ...val) {
+    var cur = []
+    for (i = 0; i < nums.length; i++){
+      if (!val.includes(nums[i])) {
+        cur.push(nums[i])
+      }
+    }
+    return cur
+  },
+
+  map: function map(nums, f) {
+    var res = []
+    nums.forEach((itme,idx) => {
+      res.push(f(itme,idx,nums))
+    });
+    return res
+  },
+
+  filter: function filter(nums, cond) {
+    var need = []
+    for (i = 0; i < nums.length; i++) {
+      if (cond(nums[i])) {
+        need.push(nums[i])
+      }
+    }
+    return need
   }
+
 }
