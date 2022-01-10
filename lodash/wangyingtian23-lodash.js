@@ -113,6 +113,23 @@ var  wangyingtian23 = {
       }
     }
     return need
-  }
+  },
 
+  fill: function fill(nums, val, start = 0, end=array.length) {
+    for (i = start; i < end; i++){
+      nums[i] = val
+    }
+    return nums
+  },
+
+  flatten: function flatten(nums) {
+
+  },
+
+  indexOf: function indexOf(nums, val, fromIndex = 0) {
+    for (i = fromIndex; i < nums.length; i++){
+      if(nums[i] == val) return i
+    }
+    return -1
+  },
 }
