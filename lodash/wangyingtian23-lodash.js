@@ -80,9 +80,8 @@ var  wangyingtian23 = {
   uniq: function uniq(nums) {
     var cur = []
     for (i = 0; i < nums.length; i++){
-      cur.push(nums[i])
-      if (nums[i + 1] in cur) {
-        break
+      if (!cur.includes(nums[i])) {
+        cur.push(nums[i])
       }
     }
     return cur
