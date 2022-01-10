@@ -17,15 +17,16 @@ var  wangyingtian23 = {
   },
 
   compact: function compact(nums) {
+    var res = []
     for (i = 0; i < nums.length;i++){
-      if (nums[i].typeof = false) {
-        nums.pop(nums[i])
+      if (nums[i]) {
+        res.push(nums[i])
       }
     }
-    return nums
+    return res
   },
 
-  drop: function drop(nums, n) {
+  drop: function drop(nums, n = 1) {
     var cur = []
     for (i = 0; i < nums.length; i++){
       if (nums[i] > n) {
@@ -35,7 +36,7 @@ var  wangyingtian23 = {
     return cur
   },
 
-  dropright: function dropright(nums, n) {
+  dropright: function dropright(nums, n = 1) {
     for (i = 0; i < nums.length; i++){
       if (nums[i] >= n) {
         nums.pop(nums[i])
