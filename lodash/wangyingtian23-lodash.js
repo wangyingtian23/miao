@@ -37,16 +37,14 @@ var  wangyingtian23 = {
   },
 
   dropRight: function dropRight(nums, n = 1) {
-    for (i = 0; i < nums.length; i++){
-      if (nums[i] >= n) {
-        nums.pop(nums[i])
-      }
+    for (i = 0; i < n; i++){
+      nums.pop()
     }
     return nums
   },
 
   head: function (nums) {
-    if (nums.length = 0){
+    if (!nums){
       return undefined
     } else {
       return nums[0]
@@ -60,8 +58,33 @@ var  wangyingtian23 = {
       cur.push(nums[i])
     }
     return cur
+  },
+
+  last: function (nums) {
+    var n = nums.length
+    if (n == 0) {
+      return undefined
+    } else {
+      return nums[n - 1]
+    }
+  },
+
+  reverse: function (nums) {
+    var cur = []
+    for (i = nums.length - 1; i >= 0; i--){
+      cur.push(nums[i])
+    }
+    return cur
+  },
+
+  uniq: function uniq(nums) {
+    var cur = []
+    for (i = 0; i < nums.length; i++){
+      cur.push(nums[i])
+      if (nums[i + 1] in cur) {
+        break
+      }
+    }
+    return cur
   }
-
-
-
 }
