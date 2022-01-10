@@ -14,6 +14,15 @@ var  wangyingtian23 = {
     }
     if (result != 0) cur.push(ary)
     return cur
+  },
+
+  compact: function (nums) {
+    for (i = 0; i < nums.length;i++){
+      if (nums[i].typeof = false) {
+        nums.pop(nums[i])
+      }
+    }
+    return nums
   }
 
 }
