@@ -990,12 +990,9 @@
   }
   console.log(result)
 </script>
-<script xtype=xxx id="narcissistic">
-  var n = Number(prompt())
-  console.log(isN(n)?'YES':'NO')
+<script type=xxx id="narcissistic">
   function dw(n){
     var w = 0
-    m = n
     do{
       w++
       var 个位 = m % 10
@@ -1007,7 +1004,7 @@
   function isN(n){
     var w = dw(n)
     var sum = 0
-    var m = n
+    m = n
     while (m > 0) {
       var 个位 = m % 10
       sum += Math.pow(个位,w)
@@ -1019,6 +1016,8 @@
       return false
     }
   }
+  var n = Number(prompt())
+  console.log(isN?'YES':'NO')
 </script>
 <script type=xxx id="narcissistics">
   for(narcissistic = 0;narcissistic < 10000;narcissistic++){
@@ -1041,20 +1040,8 @@
   }
 </script>
 <script xtype="xxx" id="weekday">
-  var year = Number(prompt())
-  var month = Number(prompt())
-  console.log(weekday(year,month))
   function isLeap(n){
-    if (n % 400 == 0){
-      return true
-    }
-    if (n % 100 == 0){
-      return false
-    }
-    if (n % 4 == 0){
-      return true
-    }
-    return false
+
   }
   function getMonthday(year ,month){
     switch(month){
@@ -1077,12 +1064,18 @@
     }
   }
   function weekday(year,month){
-    var day = (year - 1)* 365 + Math.floor((year - 1) / 4) - Math.floor((year - 1) / 100 ) + Math.floor((year - 1)/ 400)
+    var day = 0
+    for(var y = 1;y < year; y++){
+      if(isLeap(y)){
+        day += 366
+      }else{
+        day += 365
+      }
+    }
     for(var m = 1;m < month;m++){
       day += getMonthday(year,m)
     }
-    day = (day + 1) % 7
-    return day
+    day = day % 7
   }
 </script>
 <script type="xxx" id="complete-number">
@@ -1127,14 +1120,11 @@
   var n = Number(prompt(''))
   console.log(isprime(n))
   function isprime(n){
-    if(n == 1){
+    var isprimeNumber = true
+    for (i = 1;i * i <= n;i++){
+      if (n % i == 0 || n == 1){
         return 'NO'
       }
-    for (i = 2;i * i <= n;i++){
-      if (n % i == 0){
-        return 'NO'
-      }
-
     }
     return 'YES'
   }
@@ -1157,9 +1147,7 @@
     }
   }
 </script>
-<script xtype="xxx" id="itob">
-  var n = Number(prompt())
-  console.log(isitob(n))
+<script type="xxx" id="itoa">
   function degitToChar(n){
     if (n == 0){
       return '0'
@@ -1192,20 +1180,14 @@
       return '9'
     }
   }
-  function isitob(n){
+  function isitoa(n){
     var result = ''
-    m = Math.abs(n)
-    while (m > 0) {
-      var d = m % 10
+    while (n > 0) {
+      var d = n % 10
       result = degitToChar(d) + result
-      m = (m -d)/10
+      n = (n -d)/10
     }
-    if(n > 0){
-      return result
-    }else{
-      return '-' + result
-    }
-
+    return result
   }
 </script>
 <script type="xxx" id="lcf&lcm">
@@ -1228,8 +1210,6 @@
   console.log(i * j / m)
 </script>
 <script type="xxx" id="sqrt">
-  var n = Number(prompt())
-  console.log(sqrt(n).toFixed(3))
   function sqrt(n){
     var left = 0
     var right = n
@@ -1291,7 +1271,6 @@
     return a
   }
 </script>
-
 
 
 

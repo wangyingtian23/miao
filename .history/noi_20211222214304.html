@@ -1157,7 +1157,7 @@
     }
   }
 </script>
-<script xtype="xxx" id="itob">
+<script type="xxx" id="itob">
   var n = Number(prompt())
   console.log(isitob(n))
   function degitToChar(n){
@@ -1194,18 +1194,12 @@
   }
   function isitob(n){
     var result = ''
-    m = Math.abs(n)
-    while (m > 0) {
-      var d = m % 10
+    while (n > 0) {
+      var d = n % 10
       result = degitToChar(d) + result
-      m = (m -d)/10
+      n = (n -d)/10
     }
-    if(n > 0){
-      return result
-    }else{
-      return '-' + result
-    }
-
+    return result
   }
 </script>
 <script type="xxx" id="lcf&lcm">
@@ -1291,7 +1285,6 @@
     return a
   }
 </script>
-
 
 
 

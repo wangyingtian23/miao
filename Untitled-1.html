@@ -1,0 +1,747 @@
+<script type="xxx">
+  function findSolution(target) {
+
+// var target = 151
+var array = []
+
+function find(start, history) {
+    if (start == target) {
+        array.push(history)
+        return
+    }
+    if (start > target) {
+        return
+    }
+    find(start * 3, '(' + history + ') * 3')
+    find(start + 5, history + ' + 5')
+}
+
+find(1, '1')
+return array
+}
+//找到并返回（放在数组里）所有的可能
+
+</script>
+
+<script type="xxx">
+  debugger
+  var num = Number(prompt())
+  var convertToBase7 = function(num) {
+
+    var abs = Math.abs(num)
+    var res = ''
+    while(num >= 7){
+        res = abs % 7 + res
+        abs = Math.floor(abs / 7)
+    }
+    res = abs + res
+    if(num >= 0){
+        return res
+    }else {
+        return '-' + res
+    }
+  };
+  convertToBase7(num)
+</script>
+
+
+
+
+
+
+
+
+
+谢然 2021/12/24 17:18:00
+https://leetcode.com/problems/climbing-stairs/
+
+谢然 2021/12/24 17:18:37
+https://leetcode.com/problems/unique-paths/
+
+谢然 2021/12/24 17:41:12
+https://leetcode.com/problems/triangle/
+
+谢然 2021/12/24 22:10:03
+https://leetcode.com/problems/squares-of-a-sorted-array/
+https://leetcode.com/problems/excel-sheet-column-title/
+https://leetcode.com/problems/distribute-candies/
+https://leetcode.com/problems/integer-to-roman/
+https://leetcode.com/problems/palindrome-number/
+https://leetcode.com/problems/pascals-triangle/
+https://leetcode.com/problems/perfect-number/
+
+谢然 2021/12/24 22:10:10
+https://leetcode.com/problems/trapping-rain-water/
+
+谢然 17:22:25
+https://leetcode.com/problems/roman-to-integer/
+
+谢然 17:25:31
+https://leetcode.com/problems/excel-sheet-column-number/
+
+
+<script>
+  function fill(arryay, val){
+    for(i = 0;i < arryay.length;i++){
+
+    }
+  }
+</script>
+
+
+<script>
+  debugger
+  return convertToTitle(701)
+  var convertToTitle = function(columnNumber) {
+
+    let res = []
+
+    while (columnNumber){
+        let remain = columnNumber % 26 ? columnNumber % 26 : 26
+        res.unshift(String.fromCharCode(remain + 64))
+        columnNumber = Math.floor((columnNumber - remain) / 26)
+    }
+    return res.join("")
+};
+</script>
+<script>
+  var sortedSquares = function(nums) {
+    let res = []
+    let leftnum = 0
+    let rightnum = nums.length - 1
+    while(leftnum <= rightnum){
+        let left = Math.abs(leftnum)
+        let right = Math.abs(rightnum)
+        if(left > right){
+            res.unshift(left * left)
+            left++
+        }else{
+            res.push(right * right)
+            right--
+        }
+    }
+    return res
+};
+</script>
+
+
+<script>
+  function hanoi(n , form , to ){
+    var mid = 6 - form - to
+    if (n == 1 ){
+      console.log(form + '->' + to)
+    }else{
+      hanoi(n - 1,form,mid)
+      hanoi(1,form,to)
+      hanoi(n - 1,mid,to)
+    }
+  }
+</script>
+
+<script>
+  var lengthOfLongestSubstring = function(s) {
+    if (s.length == 1){
+        return 1
+    }
+    var m = s.split(",")
+    var mid = m.length >> 1
+    var left = m.slice(0,mid)
+    var right = m.slice(mid)
+
+    var leftmax = lengthOfLongestSubstring(left)
+    var rightmax = lengthOfLongestSubstring(right)
+
+    var leftSpanmax = []
+    for(var i = mid - 1;i >= 0;i--){
+        if (m[i] == undefined){
+            leftSpanmax.push(m[i])
+        }else{
+            break
+        }
+    }
+
+
+    var rightSpanmax = []
+    for(var i = mid;i < m.length;i++){
+        if (m[i] == undefined){
+            rightSpanmax.push(m[i])
+        }else{
+            break
+        }
+    }
+
+    var c = leftSpanmax.length + rightSpanmax.length
+    return Math.max(c,leftSpanmax.length,rightSpanmax.length)
+};
+</script>
+
+<script>
+  function rever(array){
+    var len = array.length
+    var count = Array(len)
+    for(var i = len - 1 ;i >= 0  ; i++){
+      count[len - i - 1] = array[i]
+    }
+    return count
+  }
+</script>
+
+<script>
+  var node = {
+    val: 2,
+    next: null
+  }
+
+  function arrayTolist(array){
+    if (array.length  == 0) return null
+    for (var i = 0; i < array.length;i++){
+      var node = {
+        var:array[i],
+        next:null,
+      }
+      nodes.push(node)
+    }
+    for (var i = 0; i < nodes.length - 1;i++){
+      nodes
+    }
+  }
+
+
+
+
+
+</script>
+
+
+<script>
+  function arrayTolist4(array){
+
+    var prev = null
+    for (i = array.length - 1;i >= 0;i--){
+      var node = {
+        val:array[i],
+        next:null,
+      }
+      node.next = prev
+      prev = node
+    }
+
+    return prev
+  }
+
+  function arrayTolistR(array){
+    if (array.length == 0){
+      return null
+    }
+    var dummy = {
+      val: array[0],
+      next: null
+    }
+    var prev = arrayTolistR(array.slice(1))
+    dummy.next = prev
+    return dummy
+  }
+
+
+  function arrayTolistR2(array, start = 0){
+    if (start == array.length){
+      return null
+    }
+    var dummy = {
+      val: array[start],
+      next: null
+    }
+    var prev = arrayTolistR2(array,start + 1)
+    dummy.next = prev
+    return dummy
+  }
+
+  function listToArray(head){
+    if (head == null){
+      return []
+    }
+
+    var result = []
+
+    while(head){
+      result.push(head.val)
+      head = head.next
+    }
+    return result
+  }
+
+  function listToArrayR(head){
+    if (head == null){
+      return []
+    }
+
+    var ary = listToArrayR(head.next)
+
+    return [head.val].concat(ary)
+  }
+
+  function prepend(val, head){
+    return {
+      val: val,
+      next: head
+    }
+  }
+
+  function append(val, head){
+    var node = {
+      val: val,
+      next: null,
+    }
+
+    if (head == null){
+      return null
+    }
+    var p = head
+
+    while (p.next) {
+      p = p.next
+    }
+    p.next = node
+    return head
+  }
+
+  function nth(list, n){
+    if (list == null || n < 0){
+      return undefined
+    }
+    var p = list
+    var c = 0
+
+    while (p && c < n){
+      c++
+      p = p.next
+    }
+    if (p){
+      return p.val
+    }else{
+      return undefined
+    }
+
+  }
+
+  function nth1(list, n){
+    if (list == null || n < 0){
+      return undefined
+    }
+    if (n == 0){
+      return list.val
+    }
+    return nth(list.next,n - 1)
+  }
+
+
+  function randomAry(n) {
+    var ary = []
+    for (var i = 0; i < n; i++){
+      ary.push((Math.random() * n) | 0)
+    }
+  }
+
+  function insertSort(ary){
+    for(i = 1;i < ary.length;i++){
+      var t = ary[i]
+      for(j = i - 1;j >= 0;j--){
+        if(ary[j] > t){
+          ary[j + 1] = ary[j]
+        }else{
+          break
+        }
+      }
+      ary[j + 1] = t
+    }
+    return ary
+  }//插入排序
+
+  function isSorted(ary) {
+    for (i = 1;i < ary.length;i++){
+      if (ary[i] < ary[i - 1]){
+        return false
+      }
+    }
+    return true
+  }
+
+  function bubblSort(ary){
+    for (i = ary.length - 2; i >= 0 ;i--){
+      var swaped = false
+      for (j = 0 ; j <= i;j++){
+        if (ary[j] > ary[j + 1]){
+          swaped = true
+          swap(ary, j, j+1)
+        }
+      }
+      if (!swaped){
+        break
+      }
+    }
+    return ary
+  }//冒泡排序
+
+  function swap(ary, i, j){
+    var t = ary[i]
+    ary[i] = ary[j]
+    ary[j] = t
+  }
+
+  function selectSort(ary)  {
+    for ( i = 0 ; i < ary.length - 1; i++){
+      var minIndex = i
+      for ( j = i + 1; j < ary.length;j++){
+        if (ary[j] < ary[minIndex]){
+          minIndex = j
+        }
+      }
+      swap(ary, i, minIndex)
+    }
+    return ary
+  }//选择排序
+
+  function mergeSort(ary) {
+    if (ary.length < 2){
+      return ary
+    }
+    var mid = Math.floor(ary.length / 2)
+    var left = ary.slice(0,mid)
+    var right = ary.slice(mid)
+    mergeSort(left)
+    mergeSort(right)
+    var i = 0
+    var j = 0
+    var k = 0
+    while(i < left.length && j < right.length){
+      if (left[i] < left[j]){
+        ary[k++] = left[i++]
+      }else{
+        ary[k++] = left[j++]
+      }
+    }
+    while(i < left.length){
+      ary[k++] = left[i++]
+    }
+    while(j < right.length){
+      ary[k++] = right[j++]
+    }
+    return ary
+  }
+
+  function mergeSort(ary, start = 0, end = ary.length) {
+    if (ary.length < 2){
+      return ary
+    }
+    var mid = Math.floor((start + end) / 2)
+    mergeSort(ary,start,mid)
+    mergeSort(ary,mid,end)
+
+
+    var i = 0
+    var j = 0
+    var k = 0
+    if (left.at(-1) > right.at(0)){
+      while(i < left.length && j < right.length){
+        if (left[i] < right[j]){
+          ary[k++] = left[i++]
+        }else{
+          ary[k++] = right[j++]
+        }
+      }
+    }
+    while(i < left.length){
+      ary[k++] = left[i++]
+    }
+    while(j < right.length){
+      ary[k++] = right[j++]
+    }
+    return ary
+  }
+
+
+
+  function bub(ary){
+    for (i = nums.length - 2;i >= 0;i--){
+      var swaped = false
+      for (j = 0 ; j <= i ;j++){
+        if (nums[j] > nums[j + 1]){
+          swaped = true
+          var t = nums[j]
+          nums[j] = nums[j + 1]
+          nums[j + 1] = t
+        }
+      }
+      if (!swaped){
+        break
+      }
+    }
+    return nums
+  }
+
+
+  function select(nums){
+    for (i = 0;i <= nums.length - 1;i++){
+      var minIndex = i
+      for (j = i + 1;j < nums.length;j++){
+        if(nums[j] < nums[minIndex]){
+          minIndex = j
+        }
+      }
+      var t = nums[i]
+      nums[i] = nums[minIndex]
+      nums[minIndex] = t
+    }
+    return nums
+  }
+
+
+  function insert(nums){
+    for (i = 1;i < nums.length;i++){
+      var t = nums[i]
+      for (j = i - 1; j >= 0;j--){
+        if (nums[j] > t){
+          nums[j + 1] = nums[j]
+        }else{
+          break
+        }
+      }
+      nums[j + 1] = t
+    }
+    return nums
+  }
+
+  function bob(nums){
+    for (i = nums.length - 2;i >= 0;i--){
+      var swaped = false
+      for (j = 0;j < nums.length - 1;j++){
+        //j <= i
+        if (nums[j] > nums[j + 1]){
+          swaped = true
+          var t = nums[j]
+          nums[j] = nums[j + 1]
+          nums[j + 1] = t
+        }
+      }
+      if (!swaped){
+        break
+      }
+    }
+    return nums
+  }
+
+  function select(nums){
+    for (var i = 1;i < nums.length - 1;i++){
+      //var i = 0
+      var minIndex = i
+      for (var j = i - 1;j < nums.length;j++){
+        //var j = i + 1
+        if (nums[j] < nums[minIndex]){
+          minIndex = j
+        }
+      }
+      nums[j + 1] = nums[minIndex]
+      //var t = nums[i]
+      //nums[i] = nums[minIndex]
+      //nums[minIndex] = t
+    }
+    return nums
+  }
+
+  function insert(nums){
+    for (i = 0 ; i < nums.length;i++){
+      //i = 1 从下标为1的数开始
+      var t = nums[i]
+      for (j = nums.length - 1;j >= 0;j--){
+        //j = i - 1
+        if (nums[j] > t){
+          nums[j] = nums[j + 1]
+          //nums[j + 1] = nums[j]
+        }else{
+          break
+        }
+      }
+      nums[j + 1] = t
+    }
+    return nums
+  }
+
+  function me(nums){
+    if (nums.length < 2){
+      return nums
+    }
+
+    var mid = Math.floor(nums.length / 2)
+    var left = nums.slice(0,mid)
+    var rigth = nums.slice(mid)
+
+    me(left)
+    me(right)
+
+    var i = 0
+    var j = 0
+    var k = 0
+
+    if (left.at(-1) > right.at(0)){
+      while(i < left.length && j < right.length){
+        if (left[i] < right[j]){
+          nums[k++] = nums[i++]
+        }else{
+          nums[k++] = nums[j++]
+        }
+      }
+    }
+    while(i < left.length){
+      nums[k++] = left[i++]
+    }
+    while(j < right.length){
+      nums[k++] = right[j++]
+    }
+
+    return nums
+  }
+
+
+  function select(nums){
+    for (i = 0; i < nums.length - 1;i++){
+      var minIndex = i
+      for (j = i + 1;j < nums.length;j++){
+        if (nums[j] < nums[minIndex]){
+          minIndex = j
+        }
+      }
+      var t = nums[i]
+      nums[i] = nums[minIndex]
+      nums[minIndex] = t
+    }
+    return nums
+  }
+
+
+  function bob(nums){
+    for(var i = nums.length - 2;i >= 0;i--){
+      var swaped = false
+      for (var j = 0 ;j < i;j++){
+        //j <= i
+        if (nums[j] > nums[j + 1]){
+          swaped = true
+          var t = nums[j]
+          nums[j] = nums[j + 1]
+          nums[j + 1] = t
+        }
+      }
+      if (!swaped){
+        break
+      }
+    }
+    return nums
+  }
+
+  function insert(nums){
+    for(var i = 1;i < nums.length - 1; i++){
+      //i < nums.length
+      var t = nums[i]
+      for (var j = i - 1;j >= 0;j--){
+        if (nums[j] > t){
+          nums[j + 1] = nums[j]
+        }else{
+          break
+        }
+      }
+      nums[j + 1] = t
+    }
+    return nums
+  }
+
+  function me(nums){
+    if (nums.length < 2){
+      return nums
+    }
+    var mid = Math.floor(nums.length / 2)
+    var left = nums.slice(0,mid)
+    var right = nums.slice(mid)
+
+    me(left)
+    me(right)
+
+    var i = 0
+    var j = 0
+    var k = 0
+
+    if (left.at(-1) > right.at(0)){
+      while(i < left.length && j < right.length){
+        if (left[i] < right[j]){
+          nums[k++] = left[i++]
+        }else{
+          nums[k++] = right[j++]
+        }
+      }
+    }
+
+    while(i < left.length){
+      nums[k++] = left[i++]
+    }
+    while(j < right.length){
+      nums[k++] = right[j++]
+    }
+    return nums
+  }
+
+
+  function parseCsv(csvStr){
+
+  }
+
+  function parseQueryString(str){
+    var lines = str.split('&')
+    var and = lines.split('&')
+
+    for (i = 0;i < and.length;i++){
+      var
+    }
+  }
+
+
+  function insert(nums){
+    for (i = 1;i < nums.length;i++){
+      var t = nums[i]
+      for (j = i - 1;j >= 0;j--){
+        if (nums[j] > t){
+          nums[j + 1] = nums[j]
+        }else{
+          break
+        }
+      }
+      nums[j + 1] = t
+    }
+    return nums
+  }
+
+
+  function bob(nums){
+    for (i = nums.length - 2;i >= 0;i++){
+      var swaped = false
+      for (j = 0;j < i - 1;j++){
+        if (nums[j] > nums[j + 1]){
+          swaped =  true
+          var t = num[j]
+          nums[j] = nums[j + 1]
+          nums[j + 1] = t
+        }
+      }
+      if(!swaped){
+        break
+      }
+    }
+    return nums
+  }
+
+  function reduce(ary, reducer, initial){
+    for(var i = 0;i < ary.length;i++){
+      initial = reducer(initial,ary[i])
+    }
+    return initial
+  }
+  reduce([1,2,3,4,5], (sum,current) => {return sum * current},0)
+
+</script>

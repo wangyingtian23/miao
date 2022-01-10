@@ -115,10 +115,10 @@
     dot(x,y,'blue')
     }
   }//画一个实心矩形
-  for(i = 0;i <= 2 * Math.PI;i += 0.01 ){
-      var a = Math.sin(i) * 100
-      var b = Math.cos(i) * 100
-      dot(a + 200,b + 200,'green')
+  for(i = 0;i < 360;i++ ){
+      var a = 250 + 50 * Math.sin(i * 3.14 /180)
+      var b = 200 + 50 * Math.cos(i * 3.14 /180)
+      dot(a,b,'green')
   }//一个半径为50像素
   for(i = 0;i < 360;i++ ){
       var a = 250 + 200 * Math.sin(i * 3.14 /180)

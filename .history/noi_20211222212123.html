@@ -995,7 +995,6 @@
   console.log(isN(n)?'YES':'NO')
   function dw(n){
     var w = 0
-    m = n
     do{
       w++
       var 个位 = m % 10
@@ -1007,7 +1006,7 @@
   function isN(n){
     var w = dw(n)
     var sum = 0
-    var m = n
+    m = n
     while (m > 0) {
       var 个位 = m % 10
       sum += Math.pow(个位,w)
@@ -1157,7 +1156,7 @@
     }
   }
 </script>
-<script xtype="xxx" id="itob">
+<script type="xxx" id="itob">
   var n = Number(prompt())
   console.log(isitob(n))
   function degitToChar(n){
@@ -1194,18 +1193,12 @@
   }
   function isitob(n){
     var result = ''
-    m = Math.abs(n)
-    while (m > 0) {
-      var d = m % 10
+    while (n > 0) {
+      var d = n % 10
       result = degitToChar(d) + result
-      m = (m -d)/10
+      n = (n -d)/10
     }
-    if(n > 0){
-      return result
-    }else{
-      return '-' + result
-    }
-
+    return result
   }
 </script>
 <script type="xxx" id="lcf&lcm">
@@ -1291,7 +1284,6 @@
     return a
   }
 </script>
-
 
 
 

@@ -1,0 +1,85 @@
+<script type="xxx">
+  function findSolution(target) {
+
+// var target = 151
+var array = []
+
+function find(start, history) {
+    if (start == target) {
+        array.push(history)
+        return
+    }
+    if (start > target) {
+        return
+    }
+    find(start * 3, '(' + history + ') * 3')
+    find(start + 5, history + ' + 5')
+}
+
+find(1, '1')
+return array
+}
+//找到并返回（放在数组里）所有的可能
+
+</script>
+
+<script>
+  debugger
+  var num = Number(prompt())
+  var convertToBase7 = function(num) {
+
+    var abs = Math.abs(num)
+    var res = ''
+    while(num >= 7){
+        res = abs % 7 + res
+        abs = Math.floor(abs / 7)
+    }
+    res = abs + res
+    if(num >= 0){
+        return res
+    }else {
+        return '-' + res
+    }
+  };
+  convertToBase7(num)
+</script>
+
+
+
+
+
+
+
+
+
+谢然 2021/12/24 17:18:00
+https://leetcode.com/problems/climbing-stairs/
+
+谢然 2021/12/24 17:18:37
+https://leetcode.com/problems/unique-paths/
+
+谢然 2021/12/24 17:41:12
+https://leetcode.com/problems/triangle/
+
+谢然 2021/12/24 22:10:03
+https://leetcode.com/problems/squares-of-a-sorted-array/
+https://leetcode.com/problems/excel-sheet-column-title/
+https://leetcode.com/problems/distribute-candies/
+https://leetcode.com/problems/integer-to-roman/
+https://leetcode.com/problems/palindrome-number/
+https://leetcode.com/problems/pascals-triangle/
+https://leetcode.com/problems/perfect-number/
+
+谢然 2021/12/24 22:10:10
+https://leetcode.com/problems/trapping-rain-water/
+
+谢然 17:22:25
+https://leetcode.com/problems/roman-to-integer/
+
+谢然 17:25:31
+https://leetcode.com/problems/excel-sheet-column-number/
+
+
+
+
+

@@ -1,0 +1,16 @@
+<script>
+  debugger
+  var num = Number(prompt())
+  var addDigits = function(num) {
+    var n = num % 10
+    var m = (num - n) / 10 % 10
+    var x = n + m
+    while(x >= 10){
+        var y = x % 10
+        var z = (y - x) / 10 % 10
+        x = y + z
+    }
+    return x
+}
+  addDigits(num);
+</script>

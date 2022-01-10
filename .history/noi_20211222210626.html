@@ -992,10 +992,9 @@
 </script>
 <script xtype=xxx id="narcissistic">
   var n = Number(prompt())
-  console.log(isN(n)?'YES':'NO')
+  console.log(isN?'YES':'NO')
   function dw(n){
     var w = 0
-    m = n
     do{
       w++
       var 个位 = m % 10
@@ -1007,7 +1006,7 @@
   function isN(n){
     var w = dw(n)
     var sum = 0
-    var m = n
+    m = n
     while (m > 0) {
       var 个位 = m % 10
       sum += Math.pow(个位,w)
@@ -1043,7 +1042,7 @@
 <script xtype="xxx" id="weekday">
   var year = Number(prompt())
   var month = Number(prompt())
-  console.log(weekday(year,month))
+  console.log(weekday(yaer,month))
   function isLeap(n){
     if (n % 400 == 0){
       return true
@@ -1127,14 +1126,14 @@
   var n = Number(prompt(''))
   console.log(isprime(n))
   function isprime(n){
-    if(n == 1){
-        return 'NO'
-      }
-    for (i = 2;i * i <= n;i++){
+    var isprimeNumber = true
+    for (i = 1;i * i <= n;i++){
       if (n % i == 0){
         return 'NO'
       }
-
+      if(n == 1){
+        return 'NO'
+      }
     }
     return 'YES'
   }
@@ -1157,9 +1156,9 @@
     }
   }
 </script>
-<script xtype="xxx" id="itob">
+<script type="xxx" id="itoa">
   var n = Number(prompt())
-  console.log(isitob(n))
+  console.log(isitoa(n))
   function degitToChar(n){
     if (n == 0){
       return '0'
@@ -1192,20 +1191,14 @@
       return '9'
     }
   }
-  function isitob(n){
+  function isitoa(n){
     var result = ''
-    m = Math.abs(n)
-    while (m > 0) {
-      var d = m % 10
+    while (n > 0) {
+      var d = n % 10
       result = degitToChar(d) + result
-      m = (m -d)/10
+      n = (n -d)/10
     }
-    if(n > 0){
-      return result
-    }else{
-      return '-' + result
-    }
-
+    return result
   }
 </script>
 <script type="xxx" id="lcf&lcm">
@@ -1229,7 +1222,7 @@
 </script>
 <script type="xxx" id="sqrt">
   var n = Number(prompt())
-  console.log(sqrt(n).toFixed(3))
+  console.log(sqrt(n).  tofixed(3))
   function sqrt(n){
     var left = 0
     var right = n
@@ -1291,7 +1284,6 @@
     return a
   }
 </script>
-
 
 
 

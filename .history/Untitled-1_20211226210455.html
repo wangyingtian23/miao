@@ -1,0 +1,45 @@
+<script type="xxx">
+  function findSolution(target) {
+
+// var target = 151
+var array = []
+
+function find(start, history) {
+    if (start == target) {
+        array.push(history)
+        return
+    }
+    if (start > target) {
+        return
+    }
+    find(start * 3, '(' + history + ') * 3')
+    find(start + 5, history + ' + 5')
+}
+
+find(1, '1')
+return array
+}
+//找到并返回（放在数组里）所有的可能
+
+</script>
+
+<script>
+  debugger
+  var num = Number(prompt())
+  convertToBase7(num)
+  var convertToBase7 = function(num) {
+
+    var abs = Math.abs(num)
+    var res = ''
+    while(num >= 7){
+        res = abs % 7 + res
+        abs = Math.floor(abs / 7)
+    }
+    res = abs + res
+    if(num >= 0){
+        return res
+    }else {
+        return '-' + res
+    }
+  };
+</script>
