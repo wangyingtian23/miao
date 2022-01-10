@@ -36,7 +36,7 @@ var  wangyingtian23 = {
     return cur
   },
 
-  dropright: function dropright(nums, n = 1) {
+  dropRight: function dropRight(nums, n = 1) {
     for (i = 0; i < nums.length; i++){
       if (nums[i] >= n) {
         nums.pop(nums[i])
@@ -44,6 +44,24 @@ var  wangyingtian23 = {
     }
     return nums
   },
+
+  head: function (nums) {
+    if (nums.length = 0){
+      return undefined
+    } else {
+      return nums[0]
+    }
+
+  },
+
+  initial: function (nums) {
+    var cur = []
+    for (i = 0; i < nums.length - 1; i++){
+      cur.push(nums[i])
+    }
+    return cur
+  }
+
 
 
 }
