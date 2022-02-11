@@ -105,14 +105,30 @@ var wangyingtian23 = {
     return res
   },
 
-  filter: function filter(nums, cond) {
-    var need = []
-    for (i = 0; i < nums.length; i++) {
-      if (cond(nums[i])) {
-        need.push(nums[i])
+  filter: function filter(nums, predicare) {
+    var result = []
+    if (typeof predicare !== 'function') {
+      predicare = this.func(predicare)
+    }
+    for (key in nums) {
+      if (predicare(nums[key])) {
+        return nums[key]
       }
     }
-    return need
+    return undefined
+  },
+
+  find: function filter(nums, predicare) {
+    var result = []
+    if (typeof predicare !== 'function') {
+      predicare = this.func(predicare)
+    }
+    for (key in nums) {
+      if (predicare(nums[key])) {
+        result.push(nums[key])
+      }
+    }
+    return result
   },
 
   fill: function fill(nums, val, start = 0, end = nums.length) {
@@ -209,6 +225,15 @@ var wangyingtian23 = {
   },
 
   every: function every(nums, predicare) {
+    if (typeof predicare !== 'function') {
+      predicare = this.func(predicare)
+    }
+    for (key in nums) {
+      if (!predicare(nums[key])) {
+        return false
+      }
+    }
+    return true
     for (i = 0; i < nums.length; i++) {
       if (!predicare(nums[i])) {
         return false
