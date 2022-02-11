@@ -105,8 +105,7 @@ var wangyingtian23 = {
     return res
   },
 
-  filter: function filter(nums, predicare) {
-    var result = []
+  find: function find(nums, predicare) {
     if (typeof predicare !== 'function') {
       predicare = this.func(predicare)
     }
@@ -118,7 +117,7 @@ var wangyingtian23 = {
     return undefined
   },
 
-  find: function filter(nums, predicare) {
+  filter: function filter(nums, predicare) {
     var result = []
     if (typeof predicare !== 'function') {
       predicare = this.func(predicare)
@@ -230,12 +229,6 @@ var wangyingtian23 = {
     }
     for (key in nums) {
       if (!predicare(nums[key])) {
-        return false
-      }
-    }
-    return true
-    for (i = 0; i < nums.length; i++) {
-      if (!predicare(nums[i])) {
         return false
       }
     }
