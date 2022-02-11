@@ -23,7 +23,7 @@ var wangyingtian23 = {
     return predicate
   },
 
-  chunk: function chunk(array, size) {
+  chunk: function(array, size) {
     var result = 0
     var ary = []
     var cur = []
@@ -40,7 +40,7 @@ var wangyingtian23 = {
     return cur
   },
 
-  compact: function compact(nums) {
+  compact: function(nums) {
     var res = []
     for (i = 0; i < nums.length; i++) {
       if (nums[i]) {
@@ -50,7 +50,7 @@ var wangyingtian23 = {
     return res
   },
 
-  drop: function drop(nums, n = 1) {
+  drop: function(nums, n = 1) {
     var cur = []
     for (i = 0; i < nums.length; i++) {
       if (nums[i] > n) {
@@ -60,7 +60,7 @@ var wangyingtian23 = {
     return cur
   },
 
-  dropRight: function dropRight(nums, n = 1) {
+  dropRight: function(nums, n = 1) {
     for (i = 0; i < n; i++) {
       nums.pop()
     }
@@ -101,7 +101,7 @@ var wangyingtian23 = {
     return cur
   },
 
-  uniq: function uniq(nums) {
+  uniq: function(nums) {
     var cur = []
     for (i = 0; i < nums.length; i++) {
       if (!cur.includes(nums[i])) {
@@ -111,7 +111,7 @@ var wangyingtian23 = {
     return cur
   },
 
-  without: function without(nums, ...val) {
+  without: function(nums, ...val) {
     var cur = []
     for (i = 0; i < nums.length; i++) {
       if (!val.includes(nums[i])) {
@@ -121,7 +121,7 @@ var wangyingtian23 = {
     return cur
   },
 
-  map: function map(nums, f) {
+  map: function(nums, f) {
     var res = []
     nums.forEach((itme, idx) => {
       res.push(f(itme, idx, nums))
@@ -129,7 +129,7 @@ var wangyingtian23 = {
     return res
   },
 
-  find: function find(collection, predicare) {
+  find: function(collection, predicare) {
     if (typeof predicare !== 'function') {
       predicare = this.func(predicare)
     }
@@ -141,7 +141,7 @@ var wangyingtian23 = {
     return undefined
   },
 
-  filter: function filter(collection, predicare) {
+  filter: function(collection, predicare) {
     var result = []
     if (typeof predicare !== 'function') {
       predicare = this.func(predicare)
@@ -154,21 +154,21 @@ var wangyingtian23 = {
     return result
   },
 
-  fill: function fill(nums, val, start = 0, end = nums.length) {
+  fill: function(nums, val, start = 0, end = nums.length) {
     for (i = start; i < end; i++) {
       nums[i] = val
     }
     return nums
   },
 
-  indexOf: function indexOf(nums, val, fromIndex = 0) {
+  indexOf: function(nums, val, fromIndex = 0) {
     for (i = fromIndex; i < nums.length; i++) {
       if (nums[i] == val) return i
     }
     return -1
   },
 
-  flattenDepth: function flattenDepth(nums, n = 1) {
+  flattenDepth: function(nums, n = 1) {
     if (n == 0) {
       return nums.slice()
       //return Array.from(ary)
@@ -186,7 +186,7 @@ var wangyingtian23 = {
     return res
   },
 
-  flattenDeep: function flattenDeep(nums) {
+  flattenDeep: function(nums) {
     var res = []
     for (i = 0; i < nums.length; i++) {
       var item = nums[i]
@@ -199,7 +199,7 @@ var wangyingtian23 = {
     return res
   },
 
-  flatten: function flatten(nums) {
+  flatten: function(nums) {
     var res = []
     for (i = 0; i < nums.length; i++) {
       var item = nums[i]
@@ -212,7 +212,7 @@ var wangyingtian23 = {
     return res
   },
 
-  max: function max(nums) {
+  max: function(nums) {
     var maxidx = -Infinity
     if (nums.length == 0) {
       return undefined
@@ -225,7 +225,7 @@ var wangyingtian23 = {
     return maxidx
   },
 
-  groupBy: function groupBy(nums, iteratee) {
+  groupBy: function(nums, iteratee) {
     var gruoped = {}
     nums.forEach(it => {
       var groupName = iteratee(it)
@@ -238,7 +238,7 @@ var wangyingtian23 = {
     return grouped
   },
 
-  mapValues: function mapValues(obj, mapper) {
+  mapValues: function(obj, mapper) {
     var res = {}
     for (var key in obj) {
       var val = obj[key]
@@ -247,7 +247,7 @@ var wangyingtian23 = {
     return res
   },
 
-  every: function every(nums, predicare) {
+  every: function(nums, predicare) {
     if (typeof predicare !== 'function') {
       predicare = this.func(predicare)
     }
@@ -259,7 +259,7 @@ var wangyingtian23 = {
     return true
   },
 
-  some: function some(nums, predicare) {
+  some: function(nums, predicare) {
     for (i = 0; i < nums.length; i++) {
       if (predicare(nums[i])) {
         return true
@@ -268,7 +268,7 @@ var wangyingtian23 = {
     return false
   },
 
-  negate: function negate(f) {
+  negate: function(f) {
     return function (...nums) {
       return !f(...nums)
     }
