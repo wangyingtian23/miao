@@ -1,4 +1,28 @@
 var wangyingtian23 = {
+  func: function(predicate) {
+    let val = predicate
+    if (typeof (val) == "object") {
+      if (Array.isArray(val)) {
+        let t = {}
+        t[val[0]] = val[1]
+        val = t
+      }
+      predicate = function (it) {
+        for (let key in val) {
+          var flag = true
+          if (val[key] != it[key]) {
+            flag = false
+            break
+          }
+        }
+        return flag
+      }
+    } else {
+      predicate = it => it[val]
+    }
+    return predicate
+  },
+
   chunk: function chunk(array, size) {
     var result = 0
     var ary = []
@@ -105,26 +129,26 @@ var wangyingtian23 = {
     return res
   },
 
-  find: function find(nums, predicare) {
+  find: function find(collection, predicare) {
     if (typeof predicare !== 'function') {
       predicare = this.func(predicare)
     }
-    for (key in nums) {
-      if (predicare(nums[key])) {
-        return nums[key]
+    for (key in collection) {
+      if (predicare(collection[key])) {
+        return collection[key]
       }
     }
     return undefined
   },
 
-  filter: function filter(nums, predicare) {
+  filter: function filter(collection, predicare) {
     var result = []
     if (typeof predicare !== 'function') {
       predicare = this.func(predicare)
     }
-    for (key in nums) {
-      if (predicare(nums[key])) {
-        result.push(nums[key])
+    for (key in collection) {
+      if (predicare(collection[key])) {
+        result.push(collection[key])
       }
     }
     return result
