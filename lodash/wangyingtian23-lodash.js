@@ -121,11 +121,12 @@ var wangyingtian23 = {
     return cur
   },
 
-  map: function(nums, f) {
-    var res = []
-    nums.forEach((itme, idx) => {
-      res.push(f(itme, idx, nums))
-    });
+  map: function(collection, f) {
+    f = this.func(f)
+    let res = []
+    for (let key in collection) {
+      res.push(f(collection[key], Number(key), collection))
+    }
     return res
   },
 
@@ -226,23 +227,29 @@ var wangyingtian23 = {
   },
 
   groupBy: function(nums, iteratee) {
-    var gruoped = {}
-    nums.forEach(it => {
-      var groupName = iteratee(it)
-      if (gruoped[groupName]) {
-        gruoped[groupName].push(it)
+    var map = {}
+    iteratee = this.func(iteratee)
+    for (let item of nums) {
+      let key = iteratee(item)
+      if (!(key in map)) {
+        map[key] = [item]
       } else {
-        gruoped[groupName] = [it]
+        map[key].push(item)
       }
-    })
-    return grouped
+    }
   },
 
-  mapValues: function(obj, mapper) {
+  mapValues: function (obj, mapper) {
+    if (arguments.length == 1) {
+      return obj
+    }
+    if (typeof (mapper) != "function") {
+      let val = mapper
+      mapper = key => key[val]
+    }
     var res = {}
     for (var key in obj) {
-      var val = obj[key]
-      res[key] = mapper(val, key)
+      res[key] = mapper(obj[key])
     }
     return res
   },
@@ -259,9 +266,13 @@ var wangyingtian23 = {
     return true
   },
 
-  some: function(nums, predicare) {
-    for (i = 0; i < nums.length; i++) {
-      if (predicare(nums[i])) {
+  some: function(collection, predicare) {
+    if (typeof predicare !== 'function') {
+      predicare = this.func(predicare)
+    }
+    for (key in collection) {
+      let it = collection
+      if (predicare(it, key, collection)) {
         return true
       }
     }
