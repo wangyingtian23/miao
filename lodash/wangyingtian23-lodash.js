@@ -1,5 +1,5 @@
 var wangyingtian23 = {
-  func: function(predicate) {
+  func: function func(predicate) {
     let val = predicate
     if (typeof (val) == "object") {
       if (Array.isArray(val)) {
