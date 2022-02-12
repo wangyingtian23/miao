@@ -121,11 +121,11 @@ var wangyingtian23 = {
     return cur
   },
 
-  map: function(collection, f) {
-    f = this.func(f)
+  map: function(collection, predicate ) {
+    predicate = this.func(predicatef)
     let res = []
     for (let key in collection) {
-      res.push(f(collection[key], Number(key), collection))
+      res.push(predicate(collection[key], Number(key), collection))
     }
     return res
   },
@@ -226,10 +226,10 @@ var wangyingtian23 = {
     return maxidx
   },
 
-  groupBy: function(nums, iteratee) {
+  groupBy: function(collection, iteratee) {
     var map = {}
     iteratee = this.func(iteratee)
-    for (let item of nums) {
+    for (let item of collection) {
       let key = iteratee(item)
       if (!(key in map)) {
         map[key] = [item]
@@ -237,6 +237,7 @@ var wangyingtian23 = {
         map[key].push(item)
       }
     }
+    return map
   },
 
   mapValues: function (obj, mapper) {
@@ -267,12 +268,10 @@ var wangyingtian23 = {
   },
 
   some: function(collection, predicare) {
-    if (typeof predicare !== 'function') {
       predicare = this.func(predicare)
-    }
-    for (key in collection) {
-      let it = collection
-      if (predicare(it, key, collection)) {
+    for (let key in collection) {
+      let it = predicare(collection[key])
+      if (it) {
         return true
       }
     }
