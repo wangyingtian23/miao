@@ -289,10 +289,10 @@ var wangyingtian23 = {
   },
 
   intersection: function (array1, array2) {
-    return this.intersectionBy(array1, array2)
+    return intersectionBy(array1, array2)
   },
 
-  intersectionBy: function (array1, array2, predicate) {
+  intersectionBy: function intersectionBy(array1, array2, predicate) {
     var result = []
     var set = new Set(array2.map(predicate))
     for (var i = 0; i < array1.length; i++){
@@ -321,8 +321,8 @@ var wangyingtian23 = {
     }
   },
 
-  get: function (obj, path) {
-    var names = path.this.toPath(path)
+  get: function get(obj, path) {
+    var names = path.toPath(path)
     for (var name of names) {
       obj = obj[name]
       if (obj == null) {
@@ -372,7 +372,7 @@ var wangyingtian23 = {
     }
   },
 
-  iteratee: function (predicate) {
+  iteratee: function iteratee(predicate) {
     if (typeof predicate === 'string') {
       predicate = this.property(predicate)
     }
