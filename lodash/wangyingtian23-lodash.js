@@ -313,5 +313,31 @@ var wangyingtian23 = {
       }
     }
     return result
+  },
+
+  property: function (name) {
+    return function (obj) {
+      return get(obj, name)
+    }
+  },
+
+  get: function (obj, path) {
+    var names = path.toPath(path)
+    for (var name of names) {
+      obj = obj[name]
+      if (obj == null) {
+        return obj
+      }
+    }
+    return obj
+  },
+  toPath: function (path) {
+    if (typeof path == 'string') {
+      return path.split('[')
+      .flatMap(it => it.split(']'))
+      .flatMap(it => it.split('.'))
+      .filter(it => it)
+    }
+    return path
   }
 }
