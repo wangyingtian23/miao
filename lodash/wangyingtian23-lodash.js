@@ -228,7 +228,7 @@ var wangyingtian23 = {
 
   groupBy: function(collection, f) {
     var map = {}
-    f = this.iteratee(f)
+    f = iteratee(f)
     for (let item of collection) {
       let key = f(item)
       if (!(key in map)) {
@@ -317,7 +317,7 @@ var wangyingtian23 = {
 
   property: function (name) {
     return function (obj) {
-      return this.get(obj, name)
+      return get(obj, name)
     }
   },
 
