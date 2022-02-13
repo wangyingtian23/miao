@@ -178,7 +178,7 @@ var wangyingtian23 = {
     var res = []
 
     for (i = 0; i < nums.length; i++) {
-      if (nums.isArray(nums[i])) {
+      if (Array.isArray(nums[i])) {
         res = res.push(...flattenDepth(nums, n - 1))
       } else {
         res.push(nums[i])
@@ -187,7 +187,7 @@ var wangyingtian23 = {
     return res
   },
 
-  flattenDeep: function(nums) {
+  flattenDeep: function flattenDeep(nums) {
     var res = []
     for (i = 0; i < nums.length; i++) {
       var item = nums[i]
@@ -226,11 +226,11 @@ var wangyingtian23 = {
     return maxidx
   },
 
-  groupBy: function(collection, ) {
+  groupBy: function(collection, f) {
     var map = {}
-     = this.func()
+    f = this.iteratee(f)
     for (let item of collection) {
-      let key = (item)
+      let key = f(item)
       if (!(key in map)) {
         map[key] = [item]
       } else {
@@ -292,7 +292,7 @@ var wangyingtian23 = {
     return this.intersectionBy(array1, array2)
   },
 
-  intersectionBy: function (array1, array2, predicate = this.identity) {
+  intersectionBy: function (array1, array2, predicate) {
     var result = []
     var set = new Set(array2.map(predicate))
     for (var i = 0; i < array1.length; i++){
@@ -317,12 +317,12 @@ var wangyingtian23 = {
 
   property: function (name) {
     return function (obj) {
-      return get(obj, name)
+      return this.get(obj, name)
     }
   },
 
   get: function (obj, path) {
-    var names = path.toPath(path)
+    var names = path.this.toPath(path)
     for (var name of names) {
       obj = obj[name]
       if (obj == null) {
@@ -340,7 +340,7 @@ var wangyingtian23 = {
     }
     return path
   },
-
+flatten
   matches: function (target) {
     return function (obj) {
       for (var key in target) {
@@ -351,7 +351,7 @@ var wangyingtian23 = {
       return true
     }
   },
-  isMatch: function (obj, src) {
+  isMatch: function isMatch(obj, src) {
     for (key in src) {
       if (src[key] && typeof src[key] === 'object') {
         if (!isMatch(obj[key], src[key])) {
@@ -386,7 +386,7 @@ var wangyingtian23 = {
   },
 
   findKey: function (obj, predicate) {
-    predicate = this.iteratee(predicate)
+    predicate = iteratee(predicate)
   },
 
   ary: function (f, n = f.length) {
@@ -409,7 +409,7 @@ var wangyingtian23 = {
 
   flip: function (f) {
     return function (...args) {
-      return f(...args.reverse)
+      return f(...args.reverse())
     }
   },
 
