@@ -122,7 +122,7 @@ var wangyingtian23 = {
   },
 
   map: function(collection, predicate ) {
-    predicate = this.func(predicatef)
+    predicate = this.func(predicate)
     let res = []
     for (let key in collection) {
       res.push(predicate(collection[key], Number(key), collection))
@@ -282,5 +282,36 @@ var wangyingtian23 = {
     return function (...nums) {
       return !f(...nums)
     }
+  },
+
+  identity: function (val) {
+    return val
+  },
+
+  intersection: function (array1, array2) {
+    return this.intersectionBy(array1, array2)
+  },
+
+  intersectionBy: function (array1, array2, predicate = this.identity) {
+    var result = []
+    var set = new Set(array2.map(predicate))
+    for (var i = 0; i < array1.length; i++){
+      if (set.has(predicate(array1[i]))) {
+        result.push(array1[i])
+      }
+    }
+    return result
+  },
+
+  intersectionWith: function (array1, array2, comparor) {
+    var result = []
+    for (var i = 0; i < array1.length; i++){
+      for (var j = 0; j < array2.length; j++){
+        if (comparor(array1[i], array2[j])) {
+          result.push(array1[i])
+        }
+      }
+    }
+    return result
   }
 }
