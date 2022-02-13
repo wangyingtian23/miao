@@ -331,7 +331,7 @@ var wangyingtian23 = {
     }
     return obj
   },
-  toPath: function (path) {
+  toPath: function toPath(path) {
     if (typeof path == 'string') {
       return path.split('[')
       .flatMap(it => it.split(']'))
@@ -340,7 +340,7 @@ var wangyingtian23 = {
     }
     return path
   },
-flatten
+
   matches: function (target) {
     return function (obj) {
       for (var key in target) {
@@ -440,4 +440,28 @@ flatten
   shuffle: function () {
 
   },
+
+  curry: function curry(f, n = f.length) {
+    return function (...args) {
+      if (args.length < n) {
+        return curry(f.bind(null, ...args), n - args.length)
+      } else {
+        return f(...args)
+      }
+    }
+  },
+
+  bind: function bind(f, thisArg, ...flexArgs) {
+    return function (...args) {
+      var bindArgs = flexArgs.slice()
+      var i = 0
+      for (var j = 0; j < bindArgs.length; j++){
+        if (bindArgs[j] === _) {
+          bindArgs[j] = args[i++]
+        }
+      }
+      bindArgs.push(...args.slice(i))
+      return f.apply(thisArg,bindArgs)
+    }
+  }
 }
