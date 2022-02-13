@@ -226,11 +226,11 @@ var wangyingtian23 = {
     return maxidx
   },
 
-  groupBy: function(collection, iteratee) {
+  groupBy: function(collection, ) {
     var map = {}
-    iteratee = this.func(iteratee)
+     = this.func()
     for (let item of collection) {
-      let key = iteratee(item)
+      let key = (item)
       if (!(key in map)) {
         map[key] = [item]
       } else {
@@ -339,5 +339,105 @@ var wangyingtian23 = {
       .filter(it => it)
     }
     return path
-  }
+  },
+
+  matches: function (target) {
+    return function (obj) {
+      for (var key in target) {
+        if (obj[key] !== target[key]) {
+          return false
+        }
+      }
+      return true
+    }
+  },
+  isMatch: function (obj, src) {
+    for (key in src) {
+      if (src[key] && typeof src[key] === 'object') {
+        if (!isMatch(obj[key], src[key])) {
+          return false
+        }
+      } else {
+        if (src[key] !== obj[key]) {
+          return false
+        }
+      }
+    }
+    return true
+  },
+
+  matchesProperty: function (path, val) {
+    return function (obj) {
+      return get(obj,path) === val
+    }
+  },
+
+  iteratee: function (predicate) {
+    if (typeof predicate === 'string') {
+      predicate = this.property(predicate)
+    }
+    if (Array.isArray(predicate)) {
+      predicate = this.matchesProperty(...predicate)
+    }
+    if (predicate && typeof predicate === 'object') {
+      predicate = this.matches(predicate)
+    }
+    return predicate
+  },
+
+  findKey: function (obj, predicate) {
+    predicate = this.iteratee(predicate)
+  },
+
+  ary: function (f, n = f.length) {
+    return function (...args) {
+      return f.call(this,...args.slice(0, n))
+    }
+  },
+
+  unary: function (f) {
+    return function (...args) {
+      return f(...args.slice(0, 1))
+    }
+  },
+
+  spread: function (f) {
+    return function (ary) {
+      return f(...ary)
+    }
+  },
+
+  flip: function (f) {
+    return function (...args) {
+      return f(...args.reverse)
+    }
+  },
+
+  before: function (n, f) {
+    var c = 0
+    var result
+    return function (...args) {
+      if (c < n) {
+        result = f(...args)
+        c++
+      }
+      return result
+    }
+  },
+  memoize: function (f, resolver = it => it) {
+    var map = new Map()
+    return function (...args) {
+      var key = resolver(...args)
+      if (map.has(key)) {
+        return map.get(key)
+      }
+      var result = f(...args)
+      map.set(key, result)
+      return result
+    }
+  },
+
+  shuffle: function () {
+
+  },
 }
